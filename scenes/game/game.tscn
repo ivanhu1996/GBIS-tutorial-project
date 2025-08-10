@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2btxyybuvri2"]
+[gd_scene load_steps=12 format=3 uid="uid://c2btxyybuvri2"]
 
 [ext_resource type="Texture2D" uid="uid://xo1fsgwtnhsb" path="res://assets/images/checkboard.png" id="1_7h61r"]
 [ext_resource type="Script" uid="uid://cdkvgu1xijh0k" path="res://scenes/game/game.gd" id="1_kelw5"]
 [ext_resource type="PackedScene" uid="uid://c3wm4r65pmk3p" path="res://scenes/player/player.tscn" id="1_sul5r"]
 [ext_resource type="PackedScene" uid="uid://b5d7i7xx7w0u5" path="res://scenes/enemies/enemy.tscn" id="3_0sr1o"]
+[ext_resource type="PackedScene" uid="uid://cx2gqvbf4ipc4" path="res://scenes/UI/inventory.tscn" id="5_5i0tg"]
+[ext_resource type="Script" uid="uid://c5rou3jm33pbt" path="res://addons/grid_base_inventory_system/core/view/item/drop_area_view.gd" id="5_bdhmt"]
+[ext_resource type="PackedScene" uid="uid://l1ru1axlmo1v" path="res://scenes/UI/player_info.tscn" id="6_bdhmt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sul5r"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -49,6 +52,7 @@ directional_shadow_max_distance = 40.0
 [node name="Floor" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
 use_collision = true
+collision_mask = 0
 size = Vector3(10, 8, 10)
 material = SubResource("StandardMaterial3D_0sr1o")
 
@@ -59,3 +63,20 @@ wait_time = 2.0
 autostart = true
 
 [node name="EnemyContainer" type="Node" parent="."]
+
+[node name="DroppableContainer" type="Node" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="DropAreaView" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 2306.0
+offset_bottom = 1112.0
+script = ExtResource("5_bdhmt")
+metadata/_custom_type_script = "uid://c5rou3jm33pbt"
+
+[node name="Inventory" parent="UI" instance=ExtResource("5_5i0tg")]
+
+[node name="PlayerInfo" parent="UI" instance=ExtResource("6_bdhmt")]

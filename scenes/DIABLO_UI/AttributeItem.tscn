@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi4q05f2s0eqe"]
+
+[sub_resource type="GDScript" id="GDScript_cc5jw"]
+script/source = "# attribute_item.gd
+
+@tool
+extends MarginContainer
+@onready var attribute_label: Label = %AttributeLabel
+@onready var value_label: Label = %ValueLabel
+
+@export var attribute_name: String = \"Attribute\":
+	set(value):
+		attribute_name = value
+		_update_labels()
+		
+@export var stat_value: int = 10:
+	set(value):
+		stat_value = value
+		_update_labels()
+
+
+func _ready():
+	_update_labels()
+
+
+func _update_labels():
+	if attribute_label:
+		attribute_label.text = attribute_name
+	if value_label:
+		value_label.text = str(stat_value)
+"
+
+[node name="AttributeItem" type="MarginContainer"]
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/margin_left = 5
+script = SubResource("GDScript_cc5jw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="AttributeLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 10
+text = "Attribute"
+vertical_alignment = 1
+
+[node name="ValueLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.952941, 0.905882, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "10"
+horizontal_alignment = 2
+vertical_alignment = 1

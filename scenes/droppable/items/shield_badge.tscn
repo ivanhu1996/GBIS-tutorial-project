@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7txb5qm78yk0"]
+
+[ext_resource type="PackedScene" uid="uid://bbogs11axlvx2" path="res://assets/KayKit_Adventurers_1.0_FREE/Assets/gltf/shield_badge.gltf" id="1_kvq2f"]
+
+[node name="shield_badge" instance=ExtResource("1_kvq2f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0.056)

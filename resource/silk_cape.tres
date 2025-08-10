@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="MyEquipmentData" load_steps=5 format=3 uid="uid://dboy380f27uhd"]
+
+[ext_resource type="PackedScene" uid="uid://bv50cnas4vxs7" path="res://scenes/droppable/items/cape.tscn" id="1_v76or"]
+[ext_resource type="Texture2D" uid="uid://4fyswgqmxbxv" path="res://assets/images/icons/cape.png" id="2_ngu0o"]
+[ext_resource type="Script" uid="uid://c5gmbp02oym1t" path="res://scripts/item_data/my_equipment_data.gd" id="3_ere44"]
+[ext_resource type="Material" uid="uid://du4t05r3sodcb" path="res://GBIS_demos/materials/equipment_glow.tres" id="3_ngu0o"]
+
+[resource]
+script = ExtResource("3_ere44")
+drop_model = ExtResource("1_v76or")
+item_name = "Silk Cape"
+type = "CAPE"
+icon = ExtResource("2_ngu0o")
+columns = 2
+rows = 2
+material = ExtResource("3_ngu0o")
+shader_params = Dictionary[String, Variant]({})

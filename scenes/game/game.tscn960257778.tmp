@@ -1,0 +1,109 @@
+[gd_scene load_steps=12 format=3 uid="uid://c2btxyybuvri2"]
+
+[ext_resource type="Texture2D" uid="uid://xo1fsgwtnhsb" path="res://assets/images/checkboard.png" id="1_7h61r"]
+[ext_resource type="Script" uid="uid://cdkvgu1xijh0k" path="res://scenes/game/game.gd" id="1_kelw5"]
+[ext_resource type="PackedScene" uid="uid://c3wm4r65pmk3p" path="res://scenes/player/player.tscn" id="1_sul5r"]
+[ext_resource type="PackedScene" uid="uid://b5d7i7xx7w0u5" path="res://scenes/enemies/enemy.tscn" id="3_0sr1o"]
+[ext_resource type="PackedScene" uid="uid://cx2gqvbf4ipc4" path="res://scenes/UI/inventory.tscn" id="5_5i0tg"]
+[ext_resource type="PackedScene" uid="uid://l1ru1axlmo1v" path="res://scenes/UI/player_info.tscn" id="6_bdhmt"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sul5r"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_7h61r"]
+sky_material = SubResource("ProceduralSkyMaterial_sul5r")
+
+[sub_resource type="Environment" id="Environment_0sr1o"]
+background_mode = 1
+background_color = Color(0.101961, 0.101961, 0.101961, 1)
+sky = SubResource("Sky_7h61r")
+ambient_light_source = 2
+ambient_light_color = Color(0.438498, 0.438498, 0.438498, 1)
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.0743603, 0.0850143, 0.101764, 1)
+fog_density = 0.0
+fog_sky_affect = 0.5
+fog_height = -1.0
+fog_height_density = 0.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0sr1o"]
+albedo_color = Color(0.721064, 0.721064, 0.721064, 1)
+albedo_texture = ExtResource("1_7h61r")
+uv1_triplanar = true
+
+[sub_resource type="GDScript" id="GDScript_5i0tg"]
+script/source = "@tool
+extends Control
+## 丢弃物品视图，加到场景中即可，会自动全屏并移到最底层
+class_name DropAreaView
+
+## 初始化
+func _ready() -> void:
+	if not Engine.is_editor_hint():
+		GBIS.moving_item_service.drop_area_view = self
+	mouse_filter = Control.MOUSE_FILTER_STOP
+	call_deferred(\"resize\")
+	hide()
+
+## 防呆，自动移到最底层，防止挡住背包导致无法放置
+func resize() -> void:
+	if is_inside_tree():
+		size = get_tree().root.size
+		get_parent().move_child(self, 0)
+
+## 输入控制
+func _gui_input(event: InputEvent) -> void:
+	if event.is_action_pressed(GBIS.input_click):
+		if GBIS.has_moving_item() and GBIS.moving_item_service.moving_item.can_drop():
+			GBIS.moving_item_service.moving_item.drop()
+			GBIS.moving_item_service.clear_moving_item()
+"
+
+[node name="Game" type="Node3D"]
+script = ExtResource("1_kelw5")
+enemy_scene = ExtResource("3_0sr1o")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0sr1o")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.81915, 0.496735, -0.286789, -1.49013e-08, 0.499998, 0.866027, 0.57358, -0.709405, 0.409573, 0, 0, 0)
+light_energy = 1.25
+shadow_enabled = true
+directional_shadow_mode = 0
+directional_shadow_max_distance = 40.0
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
+use_collision = true
+collision_mask = 0
+size = Vector3(10, 8, 10)
+material = SubResource("StandardMaterial3D_0sr1o")
+
+[node name="Player" parent="." instance=ExtResource("1_sul5r")]
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="EnemyContainer" type="Node" parent="."]
+
+[node name="DroppableContainer" type="Node" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="DropAreaView" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 2503.0
+offset_bottom = 1156.0
+script = SubResource("GDScript_5i0tg")
+metadata/_custom_type_script = "uid://c5rou3jm33pbt"
+
+[node name="Inventory" parent="UI" instance=ExtResource("5_5i0tg")]
+
+[node name="PlayerInfo" parent="UI" instance=ExtResource("6_bdhmt")]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv50cnas4vxs7"]
+
+[ext_resource type="PackedScene" uid="uid://cmykd46hxv0d0" path="res://assets/items/Cape.glb" id="1_70ure"]
+
+[node name="Cape" instance=ExtResource("1_70ure")]
+
+[node name="Knight_Cape" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0.008)

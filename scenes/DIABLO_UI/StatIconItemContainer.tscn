@@ -1,0 +1,80 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbo361mnlcf0i"]
+
+[sub_resource type="GDScript" id="GDScript_3noma"]
+script/source = "@tool
+extends HBoxContainer
+
+@onready var stat_label: Label = %StatLabel
+@onready var value_label: Label = %ValueLabel
+@onready var icon_texture_rect: TextureRect = %IconTextureRect
+
+@export var stat_name: String = \"Stat\":
+	set(value):
+		stat_name = value
+		_update_labels()
+		
+@export var stat_value: int = 10:
+	set(value):
+		stat_value = value
+		_update_labels()
+
+@export var stat_icon: Texture:
+	set(value):
+		stat_icon = value
+		_update_labels()
+
+
+func _ready():
+	_update_labels()
+
+
+func _update_labels():
+	if stat_label:
+		stat_label.text = stat_name
+	if value_label:
+		value_label.text = str(stat_value)
+	if icon_texture_rect:
+		icon_texture_rect.texture = stat_icon
+"
+
+[node name="StatIconItemContainer" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1804.0
+offset_bottom = -1046.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = SubResource("GDScript_3noma")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="IconTextureRect" type="TextureRect" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+expand_mode = 2
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_constants/separation = 0
+
+[node name="StatLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Stat"
+
+[node name="ValueLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.952941, 0.905882, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "10"

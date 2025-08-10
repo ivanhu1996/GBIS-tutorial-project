@@ -1,0 +1,638 @@
+[gd_scene load_steps=44 format=3 uid="uid://dxfjqqw5p4u3d"]
+
+[ext_resource type="Script" uid="uid://dw3s4qq0no634" path="res://scenes/DIABLO_UI/character_ui.gd" id="1_2enax"]
+[ext_resource type="Texture2D" uid="uid://bid8iloibhemn" path="res://assets/images/border.png" id="1_k4kj5"]
+[ext_resource type="Script" uid="uid://c5uqs7o5b2w68" path="res://addons/grid_base_inventory_system/core/model/item/item_data.gd" id="2_rpogk"]
+[ext_resource type="PackedScene" uid="uid://dbo361mnlcf0i" path="res://scenes/DIABLO_UI/StatIconItemContainer.tscn" id="2_x44gm"]
+[ext_resource type="Resource" uid="uid://dpx3omowkx6ty" path="res://GBIS_demos/resources/consumable_1.tres" id="3_p5kyc"]
+[ext_resource type="Texture2D" uid="uid://cs8dua6unfsbf" path="res://assets/images/Attack.png" id="3_ubaol"]
+[ext_resource type="Resource" uid="uid://ce8kda8rqy6h2" path="res://GBIS_demos/resources/equipment_1.tres" id="4_5hfxl"]
+[ext_resource type="Texture2D" uid="uid://d3vipjrwrgmcj" path="res://assets/images/Armor.png" id="4_yhiek"]
+[ext_resource type="Texture2D" uid="uid://116jd2p0q33a" path="res://assets/images/Life.png" id="5_v72jy"]
+[ext_resource type="Resource" uid="uid://cuj07urfi512p" path="res://GBIS_demos/resources/stackable_1.tres" id="5_xqfjt"]
+[ext_resource type="PackedScene" uid="uid://bi4q05f2s0eqe" path="res://scenes/DIABLO_UI/AttributeItem.tscn" id="6_eq0so"]
+[ext_resource type="Resource" uid="uid://3nvkcujkn862" path="res://resource/iron_helmet.tres" id="6_xqfjt"]
+[ext_resource type="Texture2D" uid="uid://de8x4hqy7bm18" path="res://assets/images/split.png" id="7_d64sq"]
+[ext_resource type="Resource" uid="uid://bd4ydhrjqvick" path="res://resource/small_sword.tres" id="7_vedfe"]
+[ext_resource type="Texture2D" uid="uid://sl46jck6gogv" path="res://assets/images/paperdoll.png" id="8_64dve"]
+[ext_resource type="Resource" uid="uid://hpvas0w1bqf3" path="res://resource/small_shield.tres" id="8_u5irl"]
+[ext_resource type="Resource" uid="uid://f5c4cs53477d" path="res://D4_resource/D4_small_sword.tres" id="8_xqfjt"]
+[ext_resource type="Script" uid="uid://dg6xjko3rdcta" path="res://addons/grid_base_inventory_system/core/view/slot/equipment_slot_view.gd" id="9_41rhr"]
+[ext_resource type="Texture2D" uid="uid://cdtettt3apaq2" path="res://GBIS_demos/assets/ui/armor_background.png" id="10_u1krr"]
+[ext_resource type="Texture2D" uid="uid://dxusr1agnbuhw" path="res://GBIS_demos/assets/ui/boots_background.png" id="11_u1krr"]
+[ext_resource type="Texture2D" uid="uid://cqcjctr2rgapu" path="res://GBIS_demos/assets/ui/weapon_background.png" id="12_ehknv"]
+[ext_resource type="Script" uid="uid://b3x4mwtjmm4tp" path="res://addons/grid_base_inventory_system/core/view/container/inventory/inventory_view.gd" id="13_rr45o"]
+[ext_resource type="PackedScene" uid="uid://bj44061ht6b7q" path="res://scenes/DIABLO_UI/Currencies_UI.tscn" id="14_t0dra"]
+[ext_resource type="Texture2D" uid="uid://bwi8i5nrtqm2s" path="res://assets/images/gold.png" id="15_c7i4m"]
+[ext_resource type="Texture2D" uid="uid://bxpy3wjs415d3" path="res://assets/images/RED.png" id="16_k2ii3"]
+[ext_resource type="Texture2D" uid="uid://cx3mgwntfgwpa" path="res://assets/images/BLUE.png" id="17_i08x5"]
+[ext_resource type="PackedScene" uid="uid://bmtorijdfu4jh" path="res://GBIS_demos/item_info/item_info.tscn" id="19_m7nlj"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_p16xu"]
+noise_type = 3
+seed = 1024
+frequency = 0.0045
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k4kj5"]
+width = 450
+height = 648
+noise = SubResource("FastNoiseLite_p16xu")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x44gm"]
+atlas = ExtResource("1_k4kj5")
+region = Rect2(2, -4, 928, 269)
+
+[sub_resource type="Gradient" id="Gradient_p16xu"]
+interpolation_color_space = 1
+offsets = PackedFloat32Array(0.0517241, 1)
+colors = PackedColorArray(0.419608, 0.0705882, 0.0745098, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k4kj5"]
+gradient = SubResource("Gradient_p16xu")
+fill_from = Vector2(0, 0.854701)
+fill_to = Vector2(0.0555556, 0.358974)
+
+[sub_resource type="Theme" id="Theme_p16xu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p16xu"]
+bg_color = Color(0.789732, 0.152485, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubaol"]
+atlas = ExtResource("1_k4kj5")
+region = Rect2(3, -2, 927, 267)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k4kj5"]
+bg_color = Color(0.68, 0.68, 0.68, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d64sq"]
+texture = ExtResource("7_d64sq")
+texture_margin_top = 15.0
+region_rect = Rect2(2, 4, 198, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64dve"]
+atlas = ExtResource("8_64dve")
+
+[sub_resource type="Gradient" id="Gradient_5fahm"]
+offsets = PackedFloat32Array(0.409938, 0.885093)
+colors = PackedColorArray(0, 0, 0, 0, 0.0862745, 0.129412, 0.0980392, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_41rhr"]
+gradient = SubResource("Gradient_5fahm")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.48, 0.52)
+fill_to = Vector2(1, 1)
+metadata/_snap_enabled = true
+metadata/_snap_count = 31
+
+[sub_resource type="Gradient" id="Gradient_t0dra"]
+offsets = PackedFloat32Array(0.450355, 0.996454, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.794326, 0.794326, 0.794326, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_c7i4m"]
+noise_type = 3
+seed = 1024
+frequency = 0.0045
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_epxtn"]
+width = 450
+height = 256
+color_ramp = SubResource("Gradient_t0dra")
+noise = SubResource("FastNoiseLite_c7i4m")
+
+[node name="CharacterUi" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 450.0
+offset_bottom = 648.0
+script = ExtResource("1_2enax")
+items = Array[ExtResource("2_rpogk")]([ExtResource("3_p5kyc"), ExtResource("4_5hfxl"), ExtResource("5_xqfjt"), ExtResource("6_xqfjt"), ExtResource("8_u5irl"), ExtResource("8_xqfjt"), ExtResource("7_vedfe")])
+
+[node name="UIBGColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="UIBGTextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("NoiseTexture2D_k4kj5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sections" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="CharacterDetails" type="Control" parent="MarginContainer/Sections"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Sections/CharacterDetails"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Details" type="HBoxContainer" parent="MarginContainer/Sections/CharacterDetails/MarginContainer"]
+layout_mode = 2
+
+[node name="Stats" type="VBoxContainer" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="Nameplate" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats/Nameplate"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_x44gm")
+expand_mode = 2
+
+[node name="GridentBG" type="TextureRect" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats/Nameplate"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_k4kj5")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats/Nameplate"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats/Nameplate/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Name" type="Label" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats/Nameplate/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Ivan Hu"
+horizontal_alignment = 1
+
+[node name="Title" type="Label" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats/Nameplate/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "No Title Selected"
+horizontal_alignment = 1
+
+[node name="ProfileButton" type="Button" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats/Nameplate/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_p16xu")
+theme_override_colors/font_color = Color(0.839216, 0.690196, 0.396078, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_p16xu")
+text = "PROFILE"
+
+[node name="MaterialsAndStats" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats/MaterialsAndStats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats/MaterialsAndStats/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_ubaol")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats/MaterialsAndStats/MarginContainer"]
+layout_mode = 2
+
+[node name="MaterialsAndStatsButton" type="Button" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats/MaterialsAndStats/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_k4kj5")
+text = "Materials & Stats"
+icon_alignment = 1
+
+[node name="PrimaryStats" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="PrimaryStatsBG" type="ColorRect" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats/PrimaryStats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats/PrimaryStats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats/PrimaryStats/MarginContainer"]
+layout_mode = 2
+
+[node name="AttackPowerItem" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats/PrimaryStats/MarginContainer/VBoxContainer" instance=ExtResource("2_x44gm")]
+layout_mode = 2
+stat_name = "Attack Power"
+stat_value = 100
+stat_icon = ExtResource("3_ubaol")
+
+[node name="ArmorItem" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats/PrimaryStats/MarginContainer/VBoxContainer" instance=ExtResource("2_x44gm")]
+layout_mode = 2
+stat_name = "Armor"
+stat_value = 10000
+stat_icon = ExtResource("4_yhiek")
+
+[node name="LifeItem" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats/PrimaryStats/MarginContainer/VBoxContainer" instance=ExtResource("2_x44gm")]
+layout_mode = 2
+stat_name = "Life"
+stat_value = 10659
+stat_icon = ExtResource("5_v72jy")
+
+[node name="Attributes" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="Attributes" type="MarginContainer" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats/Attributes"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats/Attributes/Attributes"]
+layout_mode = 2
+
+[node name="StrengthStatItem" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats/Attributes/Attributes/VBoxContainer" instance=ExtResource("6_eq0so")]
+layout_mode = 2
+attribute_name = "Strength"
+stat_value = 20
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats/Attributes/Attributes/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxTexture_d64sq")
+
+[node name="IntStatItem" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats/Attributes/Attributes/VBoxContainer" instance=ExtResource("6_eq0so")]
+layout_mode = 2
+attribute_name = "Intelligence"
+stat_value = 30
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats/Attributes/Attributes/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxTexture_d64sq")
+
+[node name="WillpowerStatItem" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats/Attributes/Attributes/VBoxContainer" instance=ExtResource("6_eq0so")]
+layout_mode = 2
+attribute_name = "Willpower"
+stat_value = 30
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats/Attributes/Attributes/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxTexture_d64sq")
+
+[node name="DexStatItem" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats/Attributes/Attributes/VBoxContainer" instance=ExtResource("6_eq0so")]
+layout_mode = 2
+attribute_name = "Dexterity"
+stat_value = 30
+
+[node name="HSeparator4" type="HSeparator" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/Stats/Attributes/Attributes/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxTexture_d64sq")
+
+[node name="CharacterEquipment" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0862745, 0.129412, 0.0980392, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PaperDoll" type="TextureRect" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer"]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 2
+texture = SubResource("AtlasTexture_64dve")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Shadow" type="TextureRect" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_41rhr")
+expand_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer"]
+layout_mode = 2
+
+[node name="Equipment" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Armor" type="VBoxContainer" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00671141
+anchor_top = 0.0446927
+anchor_right = 0.224832
+anchor_bottom = 0.748603
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Helmet" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/Armor"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("9_41rhr")
+slot_name = "Helmet"
+background = ExtResource("10_u1krr")
+avilable_types = Array[String](["HELMET"])
+metadata/_custom_type_script = "uid://dg6xjko3rdcta"
+
+[node name="Cape" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/Armor"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("9_41rhr")
+slot_name = "Cape"
+background = ExtResource("10_u1krr")
+avilable_types = Array[String](["CAPE"])
+metadata/_custom_type_script = "uid://dg6xjko3rdcta"
+
+[node name="EquipmentSlotView3" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/Armor"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("9_41rhr")
+slot_name = "Pants"
+background = ExtResource("10_u1krr")
+avilable_types = Array[String](["Pants"])
+metadata/_custom_type_script = "uid://dg6xjko3rdcta"
+
+[node name="Shoes" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/Armor"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("9_41rhr")
+slot_name = "BOOTS1"
+background = ExtResource("11_u1krr")
+avilable_types = Array[String](["BOOTS"])
+metadata/_custom_type_script = "uid://dg6xjko3rdcta"
+
+[node name="Jewelry" type="VBoxContainer" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.00671141
+anchor_top = -0.00558659
+anchor_right = 0.993289
+anchor_bottom = 0.994413
+offset_left = 235.0
+offset_top = 61.0
+offset_right = 1.0
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Jewel" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/Jewelry"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("9_41rhr")
+slot_name = "Jewel1"
+background = ExtResource("10_u1krr")
+avilable_types = Array[String](["JEWEL"])
+metadata/_custom_type_script = "uid://dg6xjko3rdcta"
+
+[node name="Jewel2" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/Jewelry"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("9_41rhr")
+slot_name = "Jewel2"
+background = ExtResource("10_u1krr")
+avilable_types = Array[String](["JEWEL"])
+metadata/_custom_type_script = "uid://dg6xjko3rdcta"
+
+[node name="Jewel3" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/Jewelry"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("9_41rhr")
+slot_name = "Jewel3"
+background = ExtResource("10_u1krr")
+avilable_types = Array[String](["JEWEL"])
+metadata/_custom_type_script = "uid://dg6xjko3rdcta"
+
+[node name="Weapons" type="HBoxContainer" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.826425
+anchor_right = 0.999925
+anchor_bottom = 1.00218
+offset_right = -4.9776
+offset_bottom = 0.15863
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.01699, 0.997667)
+theme_override_constants/separation = 165
+metadata/_edit_use_anchors_ = true
+
+[node name="MainHand" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/Weapons"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("9_41rhr")
+slot_name = "MainHand"
+base_size = 16
+columns = 4
+rows = 4
+background = ExtResource("12_ehknv")
+avilable_types = Array[String](["SWORD"])
+metadata/_custom_type_script = "uid://dg6xjko3rdcta"
+
+[node name="OffHand" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/Weapons"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("9_41rhr")
+slot_name = "OffHand"
+base_size = 16
+columns = 4
+rows = 4
+background = ExtResource("12_ehknv")
+avilable_types = Array[String](["SHIELD"])
+metadata/_custom_type_script = "uid://dg6xjko3rdcta"
+
+[node name="Level" type="Control" parent="MarginContainer/Sections/CharacterDetails"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Inventory" type="Control" parent="MarginContainer/Sections"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/Sections/Inventory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Sections/Inventory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_epxtn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Sections/Inventory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InventoriesMarginContainer" type="MarginContainer" parent="MarginContainer/Sections/Inventory/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Sections/Inventory/VBoxContainer/InventoriesMarginContainer"]
+layout_mode = 2
+
+[node name="InventoryTabs" type="TabBar" parent="MarginContainer/Sections/Inventory/VBoxContainer/InventoriesMarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 10
+current_tab = 0
+tab_alignment = 1
+tab_count = 4
+tab_0/title = "Equipment"
+tab_1/title = "Consumable"
+tab_2/title = "Quest"
+tab_3/title = "Aspects"
+
+[node name="InventoryView" type="Control" parent="MarginContainer/Sections/Inventory/VBoxContainer/InventoriesMarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("13_rr45o")
+container_name = "inv_test"
+container_columns = 16
+container_rows = 7
+base_size = 28
+gird_background_color_empty = Color(0, 0, 0, 1)
+metadata/_custom_type_script = "uid://b3x4mwtjmm4tp"
+
+[node name="Currencies" type="Control" parent="MarginContainer/Sections/Inventory/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="BGColor" type="ColorRect" parent="MarginContainer/Sections/Inventory/VBoxContainer/Currencies"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Sections/Inventory/VBoxContainer/Currencies"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Sections/Inventory/VBoxContainer/Currencies"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Sections/Inventory/VBoxContainer/Currencies/MarginContainer"]
+layout_mode = 2
+
+[node name="Gold" parent="MarginContainer/Sections/Inventory/VBoxContainer/Currencies/MarginContainer/HBoxContainer" instance=ExtResource("14_t0dra")]
+layout_mode = 2
+stat_icon = ExtResource("15_c7i4m")
+
+[node name="RedDust" parent="MarginContainer/Sections/Inventory/VBoxContainer/Currencies/MarginContainer/HBoxContainer" instance=ExtResource("14_t0dra")]
+layout_mode = 2
+stat_icon = ExtResource("16_k2ii3")
+
+[node name="Obols" parent="MarginContainer/Sections/Inventory/VBoxContainer/Currencies/MarginContainer/HBoxContainer" instance=ExtResource("14_t0dra")]
+layout_mode = 2
+stat_icon = ExtResource("17_i08x5")
+
+[node name="ItemInfo" parent="." instance=ExtResource("19_m7nlj")]
+layout_mode = 0
+offset_left = 483.0
+offset_top = 124.0
+offset_right = 621.0
+offset_bottom = 195.0
+
+[node name="ButtonAddTestItems" type="Button" parent="."]
+layout_mode = 0
+offset_left = 489.0
+offset_top = 34.0
+offset_right = 612.0
+offset_bottom = 65.0
+text = "Add Test Items"
+
+[connection signal="pressed" from="ButtonAddTestItems" to="." method="_on_button_add_test_items_pressed"]

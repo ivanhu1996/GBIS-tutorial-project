@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cw551oiowla3c"]
+
+[node name="StatIconItemContainer" type="HBoxContainer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2

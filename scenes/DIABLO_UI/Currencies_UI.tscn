@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://bj44061ht6b7q"]
+
+[ext_resource type="Script" uid="uid://bkojywjiufb2j" path="res://scenes/DIABLO_UI/currencies_ui.gd" id="1_l106v"]
+
+[node name="Currrencies" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+script = ExtResource("1_l106v")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+offset_right = 52.0
+offset_bottom = -1.0
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+expand_mode = 2
+
+[node name="Num" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0

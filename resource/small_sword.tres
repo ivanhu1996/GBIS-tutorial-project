@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="MyEquipmentData" load_steps=5 format=3 uid="uid://bd4ydhrjqvick"]
+
+[ext_resource type="PackedScene" uid="uid://b857oo1fwd038" path="res://scenes/droppable/items/sword_1_handed.tscn" id="1_cixag"]
+[ext_resource type="Texture2D" uid="uid://beqqpxokjrf8y" path="res://assets/images/icons/small_sword.png" id="2_jmy8l"]
+[ext_resource type="Script" uid="uid://c5gmbp02oym1t" path="res://scripts/item_data/my_equipment_data.gd" id="3_d6hk2"]
+[ext_resource type="Material" uid="uid://du4t05r3sodcb" path="res://GBIS_demos/materials/equipment_glow.tres" id="3_jmy8l"]
+
+[resource]
+script = ExtResource("3_d6hk2")
+drop_model = ExtResource("1_cixag")
+item_name = "Small Sword"
+type = "SWORD"
+icon = ExtResource("2_jmy8l")
+columns = 1
+rows = 3
+material = ExtResource("3_jmy8l")
+shader_params = Dictionary[String, Variant]({})

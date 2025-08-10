@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="MyEquipmentData" load_steps=5 format=3 uid="uid://hpvas0w1bqf3"]
+
+[ext_resource type="PackedScene" uid="uid://c7txb5qm78yk0" path="res://scenes/droppable/items/shield_badge.tscn" id="1_p82rk"]
+[ext_resource type="Texture2D" uid="uid://br8mx1ihdd73b" path="res://assets/images/icons/small_shield.png" id="2_apv88"]
+[ext_resource type="Material" uid="uid://du4t05r3sodcb" path="res://GBIS_demos/materials/equipment_glow.tres" id="3_apv88"]
+[ext_resource type="Script" uid="uid://c5gmbp02oym1t" path="res://scripts/item_data/my_equipment_data.gd" id="3_c67dq"]
+
+[resource]
+script = ExtResource("3_c67dq")
+drop_model = ExtResource("1_p82rk")
+item_name = "Small Shield"
+type = "SHIELD"
+icon = ExtResource("2_apv88")
+columns = 2
+rows = 2
+material = ExtResource("3_apv88")
+shader_params = Dictionary[String, Variant]({})

@@ -10,6 +10,8 @@ signal sig_player_cause_damage
 
 const GRAVITY := 40.0 * Vector3.DOWN
 
+var inv_name = "inv_1"
+
 func _ready() -> void:
 	Global.player = self
 	player_skin.damage_timer.timeout.connect(sig_player_cause_damage.emit)
@@ -37,6 +39,8 @@ func _move(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
-		player_skin.attack()
+		if not GBIS.has_moving_item() and not Global.game.player_info.visible and not Global.game.inventory.visible:
+			#print(GBIS.item_focus_service._current_focus_item)
+			player_skin.attack()
 	if event.is_action_released("attack"):
 		player_skin.stop_attack()

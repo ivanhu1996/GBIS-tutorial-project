@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="MyEquipmentData" load_steps=5 format=3 uid="uid://3nvkcujkn862"]
+
+[ext_resource type="PackedScene" uid="uid://qc7wobagh8so" path="res://scenes/droppable/items/helmet.tscn" id="1_i0car"]
+[ext_resource type="Texture2D" uid="uid://cvv6rlc3jvf4s" path="res://assets/images/icons/helmet.png" id="2_jpx8p"]
+[ext_resource type="Material" uid="uid://du4t05r3sodcb" path="res://GBIS_demos/materials/equipment_glow.tres" id="3_jpx8p"]
+[ext_resource type="Script" uid="uid://c5gmbp02oym1t" path="res://scripts/item_data/my_equipment_data.gd" id="3_rqj0g"]
+
+[resource]
+script = ExtResource("3_rqj0g")
+drop_model = ExtResource("1_i0car")
+item_name = "Iron Helmet"
+type = "HELMET"
+icon = ExtResource("2_jpx8p")
+columns = 2
+rows = 2
+material = ExtResource("3_jpx8p")
+shader_params = Dictionary[String, Variant]({})

@@ -10,7 +10,7 @@ height = 2.2
 radius = 0.6
 
 [node name="Enemy" type="CharacterBody3D"]
-collision_layer = 3
+collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_8e3ao")
 skins = Array[PackedScene]([ExtResource("2_fcftc"), ExtResource("3_lu5c6"), ExtResource("1_6xk8f")])
