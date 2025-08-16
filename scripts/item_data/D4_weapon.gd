@@ -43,8 +43,8 @@ static var WEAPON_ICONS: Dictionary = {
 }
 
 func _get_max_sockets() -> int:
-	match(type):
-		Type.Axe2H, Type.Bow, Type.Crossbow, Type.Mace2H, Type.Staff, Type.Sword2H, Type.Scythe2H, Type.Polearm:
+	match(weapontype):
+		Type.Axe2H, Type.Bow, Type.Crossbow, Type.Mace2H, Type.Staff, Type.Sword2H, Type.Scythe2H, Type.Polearm, Type.Sword:
 			return 2
 		_:
 			return 1

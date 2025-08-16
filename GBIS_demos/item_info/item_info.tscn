@@ -4,19 +4,29 @@
 
 [node name="ItemInfo" type="ColorRect"]
 custom_minimum_size = Vector2(100, 30)
-offset_right = 138.0
-offset_bottom = 71.0
+offset_right = 161.0
+offset_bottom = 94.0
 color = Color(0.0862745, 0.0862745, 0.0862745, 0.745098)
 script = ExtResource("1_kg2dt")
 
-[node name="ItemNameLabel" type="Label" parent="."]
-unique_name_in_owner = true
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ItemNameLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 text = "Item Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Itemattribute" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Item State"
 horizontal_alignment = 1
 vertical_alignment = 1

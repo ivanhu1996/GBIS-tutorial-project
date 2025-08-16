@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c88624xflvma6"]
+
+[sub_resource type="Shader" id="Shader_dtx32"]
+code = "shader_type canvas_item;
+
+uniform vec3 color = vec3(1.0, 1.0, 1.0);
+void fragment() {
+    vec4 base = texture(TEXTURE, UV);
+    vec4 blend = vec4(color, base.a);
+    vec4 limit = step(0.5, base);
+    COLOR = mix(2.0 * base * blend, 1.0 - 2.0 * (1.0 - base) * (1.0 - blend), limit);
+}"
+
+[resource]
+shader = SubResource("Shader_dtx32")
+shader_parameter/color = Vector3(1, 1, 1)

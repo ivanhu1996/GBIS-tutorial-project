@@ -15,6 +15,9 @@ class_name D4EquipmentData
 @export var tradable: bool = true
 @export var salvageable: bool = true
 
+@export var gem_socket_icon: Texture2D
+@export var gem_icon: Texture2D
+
 @export_flags(
 	"Barbarian",
 	"Druid",
@@ -108,18 +111,22 @@ static var AFFIX_COUNTS: Dictionary = {
 	}
 }
 
-var upgrades: int = 0
-var max_upgrades: int = 0:
+@export var upgrades: int = 0
+
+@export var max_upgrades: int = 0:
 	get:
 		return _get_max_upgrades()
-var sockets: int = 0
-var max_sockets: int = 1:
+		
+@export var sockets: int = 0
+		
+@export var max_sockets: int = 2:
 	get:
 		return _get_max_sockets()
-var socketed: Array[Socketable] = []
+		
+@export var socketed: Array[Socketable] = []
 
-var durability: int = 100
-var max_durability: int = 100
+@export var durability: int = 100
+@export var max_durability: int = 100
 
 var affixes: Array[Affix] = [
 ]
@@ -203,6 +210,7 @@ func roll_affixes() -> void:
 #inventory.gd使用方法
 #var item: MyD4EquipmentData
 #item.roll()
+
 func roll() -> void:
 	sockets = randi_range(0, max_sockets)
 	upgrades = randi_range(0, max_upgrades)

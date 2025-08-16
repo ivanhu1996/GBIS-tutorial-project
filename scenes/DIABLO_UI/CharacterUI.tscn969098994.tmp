@@ -566,7 +566,7 @@ container_name = "inv_test"
 container_columns = 16
 container_rows = 7
 base_size = 28
-gird_background_color_empty = Color(0, 0.027451, 0, 1)
+gird_background_color_empty = Color(0, 0, 0, 1)
 metadata/_custom_type_script = "uid://b3x4mwtjmm4tp"
 
 [node name="Currencies" type="Control" parent="MarginContainer/Sections/Inventory/VBoxContainer"]

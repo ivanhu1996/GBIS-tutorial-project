@@ -14,6 +14,7 @@ signal sig_refresh
 @export_group("Display Settings")
 ## 物品图标
 @export var icon: Texture2D
+
 ## 物品占的列数
 @export var columns: int = 1
 ## 物品占的行数
@@ -22,7 +23,8 @@ signal sig_refresh
 @export var material: ShaderMaterial
 ## 把 shader 需要修改的参数设置在这里
 @export var shader_params: Dictionary[String, Variant]
-
+#插孔测试
+@export var socket_num:int = 1
 ## 获取货品形状
 func get_shape() -> Vector2i:
 	return Vector2i(columns, rows)

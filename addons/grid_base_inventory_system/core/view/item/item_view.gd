@@ -2,6 +2,7 @@ extends Control
 ## 物品视图，控制物品的绘制
 class_name ItemView
 
+var SOCKET_SCENE = preload("res://scripts/ui_socket.tscn")
 ## 堆叠数字的字体
 var stack_num_font: Font
 ## 堆叠数字的字体大小
@@ -22,7 +23,7 @@ var base_size: int:
 var _is_moving: bool = false
 ## 移动偏移量（坐标）
 var _moving_offset: Vector2i = Vector2i.ZERO
-
+var old_size:Vector2 = size
 ## 构造函数
 @warning_ignore("shadowed_variable")
 func _init(data: ItemData, base_size: int, stack_num_font: Font = null, stack_num_font_size: int = 16, stack_num_margin: int = 2, stack_num_color: Color = Color.WHEAT) -> void:
@@ -43,6 +44,7 @@ func _init(data: ItemData, base_size: int, stack_num_font: Font = null, stack_nu
 
 ## 重写计算大小
 func recalculate_size() -> void:
+	old_size = size
 	size = Vector2(data.columns * base_size, data.rows * base_size)
 	queue_redraw()
 
@@ -55,8 +57,47 @@ func move(offset: Vector2i = Vector2i.ZERO) -> void:
 func _draw() -> void:
 	if data.icon:
 		draw_texture_rect(data.icon, Rect2(Vector2.ZERO, size), false)
+	#if data is D4EquipmentData:
+		#var socket_gem = SOCKET_SCENE.instantiate() as UISocket
+		#if data.socketed:
+			##print(data.max_sockets)
+			##print(data.socketed[0].item_name)
+			#socket_gem.item=data.socketed[0]
+		#self.add_child(socket_gem)
+	if data is D4EquipmentData:
+		#print(data.sockets)
+		if data.sockets:
+			var socket_gem = SOCKET_SCENE.instantiate() as UISocket
+			var gem_scale=Vector2(base_size,base_size)*0.75/socket_gem.size
+			socket_gem.scale=gem_scale
+			#socket_gem.set_position(Vector2(data.columns * base_size/2,data.rows * base_size/2)-socket_gem.size/2)
+			socket_gem.set_position(Vector2(data.columns * base_size/2,data.rows * base_size/2)-socket_gem.size*socket_gem.scale/2)
+			match(data.sockets):
+				1:
+					socket_gem.set_position(Vector2(data.columns * base_size/2,data.rows * base_size/2)-socket_gem.size*socket_gem.scale/2)
+					if data.socketed:
+						socket_gem.item=data.socketed[0]
+				2:
+					socket_gem.set_position(Vector2(data.columns * base_size/2,data.rows * base_size/3)-socket_gem.size*socket_gem.scale/2)
+					var socket_gem_sec = SOCKET_SCENE.instantiate() as UISocket
+					socket_gem_sec.scale=gem_scale
+					socket_gem_sec.set_position(Vector2(data.columns * base_size/2,data.rows * base_size*2/3)-socket_gem.size*socket_gem.scale/2)
+					
+					if data.socketed:
+						match(data.socketed.size()):
+							1:
+								socket_gem.item=data.socketed[0]
+							2:
+								socket_gem.item=data.socketed[0]
+								socket_gem_sec.item=data.socketed[1]
+					self.add_child(socket_gem_sec)
+			self.add_child(socket_gem)
+			
+				#draw_texture_rect(data.gem_icon, Rect2(Vector2(size.x*0.115,size.y*0.35-size.x/2.6), Vector2(size.x/1.3,size.x/1.3)), false)
+			#draw_circle(Vector2(size.x/2,size.y/2), size.x*0.45,Color.TRANSPARENT)
 	if data is StackableData:
 		var text_size = stack_num_font.get_string_size(str(data.current_amount), HORIZONTAL_ALIGNMENT_RIGHT, -1, stack_num_font_size)
+
 		var pos = Vector2(
 			size.x - text_size.x - stack_num_margin,
 			size.y - stack_num_font.get_descent(stack_num_font_size) - stack_num_margin

@@ -6,6 +6,7 @@ class_name InventoryView
 ## 允许存放的物品类型，如果背包名字重复，可存放的物品类型需要一样
 @export var avilable_types: Array[String] = ["ANY"]
 
+
 func grid_hover(grid_id: Vector2i) -> void:
 	_handle_grid_hover(grid_id, true)
  
@@ -114,7 +115,6 @@ func _on_item_added(inv_name:String, item_data: ItemData, grids: Array[Vector2i]
 		return
 	if not is_visible_in_tree():
 		return
-	
 	var item = _draw_item(item_data, grids[0])
 	_items.append(item)
 	_item_grids_map[item] = grids
@@ -151,6 +151,7 @@ func _on_inv_item_updated(inv_name: String, grid_id: Vector2i) -> void:
 
 ## 绘制物品
 func _draw_item(item_data: ItemData, first_grid: Vector2i) -> ItemView:
+	
 	var item = ItemView.new(item_data, base_size, stack_num_font, stack_num_font_size, stack_num_margin, stack_num_color)
 	_item_container.add_child(item)
 	item.global_position = _grid_map[first_grid].global_position

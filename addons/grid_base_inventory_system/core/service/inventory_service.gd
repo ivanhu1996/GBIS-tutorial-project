@@ -7,6 +7,7 @@ class_name InventoryService
 ## 如果是不可堆叠物品，或堆叠后还有剩余，成功后发射 sig_inv_item_added
 func add_item(inv_name: String, item_data: ItemData) -> bool:
 	var new_item_data = item_data.duplicate()
+	#print("add_test: "+str(new_item_data.sockets))
 	if new_item_data is StackableData:
 		if new_item_data.current_amount > new_item_data.stack_size:
 			new_item_data.current_amount = new_item_data.stack_size

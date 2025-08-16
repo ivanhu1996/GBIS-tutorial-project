@@ -73,7 +73,7 @@ visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 2306.0
-offset_bottom = 1112.0
+offset_bottom = 1129.0
 script = ExtResource("5_bdhmt")
 metadata/_custom_type_script = "uid://c5rou3jm33pbt"
 
