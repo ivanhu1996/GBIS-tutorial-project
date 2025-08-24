@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://beqqpxokjrf8y"
-path="res://.godot/imported/small_sword.png-3a41b8c9b608c78983706071dd52617d.ctex"
+uid="uid://c6dy37w3rd8r2"
+path="res://.godot/imported/ninepatch_border_gray.png-170a334170efa45c47f577d0cff81870.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/icons/small_sword.png"
-dest_files=["res://.godot/imported/small_sword.png-3a41b8c9b608c78983706071dd52617d.ctex"]
+source_file="res://assets/images/ninepatch_border_gray.png"
+dest_files=["res://.godot/imported/ninepatch_border_gray.png-170a334170efa45c47f577d0cff81870.ctex"]
 
 [params]
 
@@ -28,7 +28,7 @@ roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
-process/hdr_as_srgb=true
+process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1

@@ -45,7 +45,7 @@ func _init(data: ItemData, base_size: int, stack_num_font: Font = null, stack_nu
 ## 重写计算大小
 func recalculate_size() -> void:
 	old_size = size
-	size = Vector2(data.columns * base_size, data.rows * base_size)
+	size = Vector2(data.columns * base_size*0.98, data.rows * base_size*0.98)
 	queue_redraw()
 
 ## 移动
@@ -56,14 +56,8 @@ func move(offset: Vector2i = Vector2i.ZERO) -> void:
 ## 绘制物品
 func _draw() -> void:
 	if data.icon:
-		draw_texture_rect(data.icon, Rect2(Vector2.ZERO, size), false)
-	#if data is D4EquipmentData:
-		#var socket_gem = SOCKET_SCENE.instantiate() as UISocket
-		#if data.socketed:
-			##print(data.max_sockets)
-			##print(data.socketed[0].item_name)
-			#socket_gem.item=data.socketed[0]
-		#self.add_child(socket_gem)
+		draw_texture_rect(data.icon, Rect2(Vector2.ZERO, size),false)
+
 	if data is D4EquipmentData:
 		#print(data.sockets)
 		if data.sockets:
@@ -92,9 +86,7 @@ func _draw() -> void:
 								socket_gem_sec.item=data.socketed[1]
 					self.add_child(socket_gem_sec)
 			self.add_child(socket_gem)
-			
-				#draw_texture_rect(data.gem_icon, Rect2(Vector2(size.x*0.115,size.y*0.35-size.x/2.6), Vector2(size.x/1.3,size.x/1.3)), false)
-			#draw_circle(Vector2(size.x/2,size.y/2), size.x*0.45,Color.TRANSPARENT)
+
 	if data is StackableData:
 		var text_size = stack_num_font.get_string_size(str(data.current_amount), HORIZONTAL_ALIGNMENT_RIGHT, -1, stack_num_font_size)
 

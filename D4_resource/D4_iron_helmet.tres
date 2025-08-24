@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="Armor" load_steps=6 format=3 uid="uid://cuve05834kjln"]
+
+[ext_resource type="PackedScene" uid="uid://qc7wobagh8so" path="res://scenes/droppable/items/helmet.tscn" id="1_fsgfv"]
+[ext_resource type="Texture2D" uid="uid://cvv6rlc3jvf4s" path="res://assets/images/icons/helmet.png" id="2_qtc1t"]
+[ext_resource type="Material" uid="uid://du4t05r3sodcb" path="res://GBIS_demos/materials/equipment_glow.tres" id="3_en44a"]
+[ext_resource type="Script" uid="uid://cn68y432jyme2" path="res://scripts/item_data/D4_armor.gd" id="4_tyiqh"]
+[ext_resource type="Script" uid="uid://u26j8jlv1oex" path="res://scripts/item_data/socketable.gd" id="5_oj3v2"]
+
+[resource]
+script = ExtResource("4_tyiqh")
+armortype = 1
+drop_model = ExtResource("1_fsgfv")
+description = "test_helmet"
+image = ExtResource("2_qtc1t")
+quantity = 1
+stackable = false
+value = 1
+rarity = 0
+tier = 0
+level_requirement = 1
+is_account_bound = false
+tradable = true
+salvageable = true
+class_restrictions = 0
+power = 0
+affix_count = 0
+equipped_state = false
+upgrades = 0
+max_upgrades = 0
+sockets = 0
+max_sockets = 2
+socketed = Array[ExtResource("5_oj3v2")]([])
+durability = 100
+max_durability = 100
+item_name = "Iron Helmet"
+type = "HELMET"
+icon = ExtResource("2_qtc1t")
+columns = 2
+rows = 2
+material = ExtResource("3_en44a")
+shader_params = Dictionary[String, Variant]({})
+socket_num = 1

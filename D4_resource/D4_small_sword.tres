@@ -1,11 +1,9 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=8 format=3 uid="uid://f5c4cs53477d"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=6 format=3 uid="uid://f5c4cs53477d"]
 
 [ext_resource type="PackedScene" uid="uid://b857oo1fwd038" path="res://scenes/droppable/items/sword_1_handed.tscn" id="1_56ne2"]
-[ext_resource type="Texture2D" uid="uid://82jyrfyqqe0d" path="res://assets/images/UI_GemsC_02.png" id="2_52vx7"]
 [ext_resource type="Texture2D" uid="uid://beqqpxokjrf8y" path="res://assets/images/icons/small_sword.png" id="2_k6hur"]
 [ext_resource type="Material" uid="uid://du4t05r3sodcb" path="res://GBIS_demos/materials/equipment_glow.tres" id="3_56ne2"]
 [ext_resource type="Script" uid="uid://c2ui5pmqik37b" path="res://scripts/item_data/D4_weapon.gd" id="3_im0ff"]
-[ext_resource type="Texture2D" uid="uid://bf3i2wiayl0cn" path="res://assets/images/socket.png" id="3_u5stc"]
 [ext_resource type="Script" uid="uid://u26j8jlv1oex" path="res://scripts/item_data/socketable.gd" id="5_bsy0g"]
 
 [resource]
@@ -22,8 +20,6 @@ level_requirement = 1
 is_account_bound = false
 tradable = true
 salvageable = true
-gem_socket_icon = ExtResource("3_u5stc")
-gem_icon = ExtResource("2_52vx7")
 class_restrictions = 0
 power = 0
 affix_count = 0

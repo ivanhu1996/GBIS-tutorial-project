@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://82jyrfyqqe0d" path="res://assets/images/UI_GemsC_02.png" id="3_4dwp4"]
 
 [node name="Socket" type="PanelContainer"]
+modulate = Color(1, 1, 1, 0.466667)
 offset_right = 30.0
 offset_bottom = 30.0
 size_flags_horizontal = 6
@@ -21,6 +22,7 @@ expand_mode = 1
 
 [node name="Gem_Icon" type="TextureRect" parent="."]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.466667)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

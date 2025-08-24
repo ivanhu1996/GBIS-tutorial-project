@@ -1,4 +1,4 @@
-class_name UISocket extends Control
+class_name UISocketDual extends Control
 
 @export var item: Gem:
 	set(_item):

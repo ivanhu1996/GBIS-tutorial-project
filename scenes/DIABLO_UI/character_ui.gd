@@ -17,8 +17,8 @@ extends Control
 #func _on_button_toggle_character_info_pressed() -> void:
 	#character.visible = not character.visible
 var prefixes: Array = [
-	"“，
-	”Shadow",
+	"",
+	"Shadow",
 	"Guardian‘s",
 	"Swift",
 	"Phoenix",
@@ -47,14 +47,21 @@ var suffixes: Array = [
 func generate_item(item: MyD4EquipmentData) -> MyD4EquipmentData:
 	var category :String = item.type
 	var atlas: AtlasTexture = AtlasTexture.new()
-	var weapontype: String
+	#var weapontype: String
 	match(category):
 		MyD4EquipmentData.Category.Weapon:
 			item = Weapon.new()
 			item.weapontype = Weapon.Type.values().pick_random()
 			atlas.atlas = Weapon.WEAPON_TEXTURE
-			var i = Weapon.WEAPON_ICONS[weapontype].pick_random()
+			var i = Weapon.WEAPON_ICONS[item.weapontype].pick_random()
 			atlas.region = Rect2((i % 10) * 24, (i / 10) * 24, 24, 24)
+		MyD4EquipmentData.Category.Armor:
+			item = Armor.new()
+			item.armortype = Armor.Type.values().pick_random()
+			atlas.atlas = Armor.ARMOR_TEXTURE
+			var i = Armor.ARMOR_ICONS[item.armortype].pick_random()
+			atlas.region = Rect2((i % 8) * 32, (i / 8) * 32, 32, 32)
+
 	item.image = atlas
 	item.item_name = generate_name(item)
 	item.power = randi_range(0, 820)
@@ -110,8 +117,19 @@ func _on_button_add_test_items_pressed() -> void:
 	for item in items:
 		if randi_range(1, 100) > 50:                      
 			item = item.duplicate()
-			(item as ItemData).shader_params = {"enable_enhance": true}
 			item=generate_item(item)
+			(item as ItemData).shader_params = {"enable_excellent": true,"rarity_color": item.RARITY_COLORS[item.rarity]}
+		else:
+			item = item.duplicate()
+			item=generate_item(item)
+			(item as ItemData).shader_params = {"rarity_color": item.RARITY_COLORS[item.rarity]}
+		print(item.item_name)
+		print(item.compound_category)
+		print(item.class_strings)
+		if item.affixes:
+			for affix in item.affixes:
+				print(affix.label)
+		print("\n")
 		GBIS.add_item("inv_test", item)
 
 func _on_button_save_pressed() -> void:

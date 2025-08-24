@@ -1,0 +1,289 @@
+[gd_scene load_steps=9 format=3 uid="uid://bljuxiopns33l"]
+
+[ext_resource type="Script" uid="uid://cebuhnsvj5uyd" path="res://GBIS_demos/item_info/tooltip.gd" id="1_k4ckj"]
+[ext_resource type="Texture2D" uid="uid://v7tn5c4o2uw5" path="res://assets/images/icons/Snipaste_2025-08-19_20-26-38.png" id="2_bokhc"]
+[ext_resource type="Texture2D" uid="uid://br8mx1ihdd73b" path="res://assets/images/icons/small_shield.png" id="3_em57s"]
+[ext_resource type="Script" uid="uid://dx7kunearvul8" path="res://GBIS_demos/item_info/info_container.gd" id="3_o4si3"]
+[ext_resource type="Texture2D" uid="uid://c6dy37w3rd8r2" path="res://assets/images/ninepatch_border_gray.png" id="4_hou50"]
+
+[sub_resource type="Gradient" id="Gradient_o4si3"]
+offsets = PackedFloat32Array(0.0413223, 0.557851, 0.85124)
+colors = PackedColorArray(0.136826, 0.136826, 0.136826, 1, 0.435192, 0.435192, 0.435192, 1, 0.548963, 0.548963, 0.548963, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hou50"]
+gradient = SubResource("Gradient_o4si3")
+fill_from = Vector2(0.782051, 0.884615)
+fill_to = Vector2(0.777778, 0)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_em57s"]
+color = Color(0.972549, 0, 0, 1)
+grow_begin = -45.0
+grow_end = -49.0
+thickness = 10
+
+[node name="ItemInfo" type="Control"]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 3
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 963.0
+grow_vertical = 2
+script = ExtResource("1_k4ckj")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 125.0
+offset_bottom = 922.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EquippedPlate" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/EquippedPlate"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 1.0
+offset_top = -33.0
+offset_right = 1.0
+grow_horizontal = 2
+color = Color(1, 1, 1, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/EquippedPlate"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -35.0
+offset_right = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/EquippedPlate/MarginContainer"]
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/EquippedPlate/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_bokhc")
+
+[node name="Label" type="Label" parent="VBoxContainer/EquippedPlate/MarginContainer"]
+layout_mode = 2
+text = "EQUIPPED"
+horizontal_alignment = 1
+
+[node name="InfoPanel" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="BG" type="ColorRect" parent="VBoxContainer/InfoPanel"]
+visible = false
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_bottom = 330.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.937255, 0.160784, 0.160784, 1)
+
+[node name="InfoContainer" type="Panel" parent="VBoxContainer/InfoPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 628.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_o4si3")
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/InfoPanel/InfoContainer"]
+visible = false
+layout_mode = 2
+offset_right = 963.0
+offset_bottom = 622.0
+color = Color(0.215686, 0.145098, 0.572549, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/InfoPanel/InfoContainer"]
+layout_mode = 2
+offset_right = 963.0
+offset_bottom = 316.0
+
+[node name="GradientRect" type="NinePatchRect" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+texture = SubResource("GradientTexture2D_hou50")
+
+[node name="BorderRect" type="NinePatchRect" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer"]
+custom_minimum_size = Vector2(963, 0)
+layout_mode = 2
+texture = ExtResource("4_hou50")
+region_rect = Rect2(4.51334, 4.35196, 23.0215, 23.2076)
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+size_flags_stretch_ratio = 1.75
+
+[node name="Control" type="Control" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/MarginContainer/Control"]
+custom_minimum_size = Vector2(100, 200)
+layout_mode = 1
+offset_right = 200.0
+offset_bottom = 200.0
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.02
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="ItemName" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(444, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_font_sizes/normal_font_size = 20
+text = "Phoenix Sword of Sacred Redemption "
+
+[node name="Category" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(444, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_font_sizes/normal_font_size = 20
+text = "Sacred Magic Sword"
+
+[node name="ItemPower" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(444, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_font_sizes/normal_font_size = 20
+text = "367+5 Item Power"
+
+[node name="Upgrades" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(444, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_font_sizes/normal_font_size = 20
+text = "Upgrades: 1/5"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 10
+texture = ExtResource("3_em57s")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxLine_em57s")
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.02
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+
+[node name="ItemName" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(444, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_font_sizes/normal_font_size = 20
+text = "Phoenix Sword of Sacred Redemption "
+
+[node name="Category" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(444, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_font_sizes/normal_font_size = 20
+text = "Sacred Magic Sword"
+
+[node name="ItemPower" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(444, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_font_sizes/normal_font_size = 20
+text = "367+5 Item Power"
+
+[node name="Upgrades" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(444, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_font_sizes/normal_font_size = 20
+text = "Upgrades: 1/5"
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3

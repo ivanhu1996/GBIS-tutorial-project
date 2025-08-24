@@ -1,10 +1,11 @@
-[gd_scene load_steps=38 format=3 uid="uid://dxfjqqw5p4u3d"]
+[gd_scene load_steps=39 format=3 uid="uid://dxfjqqw5p4u3d"]
 
 [ext_resource type="Script" uid="uid://dw3s4qq0no634" path="res://scenes/DIABLO_UI/character_ui.gd" id="1_2enax"]
 [ext_resource type="Texture2D" uid="uid://bid8iloibhemn" path="res://assets/images/border.png" id="1_k4kj5"]
 [ext_resource type="Script" uid="uid://c5uqs7o5b2w68" path="res://addons/grid_base_inventory_system/core/model/item/item_data.gd" id="2_rpogk"]
 [ext_resource type="PackedScene" uid="uid://dbo361mnlcf0i" path="res://scenes/DIABLO_UI/StatIconItemContainer.tscn" id="2_x44gm"]
 [ext_resource type="Texture2D" uid="uid://cs8dua6unfsbf" path="res://assets/images/Attack.png" id="3_ubaol"]
+[ext_resource type="Resource" uid="uid://cuve05834kjln" path="res://D4_resource/D4_iron_helmet.tres" id="4_abojl"]
 [ext_resource type="Texture2D" uid="uid://d3vipjrwrgmcj" path="res://assets/images/Armor.png" id="4_yhiek"]
 [ext_resource type="Texture2D" uid="uid://116jd2p0q33a" path="res://assets/images/Life.png" id="5_v72jy"]
 [ext_resource type="PackedScene" uid="uid://bi4q05f2s0eqe" path="res://scenes/DIABLO_UI/AttributeItem.tscn" id="6_eq0so"]
@@ -68,7 +69,7 @@ atlas = ExtResource("8_64dve")
 
 [sub_resource type="Gradient" id="Gradient_5fahm"]
 offsets = PackedFloat32Array(0.409938, 0.885093)
-colors = PackedColorArray(0, 0, 0, 0, 0.0862745, 0.129412, 0.0980392, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_41rhr"]
 gradient = SubResource("Gradient_5fahm")
@@ -101,7 +102,7 @@ anchors_preset = 0
 offset_right = 450.0
 offset_bottom = 648.0
 script = ExtResource("1_2enax")
-items = Array[ExtResource("2_rpogk")]([ExtResource("8_xqfjt")])
+items = Array[ExtResource("2_rpogk")]([ExtResource("8_xqfjt"), ExtResource("4_abojl")])
 
 [node name="UIBGColorRect" type="ColorRect" parent="."]
 layout_mode = 1

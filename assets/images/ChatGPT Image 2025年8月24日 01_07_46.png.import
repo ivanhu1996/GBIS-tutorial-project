@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://beqqpxokjrf8y"
-path="res://.godot/imported/small_sword.png-3a41b8c9b608c78983706071dd52617d.ctex"
+uid="uid://dnj3y8xtb4s07"
+path="res://.godot/imported/ChatGPT Image 2025年8月24日 01_07_46.png-3f72268b0975e3ac0e83dff7701bd0ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/icons/small_sword.png"
-dest_files=["res://.godot/imported/small_sword.png-3a41b8c9b608c78983706071dd52617d.ctex"]
+source_file="res://assets/images/ChatGPT Image 2025年8月24日 01_07_46.png"
+dest_files=["res://.godot/imported/ChatGPT Image 2025年8月24日 01_07_46.png-3f72268b0975e3ac0e83dff7701bd0ce.ctex"]
 
 [params]
 
@@ -28,7 +28,7 @@ roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
-process/hdr_as_srgb=true
+process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
