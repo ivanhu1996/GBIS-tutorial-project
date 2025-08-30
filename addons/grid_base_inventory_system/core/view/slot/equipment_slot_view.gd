@@ -5,7 +5,7 @@ class_name EquipmentSlotView
 
 ## 装备槽的绘制状态：正常、可用、不可用
 enum State{
-	NORMAL, AVILABLE, INVILABLE
+	NORMAL, AVILABLE, INVILABLE, EQUIPPED
 }
 
 ## 装备槽名称，如果重复则展示同意来源的数据
@@ -39,6 +39,11 @@ enum State{
 @export var INVILABLE_color: Color = Color.DARK_RED * 0.3:
 	set(value):
 		INVILABLE_color = value
+		queue_redraw()
+		
+@export var eq_color: Color = Color.BLUE * 0.3:
+	set(value):
+		eq_color = value
 		queue_redraw()
 ## 可以装备的物品类型，对应 ItemData.type
 @export var avilable_types: Array[String] = ["ANY"]
@@ -115,7 +120,10 @@ func _on_slot_hover() -> void:
 
 ## 失去高亮
 func _on_slot_lose_hover() -> void:
-	_state = State.NORMAL
+	if _state == State.EQUIPPED:
+		_state = State.EQUIPPED
+	else:
+		_state = State.NORMAL
 	GBIS.item_focus_service.item_lose_focus()
 	queue_redraw()
 
@@ -128,6 +136,8 @@ func _on_item_equipped(slot_name: String, item_data: ItemData):
 	_item_view = _draw_item(item_data)
 	_item_container.add_child(_item_view)
 	_state = State.NORMAL
+	eq_color =item_data.RARITY_COLORS[item_data.rarity]
+	_state = State.EQUIPPED
 	queue_redraw()
 
 ## 监听脱装备
@@ -135,8 +145,10 @@ func _on_item_equipped(slot_name: String, item_data: ItemData):
 func _on_item_unequipped(slot_name: String, _item_data: ItemData):
 	if slot_name != self.slot_name:
 		return
-	
+
 	_clear_slot()
+	_state = State.NORMAL
+	queue_redraw()
 
 ## 绘制装备
 func _draw_item(item_data: ItemData) -> ItemView:
@@ -165,6 +177,8 @@ func _draw() -> void:
 				draw_rect(Rect2(0, 0, columns * base_size, rows * base_size), avilable_color)
 			State.INVILABLE:
 				draw_rect(Rect2(0, 0, columns * base_size, rows * base_size), INVILABLE_color)
+			State.EQUIPPED:
+				draw_rect(Rect2(0, 0, columns * base_size, rows * base_size), eq_color)
 	else:
 		draw_rect(Rect2(0, 0, columns * base_size, rows * base_size), INVILABLE_color * 10)
 

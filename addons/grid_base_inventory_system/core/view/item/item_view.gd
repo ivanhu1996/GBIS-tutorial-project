@@ -46,8 +46,9 @@ func _init(data: ItemData, base_size: int, stack_num_font: Font = null, stack_nu
 func recalculate_size() -> void:
 	old_size = size
 	size = Vector2(data.columns * base_size*0.98, data.rows * base_size*0.98)
+	
+	
 	queue_redraw()
-
 ## 移动
 func move(offset: Vector2i = Vector2i.ZERO) -> void:
 	_is_moving = true
@@ -55,9 +56,17 @@ func move(offset: Vector2i = Vector2i.ZERO) -> void:
 
 ## 绘制物品
 func _draw() -> void:
+	print(data.icon)
 	if data.icon:
+		#var target_rect=Rect2(Vector2.ZERO, size)
+		#var tex_size = data.icon.get_size()
+		#var scale =  min(target_rect.size.x / tex_size.x, target_rect.size.y / tex_size.y)
+		#var new_size = tex_size * scale
+		#var pos = (target_rect.size - new_size) / 2.0
+		#var dst_rect = Rect2(pos, new_size)
+		#draw_texture_rect(data.icon, dst_rect, false)
 		draw_texture_rect(data.icon, Rect2(Vector2.ZERO, size),false)
-
+		
 	if data is D4EquipmentData:
 		#print(data.sockets)
 		if data.sockets:

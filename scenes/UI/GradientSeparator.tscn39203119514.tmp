@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://q4nvsqm1mwpi"]
+
+[ext_resource type="Script" uid="uid://drvuqffircey1" path="res://scenes/UI/gradient_separator.gd" id="1_asap7"]
+
+[node name="GradientSeparator" type="Control"]
+custom_minimum_size = Vector2(100, 5)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1820.0
+offset_bottom = -1075.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_asap7")
+thickness = 20
+horizontal = null
+colors = Array[Color]([Color(0.478658, 0, 0.0688209, 1), Color(0.810761, 0.000116164, 0.145902, 1), Color(0.999788, 0.13312, 0.221302, 1)])
+debug_print = null

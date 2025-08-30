@@ -1,6 +1,7 @@
 extends Control
 
 @export var items: Array[ItemData]
+var rotate_shader: ShaderMaterial = preload("res://assets/images/gear/Rotate_shader.tres")
 
 #@onready var inventory: ColorRect = $Inventory
 #@onready var character: ColorRect = $Character
@@ -45,23 +46,39 @@ var suffixes: Array = [
 	]
 
 func generate_item(item: MyD4EquipmentData) -> MyD4EquipmentData:
-	var category :String = item.type
+	#var category :String = item.type
+	var category :int = item.category
 	var atlas: AtlasTexture = AtlasTexture.new()
 	#var weapontype: String
+
 	match(category):
 		MyD4EquipmentData.Category.Weapon:
-			item = Weapon.new()
+			#item = Weapon.new()
+			print("columns:"+str(item.columns))
+			#item.weapontype = Weapon.Type.values().pick_random()
 			item.weapontype = Weapon.Type.values().pick_random()
+			print(item.weapontype)
+			item.weapontype=9
 			atlas.atlas = Weapon.WEAPON_TEXTURE
-			var i = Weapon.WEAPON_ICONS[item.weapontype].pick_random()
-			atlas.region = Rect2((i % 10) * 24, (i / 10) * 24, 24, 24)
+			item.icon_index = Weapon.WEAPON_ICONS[item.weapontype].pick_random()
+			
+			print( item.icon_index)
+			print(item.icon_index % 4)
+			print(item.icon_index / 4)
+			#atlas.region = Rect2((i % 4) * 256, (i / 4) * 256, 256, 256)
+			var icon_texture_mat = rotate_shader.duplicate() as ShaderMaterial
+			icon_texture_mat.set_shader_parameter("rotation_deg", -45)
+			icon_texture_mat.set_shader_parameter("atlas_tex", Weapon.WEAPON_TEXTURE)
+			icon_texture_mat.set_shader_parameter("tile_index", Vector2(item.icon_index % 4, item.icon_index / 4))
+			#atlas.region = Rect2((i % 4) * 256, (i / 4) * 256, 256*4, 256*4)
+			#atlas.region = Rect2(3*256, 1*256, 256, 256)
+			
 		MyD4EquipmentData.Category.Armor:
-			item = Armor.new()
+			#item = Armor.new()
 			item.armortype = Armor.Type.values().pick_random()
 			atlas.atlas = Armor.ARMOR_TEXTURE
 			var i = Armor.ARMOR_ICONS[item.armortype].pick_random()
 			atlas.region = Rect2((i % 8) * 32, (i / 8) * 32, 32, 32)
-
 	item.image = atlas
 	item.item_name = generate_name(item)
 	item.power = randi_range(0, 820)

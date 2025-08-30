@@ -4,7 +4,7 @@ class_name D4EquipmentData
 
 @export_group("item attribute")
 @export var description: String
-@export var image: Texture
+#@export var image: Texture2D
 @export var quantity: int = 1
 @export var stackable: bool = false
 @export var value: int = 1
@@ -14,7 +14,7 @@ class_name D4EquipmentData
 @export var is_account_bound: bool = false
 @export var tradable: bool = true
 @export var salvageable: bool = true
-
+@export var icon_index: int = 0
 #@export var gem_socket_icon: Texture2D
 #@export var gem_icon: Texture2D
 

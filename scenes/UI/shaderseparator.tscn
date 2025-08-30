@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtaeadne82tbo"]
+
+[ext_resource type="Shader" uid="uid://dqpykp0mu3gec" path="res://scenes/UI/shaderseparator.gdshader" id="1_ow78j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3u5jj"]
+shader = ExtResource("1_ow78j")
+shader_parameter/horizontal = true
+shader_parameter/color_start = Vector4(1, 1, 1, 0)
+shader_parameter/color_middle = Vector4(1, 1, 1, 1)
+shader_parameter/color_end = Vector4(1, 1, 1, 0)
+
+[node name="Shaderseparator" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 19.0
+grow_horizontal = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_3u5jj")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.09, 0.09, 1)

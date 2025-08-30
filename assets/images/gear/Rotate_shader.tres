@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cbrxjrj4m7kof"]
+
+[ext_resource type="Shader" uid="uid://dkixfd8kiecni" path="res://assets/images/gear/Rotate_shader.gdshader" id="1_mwdm8"]
+[ext_resource type="Texture2D" uid="uid://y2pom1wga0gp" path="res://assets/images/gear/sword.png" id="2_0rnxy"]
+
+[resource]
+shader = ExtResource("1_mwdm8")
+shader_parameter/atlas_tex = ExtResource("2_0rnxy")
+shader_parameter/tile_index = Vector2i(3, 3)
+shader_parameter/tiles_per_row = 4
+shader_parameter/tiles_per_col = 4
+shader_parameter/rotation_deg = -45.0
+shader_parameter/center_on_rect = true
+shader_parameter/fit_inside = false
+shader_parameter/show_other_tiles = false

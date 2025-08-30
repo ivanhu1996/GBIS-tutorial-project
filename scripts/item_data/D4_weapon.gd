@@ -1,7 +1,7 @@
 class_name Weapon extends MyD4EquipmentData
 
 @export var weapontype: Type = Type.Axe
-
+@export var rotate_material: ShaderMaterial
 var category: Category = Category.Weapon
 
 enum Type {
@@ -22,7 +22,7 @@ enum Type {
 	Polearm
 }
 
-static var WEAPON_TEXTURE: Texture = preload("res://assets/images/icons/#1 - Transparent Icons.png")
+static var WEAPON_TEXTURE: Texture = preload("res://assets/images/gear/sword.png")
 
 static var WEAPON_ICONS: Dictionary = {
 	Type.Axe: [44,46,47,48,49],
@@ -34,7 +34,8 @@ static var WEAPON_ICONS: Dictionary = {
 	Type.Mace: [43,45,50,51,52,53,54,55,56,59],
 	Type.Mace2H: [43,45,52,53,54,55,56,59],
 	Type.Staff: [0,1,2,3,4,5,6,7,8,9],
-	Type.Sword: [60,61,62,63,64,65,66,67,68,69],
+	Type.Sword: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14],
+	#Type.Sword: [60,61,62,63,64,65,66,67,68,69],
 	Type.Sword2H: [40,41,60,61,62,63,64,65,66,67,68,69,],
 	Type.Scythe: [33,35],
 	Type.Scythe2H: [33,35],

@@ -14,7 +14,7 @@ signal sig_refresh
 @export_group("Display Settings")
 ## 物品图标
 @export var icon: Texture2D
-
+@export var image: Texture2D
 ## 物品占的列数
 @export var columns: int = 1
 ## 物品占的行数

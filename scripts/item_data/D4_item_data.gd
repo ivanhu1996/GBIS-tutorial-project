@@ -4,7 +4,7 @@ class_name D4ItemData
 @export_group("basic attribute")
 @export var description: String
 
-@export var image: Texture
+#@export var image: Texture2D
 @export var quantity: int = 1
 @export var stackable: bool = false
 @export var value: int = 1

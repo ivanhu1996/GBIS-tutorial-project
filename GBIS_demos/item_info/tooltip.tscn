@@ -1,10 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://bljuxiopns33l"]
+[gd_scene load_steps=16 format=3 uid="uid://bljuxiopns33l"]
 
 [ext_resource type="Script" uid="uid://cebuhnsvj5uyd" path="res://GBIS_demos/item_info/tooltip.gd" id="1_k4ckj"]
 [ext_resource type="Texture2D" uid="uid://v7tn5c4o2uw5" path="res://assets/images/icons/Snipaste_2025-08-19_20-26-38.png" id="2_bokhc"]
-[ext_resource type="Texture2D" uid="uid://br8mx1ihdd73b" path="res://assets/images/icons/small_shield.png" id="3_em57s"]
+[ext_resource type="Resource" uid="uid://f5c4cs53477d" path="res://D4_resource/D4_small_sword.tres" id="2_k3rqd"]
 [ext_resource type="Script" uid="uid://dx7kunearvul8" path="res://GBIS_demos/item_info/info_container.gd" id="3_o4si3"]
 [ext_resource type="Texture2D" uid="uid://c6dy37w3rd8r2" path="res://assets/images/ninepatch_border_gray.png" id="4_hou50"]
+[ext_resource type="Shader" uid="uid://dqpykp0mu3gec" path="res://scenes/UI/shaderseparator.gdshader" id="6_aq11m"]
+[ext_resource type="FontFile" uid="uid://bevdb405m6gmc" path="res://scenes/UI/fonts/coolvetica condensed rg.ttf" id="6_hb34q"]
+[ext_resource type="Texture2D" uid="uid://beqqpxokjrf8y" path="res://assets/images/icons/small_sword.png" id="6_k3rqd"]
+[ext_resource type="Texture2D" uid="uid://bwi8i5nrtqm2s" path="res://assets/images/gold.png" id="7_1lq63"]
 
 [sub_resource type="Gradient" id="Gradient_o4si3"]
 offsets = PackedFloat32Array(0.0413223, 0.557851, 0.85124)
@@ -15,20 +19,60 @@ gradient = SubResource("Gradient_o4si3")
 fill_from = Vector2(0.782051, 0.884615)
 fill_to = Vector2(0.777778, 0)
 
+[sub_resource type="Shader" id="Shader_2xye1"]
+code = "shader_type canvas_item;
+
+uniform float angle_deg : hint_range(-180, 180) = 0;
+
+void fragment() {
+    float angle = radians(angle_deg);
+    vec2 center = vec2(0.5);
+    vec2 uv = UV - center;
+
+    float c = cos(angle);
+    float s = sin(angle);
+    mat2 rot = mat2(vec2(c,s), vec2(-s,c));
+
+    uv = rot * uv + center;
+
+    vec4 col = texture(TEXTURE, uv);
+
+    if(uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0) {
+        col = vec4(0.0);
+    }
+
+    COLOR = col;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hb34q"]
+shader = SubResource("Shader_2xye1")
+shader_parameter/angle_deg = -45.0
+
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_em57s"]
 color = Color(0.972549, 0, 0, 1)
 grow_begin = -45.0
 grow_end = -49.0
 thickness = 10
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1lq63"]
+shader = ExtResource("6_aq11m")
+shader_parameter/horizontal = true
+shader_parameter/color_start = Vector4(1, 1, 1, 0)
+shader_parameter/color_middle = Vector4(1, 1, 1, 1)
+shader_parameter/color_end = Vector4(1, 1, 1, 0)
+
 [node name="ItemInfo" type="Control"]
 custom_minimum_size = Vector2(100, 30)
 layout_mode = 3
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 963.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 965.0
+offset_bottom = 2.0
 grow_vertical = 2
 script = ExtResource("1_k4ckj")
+item = ExtResource("2_k3rqd")
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -36,12 +80,15 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 125.0
-offset_bottom = 922.0
+offset_left = 1.0
+offset_top = 31.0
+offset_right = 2.0
+offset_bottom = 828.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="EquippedPlate" type="Control" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer/EquippedPlate"]
@@ -84,6 +131,7 @@ horizontal_alignment = 1
 layout_mode = 2
 
 [node name="BG" type="ColorRect" parent="VBoxContainer/InfoPanel"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 14
@@ -96,11 +144,14 @@ grow_vertical = 2
 color = Color(0.937255, 0.160784, 0.160784, 1)
 
 [node name="InfoContainer" type="Panel" parent="VBoxContainer/InfoPanel"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 628.0
+offset_top = 6.0
+offset_right = -6.0
+offset_bottom = 1570.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_o4si3")
@@ -113,20 +164,22 @@ offset_bottom = 622.0
 color = Color(0.215686, 0.145098, 0.572549, 0)
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/InfoPanel/InfoContainer"]
-layout_mode = 2
+layout_mode = 1
 offset_right = 963.0
-offset_bottom = 316.0
+offset_bottom = 776.0
 
 [node name="GradientRect" type="NinePatchRect" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
 texture = SubResource("GradientTexture2D_hou50")
 
 [node name="BorderRect" type="NinePatchRect" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(963, 0)
 layout_mode = 2
 texture = ExtResource("4_hou50")
-region_rect = Rect2(4.51334, 4.35196, 23.0215, 23.2076)
+region_rect = Rect2(5.08118, 4.68345, 21.8822, 22.1885)
 patch_margin_left = 1
 patch_margin_top = 1
 patch_margin_right = 1
@@ -156,9 +209,8 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.02
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 50
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
@@ -171,6 +223,7 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 0
 
 [node name="ItemName" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(444, 75)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -178,8 +231,10 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 theme_override_font_sizes/normal_font_size = 20
 text = "Phoenix Sword of Sacred Redemption "
+vertical_alignment = 1
 
 [node name="Category" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(444, 75)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -187,8 +242,10 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 theme_override_font_sizes/normal_font_size = 20
 text = "Sacred Magic Sword"
+vertical_alignment = 1
 
-[node name="ItemPower" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Power" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(444, 75)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -196,35 +253,52 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 theme_override_font_sizes/normal_font_size = 20
 text = "367+5 Item Power"
+vertical_alignment = 1
 
 [node name="Upgrades" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(444, 75)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
+theme_override_fonts/bold_font = ExtResource("6_hb34q")
 theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+bbcode_enabled = true
 text = "Upgrades: 1/5"
+vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="IconTexture" type="TextureRect" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_hb34q")
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 10
-texture = ExtResource("3_em57s")
-expand_mode = 1
+texture = ExtResource("6_k3rqd")
+expand_mode = 2
 stretch_mode = 5
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/separator = SubResource("StyleBoxLine_em57s")
 
+[node name="StatSeparator" type="ColorRect" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_1lq63")
+custom_minimum_size = Vector2(600, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+color = Color(1, 0.00999999, 0.00999999, 1)
+
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.02
-theme_override_constants/margin_left = 50
+theme_override_constants/margin_left = 80
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 50
 
@@ -236,54 +310,171 @@ theme_override_constants/separation = 32
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 0
 
-[node name="ItemName" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+[node name="Stat" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(444, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/line_separation = 20
+theme_override_font_sizes/normal_font_size = 20
+text = "+32 Dexterity
++44 Intelligence
++7.72% Attack Speed
++7.39% Damage"
+fit_content = true
+vertical_alignment = 1
+
+[node name="Affix" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(444, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/line_separation = 20
+theme_override_font_sizes/normal_font_size = 20
+text = "+32 Dexterity
++44 Intelligence
++7.72% Attack Speed
++7.39% Damage"
+fit_content = true
+vertical_alignment = 1
+
+[node name="Description" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(444, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/line_separation = 10
+theme_override_font_sizes/normal_font_size = 20
+text = "This is a shield This is a shield 
+This is a shield This is a shield 
+This is a shield This is a shield"
+fit_content = true
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = -20
+
+[node name="LevelRequirement" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(444, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 20
+text = "Requires Level 80"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="AccountBound" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(444, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 20
+text = "Account Bound"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Salvageable" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(444, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 20
+text = "Cannot Salvage"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Tradable" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(444, 75)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 20
+text = "Not Tradable"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ClassName" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(444, 75)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 theme_override_font_sizes/normal_font_size = 20
-text = "Phoenix Sword of Sacred Redemption "
+text = "{class_identifier}"
+horizontal_alignment = 2
+vertical_alignment = 1
 
-[node name="Category" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(444, 75)
+[node name="AffixSeparator" type="ColorRect" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_1lq63")
+custom_minimum_size = Vector2(600, 10)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 4
+color = Color(1, 0.00999999, 0.00999999, 1)
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 2.02
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = -10
+
+[node name="Price" type="HBoxContainer" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer3/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+
+[node name="SellValue" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer3/VBoxContainer2/Price"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
 size_flags_stretch_ratio = 2.0
 theme_override_font_sizes/normal_font_size = 20
-text = "Sacred Magic Sword"
+text = "Sell Value: 7000"
+horizontal_alignment = 2
+vertical_alignment = 1
 
-[node name="ItemPower" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(444, 75)
+[node name="CoinIcon" type="TextureRect" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer3/VBoxContainer2/Price"]
+unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+texture = ExtResource("7_1lq63")
+stretch_mode = 3
+
+[node name="Durability" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer3/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 6
 size_flags_stretch_ratio = 2.0
 theme_override_font_sizes/normal_font_size = 20
-text = "367+5 Item Power"
-
-[node name="Upgrades" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(444, 75)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
-theme_override_font_sizes/normal_font_size = 20
-text = "Upgrades: 1/5"
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 10
-expand_mode = 1
-stretch_mode = 5
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
+text = "Durability: 100/100"
+horizontal_alignment = 3
+vertical_alignment = 1
