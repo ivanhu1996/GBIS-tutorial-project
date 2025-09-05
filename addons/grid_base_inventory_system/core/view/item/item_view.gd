@@ -45,8 +45,7 @@ func _init(data: ItemData, base_size: int, stack_num_font: Font = null, stack_nu
 ## 重写计算大小
 func recalculate_size() -> void:
 	old_size = size
-	size = Vector2(data.columns * base_size*0.98, data.rows * base_size*0.98)
-	
+	size = Vector2(data.columns * base_size, data.rows * base_size)
 	
 	queue_redraw()
 ## 移动
@@ -56,7 +55,6 @@ func move(offset: Vector2i = Vector2i.ZERO) -> void:
 
 ## 绘制物品
 func _draw() -> void:
-	print(data.icon)
 	if data.icon:
 		#var target_rect=Rect2(Vector2.ZERO, size)
 		#var tex_size = data.icon.get_size()

@@ -1,7 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cbrxjrj4m7kof"]
 
 [ext_resource type="Shader" uid="uid://dkixfd8kiecni" path="res://assets/images/gear/Rotate_shader.gdshader" id="1_mwdm8"]
-[ext_resource type="Texture2D" uid="uid://y2pom1wga0gp" path="res://assets/images/gear/sword.png" id="2_0rnxy"]
+[ext_resource type="Texture2D" uid="uid://y2pom1wga0gp" path="res://assets/images/gear/Sword.png" id="2_0rnxy"]
 
 [resource]
 shader = ExtResource("1_mwdm8")

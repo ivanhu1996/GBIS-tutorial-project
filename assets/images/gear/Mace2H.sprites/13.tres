@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dp7digrwqm17j"]
+
+[ext_resource type="Texture2D" uid="uid://ca5k6e7s4h6gt" path="res://assets/images/gear/Mace2H.png" id="1_tcohr"]
+
+[resource]
+atlas = ExtResource("1_tcohr")
+region = Rect2(512, 0, 256, 256)

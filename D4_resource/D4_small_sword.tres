@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=7 format=3 uid="uid://f5c4cs53477d"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=9 format=3 uid="uid://f5c4cs53477d"]
 
 [ext_resource type="PackedScene" uid="uid://b857oo1fwd038" path="res://scenes/droppable/items/sword_1_handed.tscn" id="1_56ne2"]
+[ext_resource type="Script" uid="uid://dn6qrgf4u7uco" path="res://scripts/item_data/affix.gd" id="1_u5stc"]
 [ext_resource type="Texture2D" uid="uid://beqqpxokjrf8y" path="res://assets/images/icons/small_sword.png" id="2_k6hur"]
+[ext_resource type="Script" uid="uid://djewskp5mstec" path="res://scripts/item_data/AffixResource.gd" id="2_ykfsc"]
 [ext_resource type="Material" uid="uid://du4t05r3sodcb" path="res://GBIS_demos/materials/equipment_glow.tres" id="3_56ne2"]
 [ext_resource type="Script" uid="uid://c2ui5pmqik37b" path="res://scripts/item_data/D4_weapon.gd" id="3_im0ff"]
 [ext_resource type="Material" uid="uid://cbrxjrj4m7kof" path="res://assets/images/gear/Rotate_shader.tres" id="4_jvq3t"]
@@ -22,6 +24,7 @@ level_requirement = 1
 is_account_bound = false
 tradable = true
 salvageable = true
+icon_index = 0
 class_restrictions = 0
 power = 0
 affix_count = 0
@@ -33,11 +36,13 @@ max_sockets = 2
 socketed = Array[ExtResource("5_bsy0g")]([])
 durability = 100
 max_durability = 100
+affixes_data = Array[ExtResource("2_ykfsc")]([])
+affixes = Array[ExtResource("1_u5stc")]([])
 item_name = "Small Sword"
-type = "SWORD"
+type = "Sword"
 icon = ExtResource("2_k6hur")
 image = ExtResource("2_k6hur")
-columns = 1
+columns = 2
 rows = 3
 material = ExtResource("3_56ne2")
 shader_params = Dictionary[String, Variant]({})

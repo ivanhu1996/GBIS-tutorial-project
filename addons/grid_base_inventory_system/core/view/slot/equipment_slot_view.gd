@@ -136,8 +136,10 @@ func _on_item_equipped(slot_name: String, item_data: ItemData):
 	_item_view = _draw_item(item_data)
 	_item_container.add_child(_item_view)
 	_state = State.NORMAL
-	eq_color =item_data.RARITY_COLORS[item_data.rarity]
-	_state = State.EQUIPPED
+	#if item_data is (D4EquipmentData or D4ItemData):
+	if item_data is D4EquipmentData or (item_data is D4ItemData) :
+		eq_color =item_data.RARITY_COLORS[item_data.rarity]
+		_state = State.EQUIPPED
 	queue_redraw()
 
 ## 监听脱装备

@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://kmxc327tr517"
+path="res://.godot/imported/Mace2H.tpsheet-7e27cce3dc6bd527599429f31d4bbe11.res"
+
+[deps]
+
+files=["res://assets/images/gear/Mace2H.sprites/1.tres", "res://assets/images/gear/Mace2H.sprites/12.tres", "res://assets/images/gear/Mace2H.sprites/13.tres", "res://assets/images/gear/Mace2H.sprites/2.tres", "res://assets/images/gear/Mace2H.sprites/3.tres", "res://assets/images/gear/Mace2H.sprites/4.tres", "res://assets/images/gear/Mace2H.sprites/5.tres", "res://assets/images/gear/Mace2H.sprites/6.tres", "res://assets/images/gear/Mace2H.sprites/7.tres", "res://assets/images/gear/Mace2H.sprites/8.tres", "res://assets/images/gear/Mace2H.sprites/9.tres"]
+
+source_file="res://assets/images/gear/Mace2H.tpsheet"
+dest_files=["res://.godot/imported/Mace2H.tpsheet-7e27cce3dc6bd527599429f31d4bbe11.res", "res://assets/images/gear/Mace2H.sprites/1.tres", "res://assets/images/gear/Mace2H.sprites/12.tres", "res://assets/images/gear/Mace2H.sprites/13.tres", "res://assets/images/gear/Mace2H.sprites/2.tres", "res://assets/images/gear/Mace2H.sprites/3.tres", "res://assets/images/gear/Mace2H.sprites/4.tres", "res://assets/images/gear/Mace2H.sprites/5.tres", "res://assets/images/gear/Mace2H.sprites/6.tres", "res://assets/images/gear/Mace2H.sprites/7.tres", "res://assets/images/gear/Mace2H.sprites/8.tres", "res://assets/images/gear/Mace2H.sprites/9.tres"]
+
+[params]
+

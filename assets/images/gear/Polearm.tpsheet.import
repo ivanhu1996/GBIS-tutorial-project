@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://cu1hvtyo8qua4"
+path="res://.godot/imported/Polearm.tpsheet-b3b11deac9a591667aa8a275ed8d5b97.res"
+
+[deps]
+
+files=["res://assets/images/gear/Polearm.sprites/1.tres", "res://assets/images/gear/Polearm.sprites/2.tres", "res://assets/images/gear/Polearm.sprites/3.tres", "res://assets/images/gear/Polearm.sprites/4.tres", "res://assets/images/gear/Polearm.sprites/5.tres"]
+
+source_file="res://assets/images/gear/Polearm.tpsheet"
+dest_files=["res://.godot/imported/Polearm.tpsheet-b3b11deac9a591667aa8a275ed8d5b97.res", "res://assets/images/gear/Polearm.sprites/1.tres", "res://assets/images/gear/Polearm.sprites/2.tres", "res://assets/images/gear/Polearm.sprites/3.tres", "res://assets/images/gear/Polearm.sprites/4.tres", "res://assets/images/gear/Polearm.sprites/5.tres"]
+
+[params]
+

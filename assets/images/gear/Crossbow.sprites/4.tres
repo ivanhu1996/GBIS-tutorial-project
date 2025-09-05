@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://blmdvw07rgwg1"]
+
+[ext_resource type="Texture2D" uid="uid://d200vo80pwmxw" path="res://assets/images/gear/Crossbow.png" id="1_psex5"]
+
+[resource]
+atlas = ExtResource("1_psex5")
+region = Rect2(768, 0, 256, 256)

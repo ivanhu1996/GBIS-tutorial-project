@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://7cgg15avh0n5"
+path="res://.godot/imported/Axe.tpsheet-9786bc4cf7f2a48dd8a65bcd7c91249f.res"
+
+[deps]
+
+files=["res://assets/images/gear/Axe.sprites/17.tres", "res://assets/images/gear/Axe.sprites/18.tres", "res://assets/images/gear/Axe.sprites/19.tres", "res://assets/images/gear/Axe.sprites/42.tres", "res://assets/images/gear/Axe.sprites/43.tres"]
+
+source_file="res://assets/images/gear/Axe.tpsheet"
+dest_files=["res://.godot/imported/Axe.tpsheet-9786bc4cf7f2a48dd8a65bcd7c91249f.res", "res://assets/images/gear/Axe.sprites/17.tres", "res://assets/images/gear/Axe.sprites/18.tres", "res://assets/images/gear/Axe.sprites/19.tres", "res://assets/images/gear/Axe.sprites/42.tres", "res://assets/images/gear/Axe.sprites/43.tres"]
+
+[params]
+

@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Gem" load_steps=4 format=3 uid="uid://c8dmatctg2iyn"]
+
+[ext_resource type="Texture2D" uid="uid://dee83vexb4iqj" path="res://GBIS_demos/assets/test_item_icons/jewel.png" id="1_o4ng1"]
+[ext_resource type="Material" uid="uid://du4t05r3sodcb" path="res://GBIS_demos/materials/equipment_glow.tres" id="2_dxp6f"]
+[ext_resource type="Script" uid="uid://gehb0e35we2e" path="res://scripts/item_data/D4_gem.gd" id="3_podk7"]
+
+[resource]
+script = ExtResource("3_podk7")
+gemtype = 0
+quality = 0
+description = ""
+quantity = 1
+stackable = true
+value = 1
+rarity = 0
+tier = 0
+level_requirement = 1
+tradable = true
+salvageable = true
+is_account_bound = false
+class_restrictions = 0
+item_name = "Bless Jewel"
+type = "JEWEL"
+icon = ExtResource("1_o4ng1")
+image = ExtResource("1_o4ng1")
+columns = 1
+rows = 1
+material = ExtResource("2_dxp6f")
+shader_params = Dictionary[String, Variant]({})
+socket_num = 1
+metadata/_custom_type_script = "uid://bm5efdrlci0qk"

@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://bjyrtcarafu7u"
+path="res://.godot/imported/Dagger.tpsheet-2b035d1aa70f74f8d0de17c096f105e6.res"
+
+[deps]
+
+files=["res://assets/images/gear/Dagger.sprites/DAGGER 1.tres", "res://assets/images/gear/Dagger.sprites/DAGGER 10.tres", "res://assets/images/gear/Dagger.sprites/DAGGER 2.tres", "res://assets/images/gear/Dagger.sprites/DAGGER 3.tres", "res://assets/images/gear/Dagger.sprites/DAGGER 4.tres", "res://assets/images/gear/Dagger.sprites/DAGGER 5.tres", "res://assets/images/gear/Dagger.sprites/DAGGER 6.tres", "res://assets/images/gear/Dagger.sprites/DAGGER 7.tres", "res://assets/images/gear/Dagger.sprites/DAGGER 8.tres", "res://assets/images/gear/Dagger.sprites/DAGGER 9.tres"]
+
+source_file="res://assets/images/gear/Dagger.tpsheet"
+dest_files=["res://.godot/imported/Dagger.tpsheet-2b035d1aa70f74f8d0de17c096f105e6.res", "res://assets/images/gear/Dagger.sprites/DAGGER 1.tres", "res://assets/images/gear/Dagger.sprites/DAGGER 10.tres", "res://assets/images/gear/Dagger.sprites/DAGGER 2.tres", "res://assets/images/gear/Dagger.sprites/DAGGER 3.tres", "res://assets/images/gear/Dagger.sprites/DAGGER 4.tres", "res://assets/images/gear/Dagger.sprites/DAGGER 5.tres", "res://assets/images/gear/Dagger.sprites/DAGGER 6.tres", "res://assets/images/gear/Dagger.sprites/DAGGER 7.tres", "res://assets/images/gear/Dagger.sprites/DAGGER 8.tres", "res://assets/images/gear/Dagger.sprites/DAGGER 9.tres"]
+
+[params]
+

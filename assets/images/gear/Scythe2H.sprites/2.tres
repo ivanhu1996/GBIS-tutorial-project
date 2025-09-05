@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://ctbii0qr6p2c1"]
+
+[ext_resource type="Texture2D" uid="uid://dtl61tugrq2s4" path="res://assets/images/gear/Scythe2H.png" id="1_brpoc"]
+
+[resource]
+atlas = ExtResource("1_brpoc")
+region = Rect2(256, 0, 256, 256)

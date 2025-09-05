@@ -3,7 +3,7 @@ class_name Tooltip extends Control
 
 @export var color: Color
 @export var item: ItemData
-
+@export var equipped_state : bool
 @onready var equipped_plate: Control = %EquippedPlate
 #@onready var info_container: MarginContainer = %InfoContainer
 @onready var info_container: Panel = %InfoContainer
@@ -30,7 +30,6 @@ class_name Tooltip extends Control
 @onready var gradient_rect: NinePatchRect = %GradientRect
 @onready var border_rect: NinePatchRect = %BorderRect
 
-var rotate_shader: ShaderMaterial = preload("res://assets/images/gear/Rotate_shader.tres")
 	
 @onready var node_map: Dictionary = {
 	"item_name": item_name,
@@ -55,7 +54,7 @@ var overlay_shader: ShaderMaterial = preload("res://scenes/UI/shader/color_overl
 var string_templates: Dictionary:
 	get:
 		return {
-			"item_name": "{item_name}{qty_string}",
+			"item_name": "[b]{item_name}{qty_string}[/b]",
 			"category": "{compound_category}",
 			"power": "{base_power}{bonus_power_string} Item Power",
 			"upgrades": "[b]Upgrades[/b]: {current_upgrades}/{max_upgrades}",
@@ -136,13 +135,13 @@ func _update_tooltip_values() -> void:
 	if !item:
 		return
 	icon_texture.texture = (item as D4EquipmentData).image
-	print((item as D4EquipmentData).image.get_size())
-	var icon_texture_mat = rotate_shader.duplicate() as ShaderMaterial
-	icon_texture_mat.set_shader_parameter("angle_deg", 0)
-	icon_texture_mat.set_shader_parameter("rotation_deg", -45)
-	icon_texture_mat.set_shader_parameter("atlas_tex", Weapon.WEAPON_TEXTURE)
-	icon_texture_mat.set_shader_parameter("tile_index", Vector2(item.icon_index % 4, item.icon_index / 4))
-	icon_texture.material=icon_texture_mat
+	#print((item as D4EquipmentData).image.get_size())
+	#var icon_texture_mat = rotate_shader.duplicate() as ShaderMaterial
+	#icon_texture_mat.set_shader_parameter("angle_deg", 0)
+	#icon_texture_mat.set_shader_parameter("rotation_deg", -45)
+	#icon_texture_mat.set_shader_parameter("atlas_tex", Weapon.WEAPON_TEXTURE)
+	#icon_texture_mat.set_shader_parameter("tile_index", Vector2(item.icon_index % 4, item.icon_index / 4))
+	#icon_texture.material=icon_texture_mat
 	#
 	var mat = overlay_shader.duplicate() as ShaderMaterial
 	var col = MyD4EquipmentData.RARITY_COLORS[item.rarity]
@@ -175,9 +174,10 @@ func _update_tooltip_values() -> void:
 							node.visible = !item.tradable
 						"class_identifier":
 							node.visible = item.class_restrictions != 0
-	var last_node = stat
-	if item is MyD4EquipmentData:
+	var last_node = affix
+	if item is D4EquipmentData:
 		for _affix in item.affixes:
+			#print(_affix.label)
 			var affix_node = affix.duplicate()
 			affix_node.text = _affix.label
 			last_node.add_sibling(affix_node)
@@ -190,13 +190,41 @@ func _update_tooltip_values() -> void:
 		MyD4EquipmentData.Category.Weapon, MyD4EquipmentData.Category.Armor, MyD4EquipmentData.Category.Jewelry:
 			for i in item.sockets:
 				var socket = SOCKET_CONTAINER.instantiate()
+				var socket_label = "Empty Socket"
 				if item.socketed.size() > i:
 					var gem: Gem = item.socketed[i] as Gem
 					if gem:
 						socket.item = gem
-				last_node.add_sibling(socket)
-				last_node = socket
-	equipped_plate.visible = item is MyD4EquipmentData and item.equipped_state
+						socket_label = gem._get_compound_category()
+						#print(gem._get_compound_category())
+						#print(gem.quality)
+						#print(gem._get_type())
+				var hbox := HBoxContainer.new()
+				# 可选：设置属性（比如间距）
+				hbox.alignment = BoxContainer.ALIGNMENT_BEGIN
+				hbox.add_theme_constant_override("separation", 10) # 控件之间的间距
+				last_node.add_sibling(hbox)
+				last_node = hbox
+				var gem_control :=Control.new()
+				gem_control.add_child(socket)
+				gem_control.custom_minimum_size = socket.custom_minimum_size
+				#gem_control.size_flags_vertical = Control.SIZE_EXPAND_FILL
+				#gem_control.size_flags_horizontal = Control.SIZE_EXPAND
+				last_node.add_child(gem_control)
+				var template_label: RichTextLabel = affix
+				var richtext : RichTextLabel = template_label.duplicate() as RichTextLabel
+				richtext.bbcode_enabled = true
+				#var template: String = string_templates.get("socket_label", "")
+				#richtext.bbcode_text = template.format(item_tokens)
+				richtext.bbcode_text = "{gem_compound_category}".format({
+				"gem_compound_category": "%s " % socket_label
+				})
+				richtext.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+				richtext.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+				last_node.add_child(richtext)
+				
+				#last_node = socket
+	equipped_plate.visible = item is MyD4EquipmentData and equipped_state
 	info_container.force_update_transform()
 	bg.set_deferred("size", Vector2(bg.size.x, info_container.get_rect().size.y))
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dxfjqqw5p4u3d"]
+[gd_scene load_steps=40 format=3 uid="uid://dxfjqqw5p4u3d"]
 
 [ext_resource type="Script" uid="uid://dw3s4qq0no634" path="res://scenes/DIABLO_UI/character_ui.gd" id="1_2enax"]
 [ext_resource type="Texture2D" uid="uid://bid8iloibhemn" path="res://assets/images/border.png" id="1_k4kj5"]
@@ -23,9 +23,6 @@
 [ext_resource type="Texture2D" uid="uid://cx3mgwntfgwpa" path="res://assets/images/BLUE.png" id="17_i08x5"]
 [ext_resource type="PackedScene" uid="uid://bmtorijdfu4jh" path="res://GBIS_demos/item_info/item_info.tscn" id="19_m7nlj"]
 [ext_resource type="Script" uid="uid://dsp3biipoei5l" path="res://GBIS_demos/item_info/tooltip_info.gd" id="23_rpogk"]
-[ext_resource type="Material" uid="uid://cbrxjrj4m7kof" path="res://assets/images/gear/Rotate_shader.tres" id="24_5hfxl"]
-[ext_resource type="Texture2D" uid="uid://y2pom1wga0gp" path="res://assets/images/gear/sword.png" id="25_xqfjt"]
-[ext_resource type="Script" uid="uid://b31awg3ga22n2" path="res://scenes/DIABLO_UI/test_rotate.gd" id="26_xqfjt"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_p16xu"]
 noise_type = 3
@@ -100,14 +97,13 @@ height = 256
 color_ramp = SubResource("Gradient_t0dra")
 noise = SubResource("FastNoiseLite_c7i4m")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xqfjt"]
-atlas = ExtResource("25_xqfjt")
-
 [node name="CharacterUi" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 450.0
-offset_bottom = 648.0
+offset_left = 1043.0
+offset_top = 9.0
+offset_right = 1911.0
+offset_bottom = 973.0
 script = ExtResource("1_2enax")
 items = Array[ExtResource("2_rpogk")]([ExtResource("8_xqfjt"), ExtResource("4_abojl")])
 
@@ -353,6 +349,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0862745, 0.129412, 0.0980392, 1)
@@ -383,132 +381,194 @@ layout_mode = 2
 [node name="Equipment" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
 
-[node name="Armor" type="VBoxContainer" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.00671141
-anchor_top = 0.0446927
-anchor_right = 0.224832
-anchor_bottom = 0.748603
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
 
-[node name="Helmet" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/Armor"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer"]
 layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Helmet" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Helmet" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Helmet"]
+anchors_preset = 0
+offset_right = 80.0
+offset_bottom = 80.0
+size_flags_horizontal = 4
 size_flags_vertical = 3
 script = ExtResource("9_41rhr")
 slot_name = "Helmet"
+base_size = 40
 background = ExtResource("10_u1krr")
 avilable_types = Array[String](["HELMET"])
 metadata/_custom_type_script = "uid://dg6xjko3rdcta"
+metadata/_edit_use_anchors_ = true
 
-[node name="Cape" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/Armor"]
+[node name="Cap" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Cape" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Cap"]
+anchors_preset = 0
+offset_right = 80.0
+offset_bottom = 80.0
 size_flags_vertical = 3
 script = ExtResource("9_41rhr")
 slot_name = "Cape"
+base_size = 40
 background = ExtResource("10_u1krr")
 avilable_types = Array[String](["CAPE"])
 metadata/_custom_type_script = "uid://dg6xjko3rdcta"
 
-[node name="EquipmentSlotView3" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/Armor"]
+[node name="Pants" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Pants" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Pants"]
+anchors_preset = 0
+offset_right = 80.0
+offset_bottom = 80.0
 size_flags_vertical = 3
 script = ExtResource("9_41rhr")
 slot_name = "Pants"
+base_size = 40
 background = ExtResource("10_u1krr")
 avilable_types = Array[String](["Pants"])
 metadata/_custom_type_script = "uid://dg6xjko3rdcta"
+metadata/_edit_use_anchors_ = true
 
-[node name="Shoes" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/Armor"]
+[node name="Shoes" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="Shoes" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Shoes"]
+anchors_preset = 0
+offset_right = 80.0
+offset_bottom = 80.0
+size_flags_vertical = 3
 script = ExtResource("9_41rhr")
-slot_name = "BOOTS1"
+slot_name = "Boots"
+base_size = 40
 background = ExtResource("11_u1krr")
 avilable_types = Array[String](["BOOTS"])
 metadata/_custom_type_script = "uid://dg6xjko3rdcta"
 
-[node name="Jewelry" type="VBoxContainer" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.00671141
-anchor_top = -0.00558659
-anchor_right = 0.993289
-anchor_bottom = 0.994413
-offset_left = 235.0
-offset_top = 61.0
-offset_right = 1.0
-offset_bottom = -75.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="Jewel" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/Jewelry"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Jewel" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Jewel" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Jewel"]
+anchors_preset = 0
+offset_right = 96.0
+offset_bottom = 96.0
 size_flags_vertical = 3
 script = ExtResource("9_41rhr")
 slot_name = "Jewel1"
+base_size = 48
 background = ExtResource("10_u1krr")
 avilable_types = Array[String](["JEWEL"])
 metadata/_custom_type_script = "uid://dg6xjko3rdcta"
 
-[node name="Jewel2" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/Jewelry"]
+[node name="Jewel2" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Jewel2" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Jewel2"]
+anchors_preset = 0
+offset_right = 96.0
+offset_bottom = 96.0
 size_flags_vertical = 3
 script = ExtResource("9_41rhr")
 slot_name = "Jewel2"
+base_size = 48
 background = ExtResource("10_u1krr")
 avilable_types = Array[String](["JEWEL"])
 metadata/_custom_type_script = "uid://dg6xjko3rdcta"
 
-[node name="Jewel3" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/Jewelry"]
+[node name="Jewel3" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Jewel3" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Jewel3"]
+anchors_preset = 0
+offset_right = 96.0
+offset_bottom = 96.0
 size_flags_vertical = 3
 script = ExtResource("9_41rhr")
 slot_name = "Jewel3"
+base_size = 48
 background = ExtResource("10_u1krr")
 avilable_types = Array[String](["JEWEL"])
 metadata/_custom_type_script = "uid://dg6xjko3rdcta"
 
-[node name="Weapons" type="HBoxContainer" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.826425
-anchor_right = 0.999925
-anchor_bottom = 1.00218
-offset_right = -4.9776
-offset_bottom = 0.15863
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.01699, 0.997667)
-theme_override_constants/separation = 165
-metadata/_edit_use_anchors_ = true
-
-[node name="MainHand" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/Weapons"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MainHand" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer2/Control"]
+anchors_preset = 0
+offset_right = 80.0
+offset_bottom = 120.0
 size_flags_horizontal = 3
 script = ExtResource("9_41rhr")
 slot_name = "MainHand"
-base_size = 16
-columns = 4
-rows = 4
+base_size = 40
+rows = 3
 background = ExtResource("12_ehknv")
-avilable_types = Array[String](["SWORD", "Axe", "Bow", "CrossBow", "Dagger"])
+avilable_types = Array[String](["Sword", "Axe", "Bow", "CrossBow", "Dagger"])
 metadata/_custom_type_script = "uid://dg6xjko3rdcta"
+metadata/_edit_use_anchors_ = true
 
-[node name="OffHand" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/Weapons"]
+[node name="Control2" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 120)
 layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="OffHand" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer2/Control2"]
+anchors_preset = 0
+offset_right = 80.0
+offset_bottom = 120.0
 size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("9_41rhr")
 slot_name = "OffHand"
-base_size = 16
-columns = 4
-rows = 4
+base_size = 40
+rows = 3
 background = ExtResource("12_ehknv")
 avilable_types = Array[String](["SHIELD"])
 metadata/_custom_type_script = "uid://dg6xjko3rdcta"
+metadata/_edit_use_anchors_ = true
 
 [node name="Level" type="Control" parent="MarginContainer/Sections/CharacterDetails"]
 anchors_preset = 0
@@ -571,8 +631,8 @@ layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("13_rr45o")
 container_name = "inv_test"
-container_columns = 16
-container_rows = 7
+container_columns = 31
+container_rows = 12
 base_size = 28
 gird_background_color_empty = Color(0, 0.027451, 0, 1)
 metadata/_custom_type_script = "uid://b3x4mwtjmm4tp"
@@ -632,10 +692,10 @@ offset_bottom = 195.0
 
 [node name="ButtonAddTestItems" type="Button" parent="."]
 layout_mode = 0
-offset_left = 489.0
-offset_top = 34.0
-offset_right = 612.0
-offset_bottom = 65.0
+offset_left = -231.0
+offset_top = 163.0
+offset_right = -108.0
+offset_bottom = 194.0
 text = "Add Test Items"
 
 [node name="Control" type="Control" parent="."]
@@ -643,17 +703,5 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("23_rpogk")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-visible = false
-material = ExtResource("24_5hfxl")
-layout_mode = 1
-offset_left = -23.0
-offset_top = 420.0
-offset_right = 50.0
-offset_bottom = 493.0
-texture = SubResource("AtlasTexture_xqfjt")
-expand_mode = 3
-script = ExtResource("26_xqfjt")
 
 [connection signal="pressed" from="ButtonAddTestItems" to="." method="_on_button_add_test_items_pressed"]

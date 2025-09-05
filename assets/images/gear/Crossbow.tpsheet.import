@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://dte8jdpcyapaf"
+path="res://.godot/imported/Crossbow.tpsheet-daf8ae5278dd514c3e012414396a9cf8.res"
+
+[deps]
+
+files=["res://assets/images/gear/Crossbow.sprites/1.tres", "res://assets/images/gear/Crossbow.sprites/2.tres", "res://assets/images/gear/Crossbow.sprites/3.tres", "res://assets/images/gear/Crossbow.sprites/4.tres"]
+
+source_file="res://assets/images/gear/Crossbow.tpsheet"
+dest_files=["res://.godot/imported/Crossbow.tpsheet-daf8ae5278dd514c3e012414396a9cf8.res", "res://assets/images/gear/Crossbow.sprites/1.tres", "res://assets/images/gear/Crossbow.sprites/2.tres", "res://assets/images/gear/Crossbow.sprites/3.tres", "res://assets/images/gear/Crossbow.sprites/4.tres"]
+
+[params]
+

@@ -1,0 +1,168 @@
+{
+	"textures": [
+		{
+			"image": "Dagger.png",
+			"size": {
+				"w": 192,
+				"h": 144
+			},
+			"sprites": [
+				{
+					"filename": "DAGGER 1.png",
+					"region": {
+						"x": 0,
+						"y": 0,
+						"w": 48,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "DAGGER 10.png",
+					"region": {
+						"x": 0,
+						"y": 48,
+						"w": 48,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "DAGGER 2.png",
+					"region": {
+						"x": 0,
+						"y": 96,
+						"w": 48,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "DAGGER 3.png",
+					"region": {
+						"x": 48,
+						"y": 0,
+						"w": 48,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "DAGGER 4.png",
+					"region": {
+						"x": 96,
+						"y": 0,
+						"w": 48,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "DAGGER 5.png",
+					"region": {
+						"x": 144,
+						"y": 0,
+						"w": 48,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "DAGGER 6.png",
+					"region": {
+						"x": 48,
+						"y": 48,
+						"w": 48,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "DAGGER 7.png",
+					"region": {
+						"x": 48,
+						"y": 96,
+						"w": 48,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "DAGGER 8.png",
+					"region": {
+						"x": 96,
+						"y": 48,
+						"w": 48,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				},
+				{
+					"filename": "DAGGER 9.png",
+					"region": {
+						"x": 144,
+						"y": 48,
+						"w": 48,
+						"h": 48
+					},
+					"margin": {
+						"x": 0,
+						"y": 0,
+						"w": 0,
+						"h": 0
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "http://free-tex-packer.com",
+		"version": "0.6.7",
+		"format": "RGBA8888",
+	}
+}

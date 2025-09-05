@@ -13,4 +13,5 @@ columns = 2
 rows = 2
 material = ExtResource("2_8ux6s")
 shader_params = Dictionary[String, Variant]({})
+socket_num = 1
 metadata/_custom_type_script = "uid://c81d67advvltj"

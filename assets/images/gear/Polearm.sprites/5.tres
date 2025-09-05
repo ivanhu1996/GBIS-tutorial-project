@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://6udu3gxbapi0"]
+
+[ext_resource type="Texture2D" uid="uid://c7pgkxhe4tm5g" path="res://assets/images/gear/Polearm.png" id="1_r5b0e"]
+
+[resource]
+atlas = ExtResource("1_r5b0e")
+region = Rect2(0, 256, 256, 256)

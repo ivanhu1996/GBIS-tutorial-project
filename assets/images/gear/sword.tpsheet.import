@@ -3,14 +3,14 @@
 importer="codeandweb.texturepacker_import_spritesheet"
 type="Resource"
 uid="uid://cc88mlpojlsr3"
-path="res://.godot/imported/sword.tpsheet-2b8b1ca65b205aa1326b75961eabd9cc.res"
+path="res://.godot/imported/Sword.tpsheet-2dfae30098fa6b3d769d11f06c37c135.res"
 
 [deps]
 
-files=["res://assets/images/gear/sword.sprites/1.tres", "res://assets/images/gear/sword.sprites/10.tres", "res://assets/images/gear/sword.sprites/11.tres", "res://assets/images/gear/sword.sprites/12.tres", "res://assets/images/gear/sword.sprites/13.tres", "res://assets/images/gear/sword.sprites/14.tres", "res://assets/images/gear/sword.sprites/15.tres", "res://assets/images/gear/sword.sprites/2.tres", "res://assets/images/gear/sword.sprites/3.tres", "res://assets/images/gear/sword.sprites/4.tres", "res://assets/images/gear/sword.sprites/5.tres", "res://assets/images/gear/sword.sprites/6.tres", "res://assets/images/gear/sword.sprites/7.tres", "res://assets/images/gear/sword.sprites/8.tres", "res://assets/images/gear/sword.sprites/9.tres"]
+files=["res://assets/images/gear/Sword.sprites/1.tres", "res://assets/images/gear/Sword.sprites/10.tres", "res://assets/images/gear/Sword.sprites/11.tres", "res://assets/images/gear/Sword.sprites/12.tres", "res://assets/images/gear/Sword.sprites/13.tres", "res://assets/images/gear/Sword.sprites/14.tres", "res://assets/images/gear/Sword.sprites/15.tres", "res://assets/images/gear/Sword.sprites/2.tres", "res://assets/images/gear/Sword.sprites/3.tres", "res://assets/images/gear/Sword.sprites/4.tres", "res://assets/images/gear/Sword.sprites/5.tres", "res://assets/images/gear/Sword.sprites/6.tres", "res://assets/images/gear/Sword.sprites/7.tres", "res://assets/images/gear/Sword.sprites/8.tres", "res://assets/images/gear/Sword.sprites/9.tres"]
 
-source_file="res://assets/images/gear/sword.tpsheet"
-dest_files=["res://.godot/imported/sword.tpsheet-2b8b1ca65b205aa1326b75961eabd9cc.res", "res://assets/images/gear/sword.sprites/1.tres", "res://assets/images/gear/sword.sprites/10.tres", "res://assets/images/gear/sword.sprites/11.tres", "res://assets/images/gear/sword.sprites/12.tres", "res://assets/images/gear/sword.sprites/13.tres", "res://assets/images/gear/sword.sprites/14.tres", "res://assets/images/gear/sword.sprites/15.tres", "res://assets/images/gear/sword.sprites/2.tres", "res://assets/images/gear/sword.sprites/3.tres", "res://assets/images/gear/sword.sprites/4.tres", "res://assets/images/gear/sword.sprites/5.tres", "res://assets/images/gear/sword.sprites/6.tres", "res://assets/images/gear/sword.sprites/7.tres", "res://assets/images/gear/sword.sprites/8.tres", "res://assets/images/gear/sword.sprites/9.tres"]
+source_file="res://assets/images/gear/Sword.tpsheet"
+dest_files=["res://.godot/imported/Sword.tpsheet-2dfae30098fa6b3d769d11f06c37c135.res", "res://assets/images/gear/Sword.sprites/1.tres", "res://assets/images/gear/Sword.sprites/10.tres", "res://assets/images/gear/Sword.sprites/11.tres", "res://assets/images/gear/Sword.sprites/12.tres", "res://assets/images/gear/Sword.sprites/13.tres", "res://assets/images/gear/Sword.sprites/14.tres", "res://assets/images/gear/Sword.sprites/15.tres", "res://assets/images/gear/Sword.sprites/2.tres", "res://assets/images/gear/Sword.sprites/3.tres", "res://assets/images/gear/Sword.sprites/4.tres", "res://assets/images/gear/Sword.sprites/5.tres", "res://assets/images/gear/Sword.sprites/6.tres", "res://assets/images/gear/Sword.sprites/7.tres", "res://assets/images/gear/Sword.sprites/8.tres", "res://assets/images/gear/Sword.sprites/9.tres"]
 
 [params]
 

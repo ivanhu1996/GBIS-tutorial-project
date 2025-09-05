@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bljuxiopns33l"]
+[gd_scene load_steps=15 format=3 uid="uid://bljuxiopns33l"]
 
 [ext_resource type="Script" uid="uid://cebuhnsvj5uyd" path="res://GBIS_demos/item_info/tooltip.gd" id="1_k4ckj"]
 [ext_resource type="Texture2D" uid="uid://v7tn5c4o2uw5" path="res://assets/images/icons/Snipaste_2025-08-19_20-26-38.png" id="2_bokhc"]
@@ -6,8 +6,9 @@
 [ext_resource type="Script" uid="uid://dx7kunearvul8" path="res://GBIS_demos/item_info/info_container.gd" id="3_o4si3"]
 [ext_resource type="Texture2D" uid="uid://c6dy37w3rd8r2" path="res://assets/images/ninepatch_border_gray.png" id="4_hou50"]
 [ext_resource type="Shader" uid="uid://dqpykp0mu3gec" path="res://scenes/UI/shaderseparator.gdshader" id="6_aq11m"]
-[ext_resource type="FontFile" uid="uid://bevdb405m6gmc" path="res://scenes/UI/fonts/coolvetica condensed rg.ttf" id="6_hb34q"]
+[ext_resource type="FontFile" uid="uid://qjtruiwobwuo" path="res://scenes/UI/fonts/FiraSans-Bold.otf" id="6_hb34q"]
 [ext_resource type="Texture2D" uid="uid://beqqpxokjrf8y" path="res://assets/images/icons/small_sword.png" id="6_k3rqd"]
+[ext_resource type="FontFile" uid="uid://bavk7rtmh6qbo" path="res://scenes/UI/fonts/FiraSans-Book.otf" id="7_1kp2m"]
 [ext_resource type="Texture2D" uid="uid://bwi8i5nrtqm2s" path="res://assets/images/gold.png" id="7_1lq63"]
 
 [sub_resource type="Gradient" id="Gradient_o4si3"]
@@ -18,35 +19,6 @@ colors = PackedColorArray(0.136826, 0.136826, 0.136826, 1, 0.435192, 0.435192, 0
 gradient = SubResource("Gradient_o4si3")
 fill_from = Vector2(0.782051, 0.884615)
 fill_to = Vector2(0.777778, 0)
-
-[sub_resource type="Shader" id="Shader_2xye1"]
-code = "shader_type canvas_item;
-
-uniform float angle_deg : hint_range(-180, 180) = 0;
-
-void fragment() {
-    float angle = radians(angle_deg);
-    vec2 center = vec2(0.5);
-    vec2 uv = UV - center;
-
-    float c = cos(angle);
-    float s = sin(angle);
-    mat2 rot = mat2(vec2(c,s), vec2(-s,c));
-
-    uv = rot * uv + center;
-
-    vec4 col = texture(TEXTURE, uv);
-
-    if(uv.x < 0.0 || uv.x > 1.0 || uv.y < 0.0 || uv.y > 1.0) {
-        col = vec4(0.0);
-    }
-
-    COLOR = col;
-}"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hb34q"]
-shader = SubResource("Shader_2xye1")
-shader_parameter/angle_deg = -45.0
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_em57s"]
 color = Color(0.972549, 0, 0, 1)
@@ -229,7 +201,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
-theme_override_font_sizes/normal_font_size = 20
+theme_override_fonts/bold_font = ExtResource("6_hb34q")
+theme_override_font_sizes/bold_font_size = 25
+bbcode_enabled = true
 text = "Phoenix Sword of Sacred Redemption "
 vertical_alignment = 1
 
@@ -251,7 +225,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
-theme_override_font_sizes/normal_font_size = 20
+theme_override_fonts/normal_font = ExtResource("7_1kp2m")
+theme_override_font_sizes/normal_font_size = 25
 text = "367+5 Item Power"
 vertical_alignment = 1
 
@@ -271,7 +246,6 @@ vertical_alignment = 1
 
 [node name="IconTexture" type="TextureRect" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
-material = SubResource("ShaderMaterial_hb34q")
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -298,7 +272,7 @@ color = Color(1, 0.00999999, 0.00999999, 1)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.02
-theme_override_constants/margin_left = 80
+theme_override_constants/margin_left = 60
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 50
 
@@ -313,8 +287,6 @@ size_flags_horizontal = 3
 
 [node name="Stat" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(444, 75)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -330,20 +302,18 @@ vertical_alignment = 1
 
 [node name="Affix" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(444, 75)
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 theme_override_constants/line_separation = 20
 theme_override_font_sizes/normal_font_size = 20
-text = "+32 Dexterity
-+44 Intelligence
-+7.72% Attack Speed
-+7.39% Damage"
 fit_content = true
 vertical_alignment = 1
+
+[node name="GemContainer" type="HBoxContainer" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
 
 [node name="Description" type="RichTextLabel" parent="VBoxContainer/InfoPanel/InfoContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -457,6 +427,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 size_flags_stretch_ratio = 2.0
 theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
 text = "Sell Value: 7000"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -475,6 +446,7 @@ size_flags_horizontal = 8
 size_flags_vertical = 6
 size_flags_stretch_ratio = 2.0
 theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
 text = "Durability: 100/100"
 horizontal_alignment = 3
 vertical_alignment = 1

@@ -128,7 +128,8 @@ static var AFFIX_COUNTS: Dictionary = {
 @export var durability: int = 100
 @export var max_durability: int = 100
 
-var affixes: Array[Affix] = [
+@export var affixes_data: Array[AffixResource] = []
+@export var affixes: Array[Affix] = [
 ]
 
 var breakpoint_tier: int:

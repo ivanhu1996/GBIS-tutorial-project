@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bf2adiwr01bxa"]
+
+[ext_resource type="Texture2D" uid="uid://bno6v3o1ielgq" path="res://assets/images/gear/hammer.png" id="1_ldnim"]
+
+[resource]
+atlas = ExtResource("1_ldnim")
+region = Rect2(768, 0, 256, 256)

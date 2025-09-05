@@ -12,7 +12,7 @@ func _ready() -> void:
 			item_name_label.text = "[Shop] %s" % item_data.item_name
 		else:
 			item_name_label.text = item_data.item_name
-			item_attribute.text = item_data.compound_category
+			#item_attribute.text = item_data.compound_category
 			)
 	GBIS.sig_item_focus_lost.connect(func(_item_data: ItemData): hide())
 	

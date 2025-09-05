@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://clsyqfiaoojtw"
+path="res://.godot/imported/Wand.tpsheet-002384935f2d6fdeb3f1181bc075741f.res"
+
+[deps]
+
+files=["res://assets/images/gear/Wand.sprites/1.tres", "res://assets/images/gear/Wand.sprites/2.tres", "res://assets/images/gear/Wand.sprites/3.tres", "res://assets/images/gear/Wand.sprites/4.tres", "res://assets/images/gear/Wand.sprites/5.tres", "res://assets/images/gear/Wand.sprites/6.tres"]
+
+source_file="res://assets/images/gear/Wand.tpsheet"
+dest_files=["res://.godot/imported/Wand.tpsheet-002384935f2d6fdeb3f1181bc075741f.res", "res://assets/images/gear/Wand.sprites/1.tres", "res://assets/images/gear/Wand.sprites/2.tres", "res://assets/images/gear/Wand.sprites/3.tres", "res://assets/images/gear/Wand.sprites/4.tres", "res://assets/images/gear/Wand.sprites/5.tres", "res://assets/images/gear/Wand.sprites/6.tres"]
+
+[params]
+

@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://bbpc0estsbpvf"
+path="res://.godot/imported/Scythe.tpsheet-fba80fa5d36baf60265eccabfe532deb.res"
+
+[deps]
+
+files=["res://assets/images/gear/Scythe.sprites/1.tres", "res://assets/images/gear/Scythe.sprites/2.tres", "res://assets/images/gear/Scythe.sprites/3.tres", "res://assets/images/gear/Scythe.sprites/4.tres", "res://assets/images/gear/Scythe.sprites/5.tres"]
+
+source_file="res://assets/images/gear/Scythe.tpsheet"
+dest_files=["res://.godot/imported/Scythe.tpsheet-fba80fa5d36baf60265eccabfe532deb.res", "res://assets/images/gear/Scythe.sprites/1.tres", "res://assets/images/gear/Scythe.sprites/2.tres", "res://assets/images/gear/Scythe.sprites/3.tres", "res://assets/images/gear/Scythe.sprites/4.tres", "res://assets/images/gear/Scythe.sprites/5.tres"]
+
+[params]
+

@@ -1,7 +1,7 @@
 [gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://b0e1ly4bamu38"]
 
-[ext_resource type="Texture2D" uid="uid://y2pom1wga0gp" path="res://assets/images/gear/sword.png" id="1_la3qw"]
+[ext_resource type="Texture2D" uid="uid://y2pom1wga0gp" path="res://assets/images/gear/sword.png" id="1_tqa17"]
 
 [resource]
-atlas = ExtResource("1_la3qw")
+atlas = ExtResource("1_tqa17")
 region = Rect2(517, 517, 256, 256)

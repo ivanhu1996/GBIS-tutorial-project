@@ -56,7 +56,15 @@ func _init() -> void:
 	
 	
 func _get_compound_category() -> String:
-	return "Gem"
+	var _quality = Quality.keys()[quality]
+	var _gemtype =  _get_type()
+		   
+	return "{quality}{gemtype}".format({
+		"quality": "%s " % _quality ,
+		"gemtype": "%s " % _gemtype ,
+	})
+
+	#return "Gem"
 	
 	
 func _get_type() -> String:

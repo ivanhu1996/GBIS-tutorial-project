@@ -54,24 +54,21 @@ func generate_item(item: MyD4EquipmentData) -> MyD4EquipmentData:
 	match(category):
 		MyD4EquipmentData.Category.Weapon:
 			#item = Weapon.new()
-			print("columns:"+str(item.columns))
 			#item.weapontype = Weapon.Type.values().pick_random()
 			item.weapontype = Weapon.Type.values().pick_random()
-			print(item.weapontype)
+
+			#待补全素材 将武器不限于剑
 			item.weapontype=9
-			atlas.atlas = Weapon.WEAPON_TEXTURE
+			atlas.atlas = Weapon.WEAPON_TEXTURES[item.weapontype]["texture"]
+			var icon_size = Weapon.WEAPON_TEXTURES[item.weapontype]["size"]
+			#get TEXTURES col & row
+			var col = int(atlas.atlas.get_size().x/icon_size.x)
+			var row =int(atlas.atlas.get_size().y/icon_size.y)
+			#atlas.atlas = Weapon.WEAPON_TEXTURE
 			item.icon_index = Weapon.WEAPON_ICONS[item.weapontype].pick_random()
-			
-			print( item.icon_index)
-			print(item.icon_index % 4)
-			print(item.icon_index / 4)
-			#atlas.region = Rect2((i % 4) * 256, (i / 4) * 256, 256, 256)
-			var icon_texture_mat = rotate_shader.duplicate() as ShaderMaterial
-			icon_texture_mat.set_shader_parameter("rotation_deg", -45)
-			icon_texture_mat.set_shader_parameter("atlas_tex", Weapon.WEAPON_TEXTURE)
-			icon_texture_mat.set_shader_parameter("tile_index", Vector2(item.icon_index % 4, item.icon_index / 4))
-			#atlas.region = Rect2((i % 4) * 256, (i / 4) * 256, 256*4, 256*4)
-			#atlas.region = Rect2(3*256, 1*256, 256, 256)
+			atlas.region = Rect2((item.icon_index % col) * icon_size.x, (item.icon_index / col) * icon_size.y, icon_size.x, icon_size.y)
+			#atlas.region = Rect2((item.icon_index % 4) * 256, (item.icon_index / 4) * 256, 256, 256)
+			item.icon=atlas
 			
 		MyD4EquipmentData.Category.Armor:
 			#item = Armor.new()
@@ -80,6 +77,7 @@ func generate_item(item: MyD4EquipmentData) -> MyD4EquipmentData:
 			var i = Armor.ARMOR_ICONS[item.armortype].pick_random()
 			atlas.region = Rect2((i % 8) * 32, (i / 8) * 32, 32, 32)
 	item.image = atlas
+	item.icon=atlas
 	item.item_name = generate_name(item)
 	item.power = randi_range(0, 820)
 	item.value = randi_range(10000, 200000)
@@ -129,24 +127,50 @@ func generate_gem(category: D4ItemData.Category) -> D4ItemData:
 			item.quantity = randi_range(1, 3)
 			return item
 	return item
-	
+
+#func rotate_texture(tex: Texture2D, angle_deg: float) -> Texture2D:
+	## 创建 SubViewport
+	#var vp := SubViewport.new()
+	#vp.disable_3d = true
+	#vp.transparent_bg = true
+	#vp.size = Vector2(tex.get_width(), tex.get_height()) * 2  # 放大避免裁剪
+	#vp.render_target_update_mode = SubViewport.UPDATE_ONCE
+#
+	## 添加 Sprite2D 显示贴图并旋转
+	#var sprite := Sprite2D.new()
+	#sprite.texture = tex
+	#sprite.centered = true
+	#sprite.position = vp.size / 2
+	#sprite.rotation_degrees = angle_deg
+	#vp.add_child(sprite)
+#
+	## 临时挂到场景树渲染
+	#get_tree().root.add_child(vp)
+	#await get_tree().process_frame
+#
+	## 获取渲染结果
+	#var img := vp.get_texture().get_image()
+	#get_tree().root.remove_child(vp)
+#
+	#return ImageTexture.create_from_image(img)
+
 func _on_button_add_test_items_pressed() -> void:
 	for item in items:
 		if randi_range(1, 100) > 50:                      
 			item = item.duplicate()
-			item=generate_item(item)
-			(item as ItemData).shader_params = {"enable_excellent": true,"rarity_color": item.RARITY_COLORS[item.rarity]}
+			item = generate_item(item)
+			(item as ItemData).shader_params = {"enable_excellent": true,"enable_rarity": true,"rarity_color": item.RARITY_COLORS[item.rarity]}
 		else:
 			item = item.duplicate()
-			item=generate_item(item)
-			(item as ItemData).shader_params = {"rarity_color": item.RARITY_COLORS[item.rarity]}
-		print(item.item_name)
-		print(item.compound_category)
-		print(item.class_strings)
-		if item.affixes:
-			for affix in item.affixes:
-				print(affix.label)
-		print("\n")
+			item= generate_item(item)
+			(item as ItemData).shader_params = {"enable_rarity": true,"rarity_color": item.RARITY_COLORS[item.rarity]}
+		#print(item.item_name)
+		#print(item.compound_category)
+		#print(item.class_strings)
+		#if item.affixes:
+			#for affix in item.affixes:
+				##print(affix.label)
+		##print("\n")
 		GBIS.add_item("inv_test", item)
 
 func _on_button_save_pressed() -> void:

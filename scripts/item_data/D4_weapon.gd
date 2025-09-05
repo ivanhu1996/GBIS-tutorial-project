@@ -10,7 +10,7 @@ enum Type {
 	Bow,
 	Crossbow,
 	Dagger,
-	Offhand,
+	#Offhand,
 	Mace,
 	Mace2H,
 	Staff,
@@ -22,25 +22,87 @@ enum Type {
 	Polearm
 }
 
-static var WEAPON_TEXTURE: Texture = preload("res://assets/images/gear/sword.png")
+
+static var WEAPON_TEXTURE: Texture = preload("res://assets/images/gear/Sword.png")
+static var WEAPON_TEXTURES = {
+	Type.Sword: {
+		"texture":preload("res://assets/images/gear/Sword.png"),
+		"size":Vector2(256,256)
+	},
+	Type.Sword2H: {
+		"texture":preload("res://assets/images/gear/Sword2H.png"),
+		"size":Vector2(256,256)
+	},
+	Type.Axe: {
+		"texture":preload("res://assets/images/gear/Axe.png"),
+		"size":Vector2(256,256)
+	},
+	Type.Axe2H: {
+		"texture":preload("res://assets/images/gear/Axe_2H.png"),
+		"size":Vector2(256,256)
+	},
+	Type.Bow: {
+		"texture":preload("res://assets/images/gear/Bow.png"),
+		"size":Vector2(256,256)
+	},
+	Type.Dagger: {
+		"texture":preload("res://assets/images/gear/Dagger.png"),
+		"size":Vector2(48,48)
+	},
+	Type.Mace: {
+		"texture":preload("res://assets/images/gear/Hammer.png"),
+		"size":Vector2(256,256)
+	},
+	Type.Crossbow: {
+		"texture":preload("res://assets/images/gear/Crossbow.png"),
+		"size":Vector2(256,256)
+	},
+	Type.Mace2H: {
+		"texture":preload("res://assets/images/gear/Mace2H.png"),
+		"size":Vector2(256,256)
+	},
+	Type.Staff: {
+		"texture":preload("res://assets/images/gear/Staff.png"),
+		"size":Vector2(256,256)
+	},
+	Type.Scythe: {
+		"texture":preload("res://assets/images/gear/Scythe.png"),
+		"size":Vector2(256,256)
+	},
+	Type.Scythe2H: {
+		"texture":preload("res://assets/images/gear/Scythe2H.png"),
+		"size":Vector2(256,256)
+	},
+	Type.Wand: {
+		"texture":preload("res://assets/images/gear/Wand.png"),
+		"size":Vector2(256,256)
+	},
+	Type.Polearm: {
+		"texture":preload("res://assets/images/gear/Polearm.png"),
+		"size":Vector2(256,256)
+	},
+}
+
+#func _ready() -> void:
+	#var WEAPON_TEXTURE: Texture = load("res://assets/images/gear/%s.png" % weapontype)
 
 static var WEAPON_ICONS: Dictionary = {
-	Type.Axe: [44,46,47,48,49],
-	Type.Axe2H: [44,46,47,48,49],
-	Type.Bow: [90,91,92,93,94,95,96,97,98,99],
-	Type.Crossbow: [80,81,82,83,84,85,86,87,88,89],
-	Type.Dagger: [30,31,32,34,36,37,38,39],
-	Type.Offhand: [70,71,72,73,74,75,76,77,78,79],
-	Type.Mace: [43,45,50,51,52,53,54,55,56,59],
-	Type.Mace2H: [43,45,52,53,54,55,56,59],
-	Type.Staff: [0,1,2,3,4,5,6,7,8,9],
+	Type.Axe: range(5),
+	Type.Axe2H:range(3),
+	Type.Bow: range(5),
+	Type.Crossbow: range(4),
+	Type.Dagger: range(10),
+	#Type.Offhand: [70,71,72,73,74,75,76,77,78,79],
+	Type.Mace: range(8),
+	Type.Mace2H: range(11),
+	Type.Staff: [0,1,2,3,4,5,6],
 	Type.Sword: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14],
 	#Type.Sword: [60,61,62,63,64,65,66,67,68,69],
-	Type.Sword2H: [40,41,60,61,62,63,64,65,66,67,68,69,],
-	Type.Scythe: [33,35],
-	Type.Scythe2H: [33,35],
-	Type.Wand: [10,11,12,13,14,15,16,17,18,19],
-	Type.Polearm: [20,21,22,23,24,25,26,27,28,29],
+	Type.Sword2H: range(5),
+	Type.Scythe: range(5),
+	Type.Scythe2H: range(4),
+	Type.Wand: range(6),
+	Type.Polearm: range(6),
 }
 
 func _get_max_sockets() -> int:

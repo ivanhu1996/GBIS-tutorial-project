@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://bt5uia3p6d58d"
+path="res://.godot/imported/Hammer.tpsheet-642ccd88188eba1b9eac9e3dcf7b7c5b.res"
+
+[deps]
+
+files=["res://assets/images/gear/Hammer.sprites/1.tres", "res://assets/images/gear/Hammer.sprites/2.tres", "res://assets/images/gear/Hammer.sprites/3.tres", "res://assets/images/gear/Hammer.sprites/4.tres", "res://assets/images/gear/Hammer.sprites/5.tres", "res://assets/images/gear/Hammer.sprites/6.tres", "res://assets/images/gear/Hammer.sprites/7.tres", "res://assets/images/gear/Hammer.sprites/8.tres"]
+
+source_file="res://assets/images/gear/Hammer.tpsheet"
+dest_files=["res://.godot/imported/Hammer.tpsheet-642ccd88188eba1b9eac9e3dcf7b7c5b.res", "res://assets/images/gear/Hammer.sprites/1.tres", "res://assets/images/gear/Hammer.sprites/2.tres", "res://assets/images/gear/Hammer.sprites/3.tres", "res://assets/images/gear/Hammer.sprites/4.tres", "res://assets/images/gear/Hammer.sprites/5.tres", "res://assets/images/gear/Hammer.sprites/6.tres", "res://assets/images/gear/Hammer.sprites/7.tres", "res://assets/images/gear/Hammer.sprites/8.tres"]
+
+[params]
+

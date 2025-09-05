@@ -1,5 +1,5 @@
-class_name Affix extends RefCounted
-
+#class_name Affix extends RefCounted
+class_name Affix extends Resource
 @export var stat: String
 @export var type: Type
 @export var min_amount: float

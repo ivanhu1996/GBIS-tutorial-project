@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bj6pouwd8ms76"]
+
+[ext_resource type="Texture2D" uid="uid://cwgwa5d5n76e4" path="res://assets/images/gear/Dagger.png" id="1_ifywr"]
+
+[resource]
+atlas = ExtResource("1_ifywr")
+region = Rect2(0, 48, 48, 48)

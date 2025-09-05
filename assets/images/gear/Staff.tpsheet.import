@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://ba0oqegoc7y2t"
+path="res://.godot/imported/Staff.tpsheet-cc142708d7fc6c6d5e4d8a18ddf7c5d1.res"
+
+[deps]
+
+files=["res://assets/images/gear/Staff.sprites/1.tres", "res://assets/images/gear/Staff.sprites/2.tres", "res://assets/images/gear/Staff.sprites/3.tres", "res://assets/images/gear/Staff.sprites/4.tres", "res://assets/images/gear/Staff.sprites/5.tres", "res://assets/images/gear/Staff.sprites/6.tres", "res://assets/images/gear/Staff.sprites/7.tres"]
+
+source_file="res://assets/images/gear/Staff.tpsheet"
+dest_files=["res://.godot/imported/Staff.tpsheet-cc142708d7fc6c6d5e4d8a18ddf7c5d1.res", "res://assets/images/gear/Staff.sprites/1.tres", "res://assets/images/gear/Staff.sprites/2.tres", "res://assets/images/gear/Staff.sprites/3.tres", "res://assets/images/gear/Staff.sprites/4.tres", "res://assets/images/gear/Staff.sprites/5.tres", "res://assets/images/gear/Staff.sprites/6.tres", "res://assets/images/gear/Staff.sprites/7.tres"]
+
+[params]
+

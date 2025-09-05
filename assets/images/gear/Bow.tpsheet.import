@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://bjmel1k6llnju"
+path="res://.godot/imported/Bow.tpsheet-b3a44618012983e7d7d9b69771dea1ef.res"
+
+[deps]
+
+files=["res://assets/images/gear/Bow.sprites/40.tres", "res://assets/images/gear/Bow.sprites/41.tres", "res://assets/images/gear/Bow.sprites/42.tres", "res://assets/images/gear/Bow.sprites/45.tres", "res://assets/images/gear/Bow.sprites/46.tres"]
+
+source_file="res://assets/images/gear/Bow.tpsheet"
+dest_files=["res://.godot/imported/Bow.tpsheet-b3a44618012983e7d7d9b69771dea1ef.res", "res://assets/images/gear/Bow.sprites/40.tres", "res://assets/images/gear/Bow.sprites/41.tres", "res://assets/images/gear/Bow.sprites/42.tres", "res://assets/images/gear/Bow.sprites/45.tres", "res://assets/images/gear/Bow.sprites/46.tres"]
+
+[params]
+
