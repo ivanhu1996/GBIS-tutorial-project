@@ -69,7 +69,7 @@ func _draw() -> void:
 		#print(data.sockets)
 		if data.sockets:
 			var socket_gem = SOCKET_SCENE.instantiate() as UISocket
-			var gem_scale=Vector2(base_size,base_size)*0.75/socket_gem.size
+			var gem_scale=Vector2(base_size,base_size)*0.75/socket_gem.size*min(data.columns,data.rows)/2
 			socket_gem.scale=gem_scale
 			#socket_gem.set_position(Vector2(data.columns * base_size/2,data.rows * base_size/2)-socket_gem.size/2)
 			socket_gem.set_position(Vector2(data.columns * base_size/2,data.rows * base_size/2)-socket_gem.size*socket_gem.scale/2)

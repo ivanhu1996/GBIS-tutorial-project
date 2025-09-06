@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dvh1jx0n8mqwa"]
+
+[ext_resource type="Texture2D" uid="uid://cs7j4lorswih7" path="res://assets/images/jewelry/Amulet.png" id="1_xwdd3"]
+
+[resource]
+atlas = ExtResource("1_xwdd3")
+region = Rect2(0, 256, 256, 256)

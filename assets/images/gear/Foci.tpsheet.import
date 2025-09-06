@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://bblj53a1dnh4h"
+path="res://.godot/imported/Foci.tpsheet-8b00fac8655b669cd66a565586fae95f.res"
+
+[deps]
+
+files=["res://assets/images/gear/Foci.sprites/1.tres", "res://assets/images/gear/Foci.sprites/2.tres", "res://assets/images/gear/Foci.sprites/3.tres", "res://assets/images/gear/Foci.sprites/4.tres"]
+
+source_file="res://assets/images/gear/Foci.tpsheet"
+dest_files=["res://.godot/imported/Foci.tpsheet-8b00fac8655b669cd66a565586fae95f.res", "res://assets/images/gear/Foci.sprites/1.tres", "res://assets/images/gear/Foci.sprites/2.tres", "res://assets/images/gear/Foci.sprites/3.tres", "res://assets/images/gear/Foci.sprites/4.tres"]
+
+[params]
+

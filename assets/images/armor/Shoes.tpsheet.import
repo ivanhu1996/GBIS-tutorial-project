@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://cbxfmvgngg1hu"
+path="res://.godot/imported/Shoes.tpsheet-587cf4eb135b74620575dfc076ca8fb6.res"
+
+[deps]
+
+files=["res://assets/images/armor/Shoes.sprites/1.tres", "res://assets/images/armor/Shoes.sprites/2.tres", "res://assets/images/armor/Shoes.sprites/3.tres", "res://assets/images/armor/Shoes.sprites/4.tres", "res://assets/images/armor/Shoes.sprites/5.tres"]
+
+source_file="res://assets/images/armor/Shoes.tpsheet"
+dest_files=["res://.godot/imported/Shoes.tpsheet-587cf4eb135b74620575dfc076ca8fb6.res", "res://assets/images/armor/Shoes.sprites/1.tres", "res://assets/images/armor/Shoes.sprites/2.tres", "res://assets/images/armor/Shoes.sprites/3.tres", "res://assets/images/armor/Shoes.sprites/4.tres", "res://assets/images/armor/Shoes.sprites/5.tres"]
+
+[params]
+

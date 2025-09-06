@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="Jewelry" load_steps=9 format=3 uid="uid://in04bctqqoai"]
+
+[ext_resource type="Script" uid="uid://dn6qrgf4u7uco" path="res://scripts/item_data/affix.gd" id="1_wp1fy"]
+[ext_resource type="Script" uid="uid://djewskp5mstec" path="res://scripts/item_data/AffixResource.gd" id="2_wor5f"]
+[ext_resource type="PackedScene" uid="uid://bv50cnas4vxs7" path="res://scenes/droppable/items/cape.tscn" id="3_wp1fy"]
+[ext_resource type="Texture2D" uid="uid://dee83vexb4iqj" path="res://GBIS_demos/assets/test_item_icons/jewel.png" id="4_wor5f"]
+[ext_resource type="Material" uid="uid://du4t05r3sodcb" path="res://GBIS_demos/materials/equipment_glow.tres" id="5_h8tu5"]
+[ext_resource type="Material" uid="uid://cbrxjrj4m7kof" path="res://assets/images/gear/Rotate_shader.tres" id="6_f1rrb"]
+[ext_resource type="Script" uid="uid://csdqrk61r83wu" path="res://scripts/item_data/D4_jewelry.gd" id="7_pkbi7"]
+[ext_resource type="Script" uid="uid://u26j8jlv1oex" path="res://scripts/item_data/socketable.gd" id="8_fjent"]
+
+[resource]
+script = ExtResource("7_pkbi7")
+jewelrytype = 0
+rotate_material = ExtResource("6_f1rrb")
+drop_model = ExtResource("3_wp1fy")
+description = "test sword"
+quantity = 1
+stackable = false
+value = 1
+rarity = 0
+tier = 0
+level_requirement = 1
+is_account_bound = false
+tradable = true
+salvageable = true
+icon_index = 0
+class_restrictions = 0
+power = 0
+affix_count = 0
+equipped_state = false
+upgrades = 0
+max_upgrades = 0
+sockets = 0
+max_sockets = 2
+socketed = Array[ExtResource("8_fjent")]([])
+durability = 100
+max_durability = 100
+affixes_data = Array[ExtResource("2_wor5f")]([])
+affixes = Array[ExtResource("1_wp1fy")]([])
+item_name = "Jewelry"
+type = "Ring"
+icon = ExtResource("4_wor5f")
+image = ExtResource("4_wor5f")
+columns = 2
+rows = 2
+material = ExtResource("5_h8tu5")
+shader_params = Dictionary[String, Variant]({})
+socket_num = 1

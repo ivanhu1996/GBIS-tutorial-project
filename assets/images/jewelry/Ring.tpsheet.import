@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://qorm3n30sat"
+path="res://.godot/imported/Ring.tpsheet-242aba7284c006b84ab6b3697198c90a.res"
+
+[deps]
+
+files=["res://assets/images/jewelry/Ring.sprites/1.tres", "res://assets/images/jewelry/Ring.sprites/2.tres", "res://assets/images/jewelry/Ring.sprites/3.tres", "res://assets/images/jewelry/Ring.sprites/4.tres", "res://assets/images/jewelry/Ring.sprites/5.tres"]
+
+source_file="res://assets/images/jewelry/Ring.tpsheet"
+dest_files=["res://.godot/imported/Ring.tpsheet-242aba7284c006b84ab6b3697198c90a.res", "res://assets/images/jewelry/Ring.sprites/1.tres", "res://assets/images/jewelry/Ring.sprites/2.tres", "res://assets/images/jewelry/Ring.sprites/3.tres", "res://assets/images/jewelry/Ring.sprites/4.tres", "res://assets/images/jewelry/Ring.sprites/5.tres"]
+
+[params]
+

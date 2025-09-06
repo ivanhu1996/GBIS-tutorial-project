@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://dg144cflaae4r"
+path="res://.godot/imported/Pants.tpsheet-5494d9180f3216efa6cfbff5f0fafa1b.res"
+
+[deps]
+
+files=["res://assets/images/armor/Pants.sprites/1.tres", "res://assets/images/armor/Pants.sprites/2.tres", "res://assets/images/armor/Pants.sprites/3.tres", "res://assets/images/armor/Pants.sprites/4.tres"]
+
+source_file="res://assets/images/armor/Pants.tpsheet"
+dest_files=["res://.godot/imported/Pants.tpsheet-5494d9180f3216efa6cfbff5f0fafa1b.res", "res://assets/images/armor/Pants.sprites/1.tres", "res://assets/images/armor/Pants.sprites/2.tres", "res://assets/images/armor/Pants.sprites/3.tres", "res://assets/images/armor/Pants.sprites/4.tres"]
+
+[params]
+

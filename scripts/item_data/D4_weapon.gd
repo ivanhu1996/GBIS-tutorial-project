@@ -11,6 +11,9 @@ enum Type {
 	Crossbow,
 	Dagger,
 	#Offhand,
+	Quivers,
+	Foci,
+	#end Offhand
 	Mace,
 	Mace2H,
 	Staff,
@@ -23,8 +26,8 @@ enum Type {
 }
 
 
-static var WEAPON_TEXTURE: Texture = preload("res://assets/images/gear/Sword.png")
-static var WEAPON_TEXTURES = {
+#static var WEAPON_TEXTURE: Texture = preload("res://assets/images/gear/Sword.png")
+static var WEAPON_TEXTURE = {
 	Type.Sword: {
 		"texture":preload("res://assets/images/gear/Sword.png"),
 		"size":Vector2(256,256)
@@ -81,6 +84,15 @@ static var WEAPON_TEXTURES = {
 		"texture":preload("res://assets/images/gear/Polearm.png"),
 		"size":Vector2(256,256)
 	},
+	#OffHand
+	Type.Quivers: {
+		"texture":preload("res://assets/images/gear/Quivers.png"),
+		"size":Vector2(256,256)
+	},
+	Type.Foci: {
+		"texture":preload("res://assets/images/gear/Foci.png"),
+		"size":Vector2(256,256)
+	},
 }
 
 #func _ready() -> void:
@@ -93,6 +105,8 @@ static var WEAPON_ICONS: Dictionary = {
 	Type.Crossbow: range(4),
 	Type.Dagger: range(10),
 	#Type.Offhand: [70,71,72,73,74,75,76,77,78,79],
+	Type.Quivers: range(7),
+	Type.Foci: range(4),
 	Type.Mace: range(8),
 	Type.Mace2H: range(11),
 	Type.Staff: [0,1,2,3,4,5,6],
@@ -102,7 +116,7 @@ static var WEAPON_ICONS: Dictionary = {
 	Type.Scythe: range(5),
 	Type.Scythe2H: range(4),
 	Type.Wand: range(6),
-	Type.Polearm: range(6),
+	Type.Polearm: range(5),
 }
 
 func _get_max_sockets() -> int:

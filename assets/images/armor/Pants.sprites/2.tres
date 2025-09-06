@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dkrlgbdresxon"]
+
+[ext_resource type="Texture2D" uid="uid://dsv3dkuydr0bo" path="res://assets/images/armor/Pants.png" id="1_f3fqh"]
+
+[resource]
+atlas = ExtResource("1_f3fqh")
+region = Rect2(256, 0, 256, 256)

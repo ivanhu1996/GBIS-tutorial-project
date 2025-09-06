@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://xe1156pluj58"
+path="res://.godot/imported/Helmet.tpsheet-a9ffa7d29f17343161cce9a12eeebaab.res"
+
+[deps]
+
+files=["res://assets/images/armor/Helmet.sprites/1.tres", "res://assets/images/armor/Helmet.sprites/2.tres", "res://assets/images/armor/Helmet.sprites/3.tres", "res://assets/images/armor/Helmet.sprites/4.tres", "res://assets/images/armor/Helmet.sprites/5.tres"]
+
+source_file="res://assets/images/armor/Helmet.tpsheet"
+dest_files=["res://.godot/imported/Helmet.tpsheet-a9ffa7d29f17343161cce9a12eeebaab.res", "res://assets/images/armor/Helmet.sprites/1.tres", "res://assets/images/armor/Helmet.sprites/2.tres", "res://assets/images/armor/Helmet.sprites/3.tres", "res://assets/images/armor/Helmet.sprites/4.tres", "res://assets/images/armor/Helmet.sprites/5.tres"]
+
+[params]
+

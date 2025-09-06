@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bvmoc2nlplhuc"]
+
+[ext_resource type="Texture2D" uid="uid://b01qctownl4tj" path="res://assets/images/jewelry/Ring.png" id="1_e1d33"]
+
+[resource]
+atlas = ExtResource("1_e1d33")
+region = Rect2(256, 0, 256, 256)

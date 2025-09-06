@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://c6nyuibnjwrgt"
+path="res://.godot/imported/Shield.tpsheet-0a5257d79784f253f98388002536eacb.res"
+
+[deps]
+
+files=["res://assets/images/armor/Shield.sprites/1.tres", "res://assets/images/armor/Shield.sprites/2.tres", "res://assets/images/armor/Shield.sprites/3.tres", "res://assets/images/armor/Shield.sprites/4.tres", "res://assets/images/armor/Shield.sprites/5.tres", "res://assets/images/armor/Shield.sprites/6.tres"]
+
+source_file="res://assets/images/armor/Shield.tpsheet"
+dest_files=["res://.godot/imported/Shield.tpsheet-0a5257d79784f253f98388002536eacb.res", "res://assets/images/armor/Shield.sprites/1.tres", "res://assets/images/armor/Shield.sprites/2.tres", "res://assets/images/armor/Shield.sprites/3.tres", "res://assets/images/armor/Shield.sprites/4.tres", "res://assets/images/armor/Shield.sprites/5.tres", "res://assets/images/armor/Shield.sprites/6.tres"]
+
+[params]
+

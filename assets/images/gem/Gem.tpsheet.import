@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://chfhhp7go135k"
+path="res://.godot/imported/Gem.tpsheet-f3eb73cf95289907cfc9517833ce2db9.res"
+
+[deps]
+
+files=["res://assets/images/gem/Gem.sprites/1.tres", "res://assets/images/gem/Gem.sprites/2.tres", "res://assets/images/gem/Gem.sprites/3.tres", "res://assets/images/gem/Gem.sprites/4.tres", "res://assets/images/gem/Gem.sprites/5.tres", "res://assets/images/gem/Gem.sprites/6.tres", "res://assets/images/gem/Gem.sprites/7.tres"]
+
+source_file="res://assets/images/gem/Gem.tpsheet"
+dest_files=["res://.godot/imported/Gem.tpsheet-f3eb73cf95289907cfc9517833ce2db9.res", "res://assets/images/gem/Gem.sprites/1.tres", "res://assets/images/gem/Gem.sprites/2.tres", "res://assets/images/gem/Gem.sprites/3.tres", "res://assets/images/gem/Gem.sprites/4.tres", "res://assets/images/gem/Gem.sprites/5.tres", "res://assets/images/gem/Gem.sprites/6.tres", "res://assets/images/gem/Gem.sprites/7.tres"]
+
+[params]
+

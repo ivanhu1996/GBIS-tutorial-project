@@ -1,0 +1,16 @@
+[remap]
+
+importer="codeandweb.texturepacker_import_spritesheet"
+type="Resource"
+uid="uid://jy7k41d327gw"
+path="res://.godot/imported/Chest.tpsheet-2c937d34df1df80d7187d49b0fd1d1af.res"
+
+[deps]
+
+files=["res://assets/images/armor/Chest.sprites/1.tres", "res://assets/images/armor/Chest.sprites/2.tres", "res://assets/images/armor/Chest.sprites/3.tres", "res://assets/images/armor/Chest.sprites/4.tres", "res://assets/images/armor/Chest.sprites/5.tres", "res://assets/images/armor/Chest.sprites/6.tres"]
+
+source_file="res://assets/images/armor/Chest.tpsheet"
+dest_files=["res://.godot/imported/Chest.tpsheet-2c937d34df1df80d7187d49b0fd1d1af.res", "res://assets/images/armor/Chest.sprites/1.tres", "res://assets/images/armor/Chest.sprites/2.tres", "res://assets/images/armor/Chest.sprites/3.tres", "res://assets/images/armor/Chest.sprites/4.tres", "res://assets/images/armor/Chest.sprites/5.tres", "res://assets/images/armor/Chest.sprites/6.tres"]
+
+[params]
+

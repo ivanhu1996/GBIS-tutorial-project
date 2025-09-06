@@ -4,22 +4,49 @@ class_name Armor extends MyD4EquipmentData
 
 enum Type {
 	Chest,
-	Helm,
+	Helmet,
 	Pants,
 	Footwear,
 	Gloves,
 	Shield
 }
 
-static var ARMOR_TEXTURE: Texture = preload("res://assets/images/icons/#1 - Transparent Icons.png")
+#static var ARMOR_TEXTURE: Texture = preload("res://assets/images/icons/#1 - Transparent Icons.png")
+static var ARMOR_TEXTURE = {
+	Type.Gloves: {
+		"texture":preload("res://assets/images/armor/gloves.png"),
+		"size":Vector2(256,256)
+	},
+	Type.Helmet: {
+		"texture":preload("res://assets/images/armor/Helmet.png"),
+		"size":Vector2(256,256)
+	},
+	Type.Chest: {
+		"texture":preload("res://assets/images/armor/Chest.png"),
+		"size":Vector2(256,256)
+	},
+	Type.Pants: {
+		"texture":preload("res://assets/images/armor/Pants.png"),
+		"size":Vector2(256,256)
+	},
+	Type.Shield: {
+		"texture":preload("res://assets/images/armor/Shield.png"),
+		"size":Vector2(256,256)
+	},
+	Type.Footwear: {
+		"texture":preload("res://assets/images/armor/Shoes.png"),
+		"size":Vector2(256,256)
+	},
+}
+
 
 static var ARMOR_ICONS = {
-	Type.Chest: [0, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88],
-	Type.Helm: [1, 9, 17, 25, 33, 41, 49],
-	Type.Pants: [2, 10, 18, 26, 34],
-	Type.Footwear: [3, 11, 19, 27, 35],
-	Type.Gloves: [4, 12, 20, 28, 36, 44, 52],
-	Type.Shield: [7, 15, 23, 31, 39, 47],
+	Type.Chest: range(6),
+	Type.Helmet: range(5),
+	Type.Pants: range(4),
+	Type.Footwear: range(5),
+	Type.Gloves: range(4),
+	Type.Shield: range(6),
 }
 
 var category: Category = Category.Armor

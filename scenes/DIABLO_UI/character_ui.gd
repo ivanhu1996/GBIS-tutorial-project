@@ -58,12 +58,13 @@ func generate_item(item: MyD4EquipmentData) -> MyD4EquipmentData:
 			item.weapontype = Weapon.Type.values().pick_random()
 
 			#待补全素材 将武器不限于剑
-			item.weapontype=9
-			atlas.atlas = Weapon.WEAPON_TEXTURES[item.weapontype]["texture"]
-			var icon_size = Weapon.WEAPON_TEXTURES[item.weapontype]["size"]
+			#item.weapontype=6
+			item.type=Weapon.Type.keys()[item.weapontype]
+			atlas.atlas = Weapon.WEAPON_TEXTURE[item.weapontype]["texture"]
+			var icon_size = Weapon.WEAPON_TEXTURE[item.weapontype]["size"]
 			#get TEXTURES col & row
 			var col = int(atlas.atlas.get_size().x/icon_size.x)
-			var row =int(atlas.atlas.get_size().y/icon_size.y)
+			#var row =int(atlas.atlas.get_size().y/icon_size.y)
 			#atlas.atlas = Weapon.WEAPON_TEXTURE
 			item.icon_index = Weapon.WEAPON_ICONS[item.weapontype].pick_random()
 			atlas.region = Rect2((item.icon_index % col) * icon_size.x, (item.icon_index / col) * icon_size.y, icon_size.x, icon_size.y)
@@ -73,9 +74,24 @@ func generate_item(item: MyD4EquipmentData) -> MyD4EquipmentData:
 		MyD4EquipmentData.Category.Armor:
 			#item = Armor.new()
 			item.armortype = Armor.Type.values().pick_random()
-			atlas.atlas = Armor.ARMOR_TEXTURE
-			var i = Armor.ARMOR_ICONS[item.armortype].pick_random()
-			atlas.region = Rect2((i % 8) * 32, (i / 8) * 32, 32, 32)
+			item.type=Armor.Type.keys()[item.armortype]
+			atlas.atlas = Armor.ARMOR_TEXTURE[item.armortype]["texture"]
+			var icon_size = Armor.ARMOR_TEXTURE[item.armortype]["size"]
+			var col = int(atlas.atlas.get_size().x/icon_size.x)
+			item.icon_index = Armor.ARMOR_ICONS[item.armortype].pick_random()
+			atlas.region = Rect2((item.icon_index % col) * icon_size.x, (item.icon_index / col) * icon_size.y, icon_size.x, icon_size.y)
+			item.icon=atlas
+			
+		MyD4EquipmentData.Category.Jewelry:
+			item.jewelrytype = Jewelry.Type.values().pick_random()
+			item.type=Jewelry.Type.keys()[item.jewelrytype]
+			atlas.atlas = Jewelry.JEWELRY_TEXTURE[item.jewelrytype]["texture"]
+			var icon_size = Jewelry.JEWELRY_TEXTURE[item.jewelrytype]["size"]
+			var col = int(atlas.atlas.get_size().x/icon_size.x)
+			item.icon_index = Jewelry.JEWELRY_ICONS[item.jewelrytype].pick_random()
+			atlas.region = Rect2((item.icon_index % col) * icon_size.x, (item.icon_index / col) * icon_size.y, icon_size.x, icon_size.y)
+			item.icon=atlas
+			
 	item.image = atlas
 	item.icon=atlas
 	item.item_name = generate_name(item)
@@ -111,8 +127,8 @@ func generate_name(item: MyD4EquipmentData) -> String:
 
 func generate_gem(category: D4ItemData.Category) -> D4ItemData:
 	var item: D4ItemData
-	var atlas: AtlasTexture = AtlasTexture.new()
-	var type: int
+	#var atlas: AtlasTexture = AtlasTexture.new()
+	#var type: int
 	match(category):
 		D4ItemData.Category.Gem:
 			item = Gem.new()

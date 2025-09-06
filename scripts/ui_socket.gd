@@ -16,6 +16,7 @@ class_name UISocket extends Control
 ]
 
 @onready var gem: TextureRect = %Gem_Icon
+@onready var gem_socket: TextureRect = $Gem_Socket
 
 
 
@@ -33,6 +34,7 @@ func _update_gem() -> void:
 	if item:
 		if gem and overlay_shader:
 			gem.show()
+			gem_socket.hide()
 			var shader_material = overlay_shader.duplicate()
 			shader_material.set_shader_parameter("color", item.color)
 			gem.material = shader_material

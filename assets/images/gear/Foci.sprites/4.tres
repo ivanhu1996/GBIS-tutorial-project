@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://c0havro7ksk6t"]
+
+[ext_resource type="Texture2D" uid="uid://bgr665sgvjdpv" path="res://assets/images/gear/Foci.png" id="1_sl2dk"]
+
+[resource]
+atlas = ExtResource("1_sl2dk")
+region = Rect2(768, 0, 256, 256)

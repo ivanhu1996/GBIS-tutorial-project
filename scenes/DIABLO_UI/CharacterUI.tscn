@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dxfjqqw5p4u3d"]
+[gd_scene load_steps=41 format=3 uid="uid://dxfjqqw5p4u3d"]
 
 [ext_resource type="Script" uid="uid://dw3s4qq0no634" path="res://scenes/DIABLO_UI/character_ui.gd" id="1_2enax"]
 [ext_resource type="Texture2D" uid="uid://bid8iloibhemn" path="res://assets/images/border.png" id="1_k4kj5"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cs8dua6unfsbf" path="res://assets/images/icons/Attack.png" id="3_ubaol"]
 [ext_resource type="Resource" uid="uid://cuve05834kjln" path="res://D4_resource/D4_iron_helmet.tres" id="4_abojl"]
 [ext_resource type="Texture2D" uid="uid://d3vipjrwrgmcj" path="res://assets/images/icons/Armor.png" id="4_yhiek"]
+[ext_resource type="Resource" uid="uid://in04bctqqoai" path="res://D4_resource/D4_jewelry.tres" id="5_p5kyc"]
 [ext_resource type="Texture2D" uid="uid://116jd2p0q33a" path="res://assets/images/Life.png" id="5_v72jy"]
 [ext_resource type="PackedScene" uid="uid://bi4q05f2s0eqe" path="res://scenes/DIABLO_UI/AttributeItem.tscn" id="6_eq0so"]
 [ext_resource type="Texture2D" uid="uid://de8x4hqy7bm18" path="res://assets/images/split.png" id="7_d64sq"]
@@ -100,12 +101,12 @@ noise = SubResource("FastNoiseLite_c7i4m")
 [node name="CharacterUi" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1043.0
-offset_top = 9.0
-offset_right = 1911.0
-offset_bottom = 973.0
+offset_left = 1006.0
+offset_top = 36.0
+offset_right = 1874.0
+offset_bottom = 1000.0
 script = ExtResource("1_2enax")
-items = Array[ExtResource("2_rpogk")]([ExtResource("8_xqfjt"), ExtResource("4_abojl")])
+items = Array[ExtResource("2_rpogk")]([ExtResource("8_xqfjt"), ExtResource("4_abojl"), ExtResource("5_p5kyc")])
 
 [node name="UIBGColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -407,77 +408,142 @@ size_flags_stretch_ratio = 4.0
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Helmet" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Gloves" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Helmet" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Helmet"]
-anchors_preset = 0
+[node name="Gloves" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Gloves"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 53.0
 offset_right = 80.0
-offset_bottom = 80.0
+offset_bottom = 133.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("9_41rhr")
+slot_name = "Gloves"
+base_size = 40
+background = ExtResource("10_u1krr")
+avilable_types = Array[String](["Gloves"])
+metadata/_custom_type_script = "uid://dg6xjko3rdcta"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 60
+
+[node name="Helmet" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Helmet" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Helmet"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 script = ExtResource("9_41rhr")
 slot_name = "Helmet"
 base_size = 40
 background = ExtResource("10_u1krr")
-avilable_types = Array[String](["HELMET"])
+avilable_types = Array[String](["Helmet"])
 metadata/_custom_type_script = "uid://dg6xjko3rdcta"
-metadata/_edit_use_anchors_ = true
 
-[node name="Cap" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Chest" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Cape" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Cap"]
-anchors_preset = 0
-offset_right = 80.0
-offset_bottom = 80.0
+[node name="Chest" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Chest"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -55.5
+offset_right = 60.0
+offset_bottom = 64.5
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
 script = ExtResource("9_41rhr")
-slot_name = "Cape"
-base_size = 40
+slot_name = "Chest"
+base_size = 60
 background = ExtResource("10_u1krr")
-avilable_types = Array[String](["CAPE"])
+avilable_types = Array[String](["Chest"])
 metadata/_custom_type_script = "uid://dg6xjko3rdcta"
 
-[node name="Pants" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Pants" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 
-[node name="Pants" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Pants"]
-anchors_preset = 0
-offset_right = 80.0
-offset_bottom = 80.0
+[node name="Pants" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Pants"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -22.0
+offset_right = 60.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
 script = ExtResource("9_41rhr")
 slot_name = "Pants"
-base_size = 40
+base_size = 60
 background = ExtResource("10_u1krr")
 avilable_types = Array[String](["Pants"])
 metadata/_custom_type_script = "uid://dg6xjko3rdcta"
-metadata/_edit_use_anchors_ = true
 
-[node name="Shoes" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Shoes" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Shoes" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Shoes"]
-anchors_preset = 0
-offset_right = 80.0
-offset_bottom = 80.0
+[node name="Shoes" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Shoes"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -0.5
+offset_right = 40.0
+offset_bottom = 79.5
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
 script = ExtResource("9_41rhr")
-slot_name = "Boots"
+slot_name = "Footwear"
 base_size = 40
 background = ExtResource("11_u1krr")
-avilable_types = Array[String](["BOOTS"])
+avilable_types = Array[String](["Footwear"])
 metadata/_custom_type_script = "uid://dg6xjko3rdcta"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(110, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_constants/separation = -12
 
 [node name="Jewel" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
@@ -485,14 +551,14 @@ size_flags_vertical = 3
 
 [node name="Jewel" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Jewel"]
 anchors_preset = 0
-offset_right = 96.0
-offset_bottom = 96.0
+offset_right = 80.0
+offset_bottom = 80.0
 size_flags_vertical = 3
 script = ExtResource("9_41rhr")
-slot_name = "Jewel1"
-base_size = 48
+slot_name = "Amulet"
+base_size = 40
 background = ExtResource("10_u1krr")
-avilable_types = Array[String](["JEWEL"])
+avilable_types = Array[String](["Amulet"])
 metadata/_custom_type_script = "uid://dg6xjko3rdcta"
 
 [node name="Jewel2" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
@@ -501,14 +567,14 @@ size_flags_vertical = 3
 
 [node name="Jewel2" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Jewel2"]
 anchors_preset = 0
-offset_right = 96.0
-offset_bottom = 96.0
+offset_right = 80.0
+offset_bottom = 80.0
 size_flags_vertical = 3
 script = ExtResource("9_41rhr")
-slot_name = "Jewel2"
-base_size = 48
+slot_name = "Ring1"
+base_size = 40
 background = ExtResource("10_u1krr")
-avilable_types = Array[String](["JEWEL"])
+avilable_types = Array[String](["Ring"])
 metadata/_custom_type_script = "uid://dg6xjko3rdcta"
 
 [node name="Jewel3" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
@@ -517,14 +583,14 @@ size_flags_vertical = 3
 
 [node name="Jewel3" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Jewel3"]
 anchors_preset = 0
-offset_right = 96.0
-offset_bottom = 96.0
+offset_right = 80.0
+offset_bottom = 80.0
 size_flags_vertical = 3
 script = ExtResource("9_41rhr")
-slot_name = "Jewel3"
-base_size = 48
+slot_name = "Ring2"
+base_size = 40
 background = ExtResource("10_u1krr")
-avilable_types = Array[String](["JEWEL"])
+avilable_types = Array[String](["Ring"])
 metadata/_custom_type_script = "uid://dg6xjko3rdcta"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer"]
@@ -538,35 +604,37 @@ size_flags_horizontal = 3
 
 [node name="MainHand" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer2/Control"]
 anchors_preset = 0
-offset_right = 80.0
+offset_right = 120.0
 offset_bottom = 120.0
 size_flags_horizontal = 3
 script = ExtResource("9_41rhr")
 slot_name = "MainHand"
 base_size = 40
+columns = 3
 rows = 3
 background = ExtResource("12_ehknv")
-avilable_types = Array[String](["Sword", "Axe", "Bow", "CrossBow", "Dagger"])
+avilable_types = Array[String](["Sword", "Axe", "Bow", "Crossbow", "Dagger", "Mace", "Mace2H", "Staff", "Sword2H", "Scythe", "Scythe2H", "Wand", "Polearm", "Axe2H"])
 metadata/_custom_type_script = "uid://dg6xjko3rdcta"
 metadata/_edit_use_anchors_ = true
 
 [node name="Control2" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(100, 120)
+custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 
 [node name="OffHand" type="Control" parent="MarginContainer/Sections/CharacterDetails/MarginContainer/Details/CharacterEquipment/MarginContainer/VBoxContainer/Equipment/MarginContainer/VBoxContainer/HBoxContainer2/Control2"]
 anchors_preset = 0
-offset_right = 80.0
+offset_right = 120.0
 offset_bottom = 120.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("9_41rhr")
 slot_name = "OffHand"
 base_size = 40
+columns = 3
 rows = 3
 background = ExtResource("12_ehknv")
-avilable_types = Array[String](["SHIELD"])
+avilable_types = Array[String](["Shield", "Quivers", "Foci"])
 metadata/_custom_type_script = "uid://dg6xjko3rdcta"
 metadata/_edit_use_anchors_ = true
 
@@ -625,15 +693,23 @@ tab_1/title = "Consumable"
 tab_2/title = "Quest"
 tab_3/title = "Aspects"
 
-[node name="InventoryView" type="Control" parent="MarginContainer/Sections/Inventory/VBoxContainer/InventoriesMarginContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="MarginContainer/Sections/Inventory/VBoxContainer/InventoriesMarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="InventoryView" type="Control" parent="MarginContainer/Sections/Inventory/VBoxContainer/InventoriesMarginContainer/VBoxContainer/Control"]
 unique_name_in_owner = true
 layout_mode = 2
+anchors_preset = 0
+offset_left = 35.0
+offset_right = 835.0
+offset_bottom = 320.0
 size_flags_vertical = 3
 script = ExtResource("13_rr45o")
 container_name = "inv_test"
-container_columns = 31
-container_rows = 12
-base_size = 28
+container_columns = 20
+container_rows = 8
+base_size = 40
 gird_background_color_empty = Color(0, 0.027451, 0, 1)
 metadata/_custom_type_script = "uid://b3x4mwtjmm4tp"
 

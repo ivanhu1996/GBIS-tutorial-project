@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://uipusuxp7s83"]
+
+[ext_resource type="Texture2D" uid="uid://ccielpas8c0qw" path="res://assets/images/gear/Quivers.png" id="1_vb2eq"]
+
+[resource]
+atlas = ExtResource("1_vb2eq")
+region = Rect2(256, 0, 256, 256)
