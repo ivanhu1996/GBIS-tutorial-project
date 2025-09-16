@@ -9,10 +9,11 @@ class_name ShopView
 func grid_hover(grid_id: Vector2i) -> void:
 	if not GBIS.moving_item_service.moving_item:
 		var data: ItemData = GBIS.inventory_service.find_item_data_by_grid(container_name, grid_id)
+	
 		if data:
 			GBIS.item_focus_service.focus_item(data, container_name)
 		return
-	
+
 	var moving_item_view = GBIS.moving_item_service.moving_item_view
 	moving_item_view.base_size = base_size
 	moving_item_view.stack_num_color = stack_num_color

@@ -22,8 +22,8 @@ items = Array[ExtResource("2_5jolq")]([ExtResource("3_b6cxf"), ExtResource("4_ei
 [node name="DropAreaView" type="Control" parent="."]
 visible = false
 anchors_preset = 0
-offset_right = 2306.0
-offset_bottom = 1115.0
+offset_right = 2318.0
+offset_bottom = 1222.0
 script = ExtResource("1_751o1")
 metadata/_custom_type_script = "uid://c5rou3jm33pbt"
 

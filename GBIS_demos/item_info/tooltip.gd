@@ -115,7 +115,7 @@ var hidden_nodes: Array:
 	get:
 		var nodes = []
 		match(item.category):
-			MyD4EquipmentData.Category.Weapon,MyD4EquipmentData.Category.Armor:
+			MyD4EquipmentData.Category.Weapon,MyD4EquipmentData.Category.Armor,MyD4EquipmentData.Category.Jewelry,MyD4EquipmentData.Category.Gem:
 				nodes.append_array([
 					"class_identifier",
 					"stat",
@@ -134,7 +134,7 @@ func _ready() -> void:
 func _update_tooltip_values() -> void:
 	if !item:
 		return
-	icon_texture.texture = (item as D4EquipmentData).image
+	icon_texture.texture = item.image
 	#print((item as D4EquipmentData).image.get_size())
 	#var icon_texture_mat = rotate_shader.duplicate() as ShaderMaterial
 	#icon_texture_mat.set_shader_parameter("angle_deg", 0)
@@ -144,13 +144,14 @@ func _update_tooltip_values() -> void:
 	#icon_texture.material=icon_texture_mat
 	#
 	var mat = overlay_shader.duplicate() as ShaderMaterial
-	var col = MyD4EquipmentData.RARITY_COLORS[item.rarity]
-	mat.set_shader_parameter("color", col)
-	gradient_rect.material = mat
-	border_rect.material = mat
-	item_name.add_theme_color_override("default_color", col.lightened(.6))
-	category.add_theme_color_override("default_color", col.lightened(.6))
-	upgrades.add_theme_color_override("default_color", col.lightened(.6))
+	if "rarity" in item:
+		var col = MyD4EquipmentData.RARITY_COLORS[item.rarity]
+		mat.set_shader_parameter("color", col)
+		gradient_rect.material = mat
+		border_rect.material = mat
+		item_name.add_theme_color_override("default_color", col.lightened(.6))
+		category.add_theme_color_override("default_color", col.lightened(.6))
+		upgrades.add_theme_color_override("default_color", col.lightened(.6))
 	for key in node_map.keys():
 		var node = node_map.get(key) as RichTextLabel
 		if node:

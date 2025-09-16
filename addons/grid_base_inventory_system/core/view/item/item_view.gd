@@ -68,6 +68,10 @@ func _draw() -> void:
 	if data is D4EquipmentData:
 		#print(data.sockets)
 		if data.sockets:
+			var vbox := VBoxContainer.new()
+				# 可选：设置属性（比如间距）
+			vbox.alignment = BoxContainer.ALIGNMENT_CENTER
+			vbox.add_theme_constant_override("separation", 10)
 			var socket_gem = SOCKET_SCENE.instantiate() as UISocket
 			var gem_scale=Vector2(base_size,base_size)*0.75/socket_gem.size*min(data.columns,data.rows)/2
 			socket_gem.scale=gem_scale
@@ -91,8 +95,13 @@ func _draw() -> void:
 							2:
 								socket_gem.item=data.socketed[0]
 								socket_gem_sec.item=data.socketed[1]
-					self.add_child(socket_gem_sec)
-			self.add_child(socket_gem)
+					#self.add_child(socket_gem_sec)
+					vbox.add_child(socket_gem_sec)
+			#self.add_child(socket_gem)
+			vbox.add_child(socket_gem)
+			vbox.move_child(socket_gem, 0)
+			self.add_child(vbox)
+			vbox.set_position(Vector2((self.size.x/2-vbox.size.x/2),(self.size.y-vbox.size.y)/2))
 
 	if data is StackableData:
 		var text_size = stack_num_font.get_string_size(str(data.current_amount), HORIZONTAL_ALIGNMENT_RIGHT, -1, stack_num_font_size)
@@ -101,7 +110,32 @@ func _draw() -> void:
 			size.x - text_size.x - stack_num_margin,
 			size.y - stack_num_font.get_descent(stack_num_font_size) - stack_num_margin
 		)
-		draw_string(stack_num_font, pos, str(data.current_amount), HORIZONTAL_ALIGNMENT_RIGHT, -1, stack_num_font_size, stack_num_color)
+		var overlay := get_node_or_null("UIOverlay") as Control
+		if overlay == null:
+			overlay = Control.new()
+			overlay.name = "UIOverlay"
+			overlay.mouse_filter = Control.MOUSE_FILTER_IGNORE	
+			self.add_child(overlay)
+			overlay.set_anchors_preset(Control.PRESET_FULL_RECT) # 铺满父节点
+			overlay.offset_left = 0
+			overlay.offset_right = 0
+			overlay.offset_bottom = 0
+			overlay.offset_top = 0
+			
+			#overlay.set_offsets_preset(Control.PRESET_FULL_RECT,Control.PRESET_MODE_KEEP_SIZE)
+		var label_name = "stack_num_label"
+		var label:=overlay.get_node_or_null(label_name)
+		if label == null:
+			label = Label.new()
+			label.name = label_name
+			#label.anchors_preset = ItemView.PRESET_BOTTOM_RIGHT
+			overlay.add_child(label)
+		label.text = str(data.current_amount)
+		label.add_theme_font_size_override("font_size", stack_num_font_size)
+		label.position = Vector2(pos.x+2,size.y-label.size.y)
+		label.add_theme_color_override("font_color", stack_num_color) # 红色
+		
+		#draw_string(stack_num_font, pos, str(data.current_amount), HORIZONTAL_ALIGNMENT_RIGHT, -1, stack_num_font_size, stack_num_color)
 	if material:
 		for param_name in data.shader_params.keys():
 			(material as ShaderMaterial).set_shader_parameter(param_name, data.shader_params[param_name])

@@ -2,7 +2,7 @@ extends Control
 
 @export var items: Array[ItemData]
 var rotate_shader: ShaderMaterial = preload("res://assets/images/gear/Rotate_shader.tres")
-
+var overlay_shader: ShaderMaterial = preload("res://scenes/UI/shader/color_overlay_sahder.tres")
 #@onready var inventory: ColorRect = $Inventory
 #@onready var character: ColorRect = $Character
 
@@ -45,13 +45,26 @@ var suffixes: Array = [
 	"of Desire"
 	]
 
-func generate_item(item: MyD4EquipmentData) -> MyD4EquipmentData:
+func generate_item(item: ItemData) -> ItemData:
 	#var category :String = item.type
 	var category :int = item.category
 	var atlas: AtlasTexture = AtlasTexture.new()
 	#var weapontype: String
 
 	match(category):
+		MyD4EquipmentData.Category.Gem:
+			item.gemtype = Gem.Type.values().pick_random()
+			item.type=Gem.Type.keys()[item.gemtype]
+			item.quality = Gem.Quality.values().pick_random()
+			item.salvageable = false
+			item.item_name = "{quality}{spacer}{type}".format({
+				"quality": "" if item.quality == Gem.Quality.Normal else Gem.Quality.keys()[item.quality],
+				"spacer": "" if item.quality == Gem.Quality.Normal else " ",
+				"type": Gem.Type.keys()[item.gemtype]
+			})
+			item.quantity = randi_range(1, 3)
+			return item
+			
 		MyD4EquipmentData.Category.Weapon:
 			#item = Weapon.new()
 			#item.weapontype = Weapon.Type.values().pick_random()
@@ -126,7 +139,7 @@ func generate_name(item: MyD4EquipmentData) -> String:
 	})	
 
 func generate_gem(category: D4ItemData.Category) -> D4ItemData:
-	var item: D4ItemData
+	var item: ItemData
 	#var atlas: AtlasTexture = AtlasTexture.new()
 	#var type: int
 	match(category):
@@ -172,14 +185,19 @@ func generate_gem(category: D4ItemData.Category) -> D4ItemData:
 
 func _on_button_add_test_items_pressed() -> void:
 	for item in items:
-		if randi_range(1, 100) > 50:                      
+		if item is Gem:
 			item = item.duplicate()
 			item = generate_item(item)
-			(item as ItemData).shader_params = {"enable_excellent": true,"enable_rarity": true,"rarity_color": item.RARITY_COLORS[item.rarity]}
-		else:
-			item = item.duplicate()
-			item= generate_item(item)
-			(item as ItemData).shader_params = {"enable_rarity": true,"rarity_color": item.RARITY_COLORS[item.rarity]}
+			(item as ItemData).shader_params = {"enable_gem_rarity": true,"gem_color": item.color}
+		elif "category" in item:
+			if randi_range(1, 100) > 50:                      
+				item = item.duplicate()
+				item = generate_item(item)
+				(item as ItemData).shader_params = {"enable_excellent": true,"enable_rarity": true,"rarity_color": item.RARITY_COLORS[item.rarity]}
+			else:
+				item = item.duplicate()
+				item= generate_item(item)
+				(item as ItemData).shader_params = {"enable_rarity": true,"rarity_color": item.RARITY_COLORS[item.rarity]}
 		#print(item.item_name)
 		#print(item.compound_category)
 		#print(item.class_strings)

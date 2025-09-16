@@ -33,7 +33,8 @@ signal sig_item_focused(item_data: ItemData, container_name: String)
 ## 物品丢失焦点：监听这个信号以清除物品信息显示
 @warning_ignore("unused_signal")
 signal sig_item_focus_lost(item_data: ItemData)
-
+signal sig_merge_item_info(item_data: ItemData,container_name: String,grid_id: Vector2i)
+signal get_socket_data(item_data: ItemData)
 ## 默认角色
 const DEFAULT_PLAYER: String = "player_1"
 ## 默认背包名称

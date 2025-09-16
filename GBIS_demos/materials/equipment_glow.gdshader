@@ -15,7 +15,8 @@ uniform vec4 excellent_color : source_color = vec4(0.3, 1.0, 0.4, 1.0); // 绿�
 uniform float excellent_speed : hint_range(0.1, 3.0) = 2.2;
 uniform float excellent_brightness : hint_range(0.1, 0.5) = 4;
 uniform vec4 rarity_color : source_color = vec4(0.01, 0.01, 0.01, 0.01); // 默认背景色
-
+uniform bool enable_gem_rarity= false;
+uniform vec3 gem_color : source_color = vec3(0.01, 0.01, 0.01); // 默认背景色
 void fragment() {
     // 读取原始纹理（关键修正：用 TEXTURE 而不是自定义 sampler2D）
     vec4 tex_color = texture(TEXTURE, UV);
@@ -37,12 +38,26 @@ void fragment() {
         vec3 glow = excellent_color.rgb * pulse * excellent_brightness * alpha;
         final_color += glow;
     }
-	if (enable_rarity&&tex_color.a < 0.01) {
+	if (enable_rarity){
+		if (tex_color.a < 0.01) {
         // 没有图形的地方 → 用背景色替代
       	 COLOR = vec4(rarity_color.rgb,0.75);
     }else{
-		COLOR = vec4(final_color, alpha);
+		COLOR = vec4(final_color, 1);
 	}
-    
+	}
+    if (enable_gem_rarity){
+		if (alpha > 0.01) {
+		 vec4 base = texture(TEXTURE, UV);
+    vec4 blend = vec4(gem_color, base.a);
+	base.a *=0.25;
+    vec4 limit = step(0.5, base);
+    COLOR = mix(2.0 * base * blend, 1.0 - 2.0 * (1.0 - base) * (1.0 - blend), limit);
+}else{
+	//stack物品背景色
+	//COLOR = vec4(gem_color.rgb,0.6);
+	COLOR = vec4(0.3,0.3,0.3,0.5);
+}
+} 
 	//COLOR = mix(vec4(final_color, alpha), vec4(final_color, alpha) * COLOR, COLOR.a);
 }

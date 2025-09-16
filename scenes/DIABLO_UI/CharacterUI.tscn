@@ -5,14 +5,13 @@
 [ext_resource type="Script" uid="uid://c5uqs7o5b2w68" path="res://addons/grid_base_inventory_system/core/model/item/item_data.gd" id="2_rpogk"]
 [ext_resource type="PackedScene" uid="uid://dbo361mnlcf0i" path="res://scenes/DIABLO_UI/StatIconItemContainer.tscn" id="2_x44gm"]
 [ext_resource type="Texture2D" uid="uid://cs8dua6unfsbf" path="res://assets/images/icons/Attack.png" id="3_ubaol"]
-[ext_resource type="Resource" uid="uid://cuve05834kjln" path="res://D4_resource/D4_iron_helmet.tres" id="4_abojl"]
 [ext_resource type="Texture2D" uid="uid://d3vipjrwrgmcj" path="res://assets/images/icons/Armor.png" id="4_yhiek"]
 [ext_resource type="Resource" uid="uid://in04bctqqoai" path="res://D4_resource/D4_jewelry.tres" id="5_p5kyc"]
 [ext_resource type="Texture2D" uid="uid://116jd2p0q33a" path="res://assets/images/Life.png" id="5_v72jy"]
+[ext_resource type="Resource" uid="uid://c8dmatctg2iyn" path="res://D4_resource/D4_gem.tres" id="6_5hfxl"]
 [ext_resource type="PackedScene" uid="uid://bi4q05f2s0eqe" path="res://scenes/DIABLO_UI/AttributeItem.tscn" id="6_eq0so"]
 [ext_resource type="Texture2D" uid="uid://de8x4hqy7bm18" path="res://assets/images/split.png" id="7_d64sq"]
 [ext_resource type="Texture2D" uid="uid://sl46jck6gogv" path="res://assets/images/paperdoll.png" id="8_64dve"]
-[ext_resource type="Resource" uid="uid://f5c4cs53477d" path="res://D4_resource/D4_small_sword.tres" id="8_xqfjt"]
 [ext_resource type="Script" uid="uid://dg6xjko3rdcta" path="res://addons/grid_base_inventory_system/core/view/slot/equipment_slot_view.gd" id="9_41rhr"]
 [ext_resource type="Texture2D" uid="uid://cdtettt3apaq2" path="res://GBIS_demos/assets/ui/armor_background.png" id="10_u1krr"]
 [ext_resource type="Texture2D" uid="uid://dxusr1agnbuhw" path="res://GBIS_demos/assets/ui/boots_background.png" id="11_u1krr"]
@@ -24,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://cx3mgwntfgwpa" path="res://assets/images/BLUE.png" id="17_i08x5"]
 [ext_resource type="PackedScene" uid="uid://bmtorijdfu4jh" path="res://GBIS_demos/item_info/item_info.tscn" id="19_m7nlj"]
 [ext_resource type="Script" uid="uid://dsp3biipoei5l" path="res://GBIS_demos/item_info/tooltip_info.gd" id="23_rpogk"]
+[ext_resource type="Script" uid="uid://2ln2glcdw4a8" path="res://scripts/merge_item.gd" id="24_p5kyc"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_p16xu"]
 noise_type = 3
@@ -101,12 +101,12 @@ noise = SubResource("FastNoiseLite_c7i4m")
 [node name="CharacterUi" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 1006.0
-offset_top = 36.0
-offset_right = 1874.0
-offset_bottom = 1000.0
+offset_left = 1044.0
+offset_top = 48.0
+offset_right = 1912.0
+offset_bottom = 1012.0
 script = ExtResource("1_2enax")
-items = Array[ExtResource("2_rpogk")]([ExtResource("8_xqfjt"), ExtResource("4_abojl"), ExtResource("5_p5kyc")])
+items = Array[ExtResource("2_rpogk")]([ExtResource("6_5hfxl"), ExtResource("5_p5kyc")])
 
 [node name="UIBGColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -679,9 +679,11 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Sections/Inventory/VBoxContainer/InventoriesMarginContainer"]
+visible = false
 layout_mode = 2
 
 [node name="InventoryTabs" type="TabBar" parent="MarginContainer/Sections/Inventory/VBoxContainer/InventoriesMarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 10
@@ -693,25 +695,55 @@ tab_1/title = "Consumable"
 tab_2/title = "Quest"
 tab_3/title = "Aspects"
 
-[node name="Control" type="Control" parent="MarginContainer/Sections/Inventory/VBoxContainer/InventoriesMarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Sections/Inventory/VBoxContainer/InventoriesMarginContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+theme_override_constants/margin_left = 4
 
-[node name="InventoryView" type="Control" parent="MarginContainer/Sections/Inventory/VBoxContainer/InventoriesMarginContainer/VBoxContainer/Control"]
-unique_name_in_owner = true
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/Sections/Inventory/VBoxContainer/InventoriesMarginContainer/MarginContainer"]
 layout_mode = 2
-anchors_preset = 0
-offset_left = 35.0
-offset_right = 835.0
-offset_bottom = 320.0
+tab_alignment = 1
+current_tab = 2
+
+[node name="InventoryView" type="Control" parent="MarginContainer/Sections/Inventory/VBoxContainer/InventoriesMarginContainer/MarginContainer/TabContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("13_rr45o")
 container_name = "inv_test"
-container_columns = 20
+container_columns = 22
 container_rows = 8
-base_size = 40
+base_size = 39
 gird_background_color_empty = Color(0, 0.027451, 0, 1)
 metadata/_custom_type_script = "uid://b3x4mwtjmm4tp"
+metadata/_tab_index = 0
+
+[node name="MapView" type="Control" parent="MarginContainer/Sections/Inventory/VBoxContainer/InventoriesMarginContainer/MarginContainer/TabContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("13_rr45o")
+container_name = "map_test"
+container_columns = 22
+container_rows = 8
+base_size = 39
+gird_background_color_empty = Color(0, 0.027451, 0, 1)
+metadata/_custom_type_script = "uid://b3x4mwtjmm4tp"
+metadata/_tab_index = 1
+
+[node name="TaskItemView" type="Control" parent="MarginContainer/Sections/Inventory/VBoxContainer/InventoriesMarginContainer/MarginContainer/TabContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("13_rr45o")
+container_name = "taskitem_test"
+container_columns = 22
+container_rows = 8
+base_size = 39
+gird_background_color_empty = Color(0, 0.027451, 0, 1)
+metadata/_custom_type_script = "uid://b3x4mwtjmm4tp"
+metadata/_tab_index = 2
 
 [node name="Currencies" type="Control" parent="MarginContainer/Sections/Inventory/VBoxContainer"]
 layout_mode = 2
@@ -779,5 +811,11 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("23_rpogk")
+
+[node name="MergeItem" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("24_p5kyc")
 
 [connection signal="pressed" from="ButtonAddTestItems" to="." method="_on_button_add_test_items_pressed"]

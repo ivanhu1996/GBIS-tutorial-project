@@ -44,7 +44,7 @@ var COLORS: Array[Color] = [
 
 var category: Category = Category.Gem
 
-var color: Color:
+@export var color: Color:
 	get:
 		return COLORS[gemtype]
 

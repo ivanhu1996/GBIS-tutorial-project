@@ -1,36 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://csjqmwqb0lpj2"]
+[gd_scene load_steps=4 format=3 uid="uid://csjqmwqb0lpj2"]
 
 [ext_resource type="Script" uid="uid://cahx854fdbtlg" path="res://scripts/ui_socket.gd" id="1_xhik1"]
 [ext_resource type="Texture2D" uid="uid://buxywwx33fyy" path="res://assets/images/socket_null.png" id="2_xhik1"]
-[ext_resource type="Texture2D" uid="uid://tp7duvr72x00" path="res://assets/images/gem/Gem.png" id="3_xhik1"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i0ffy"]
-atlas = ExtResource("3_xhik1")
-region = Rect2(280, 6, 218, 248)
+[ext_resource type="Texture2D" uid="uid://cs8gmdghf4k4y" path="res://assets/images/UI_GemsC.png" id="3_xhik1"]
 
 [node name="Socket" type="PanelContainer"]
-modulate = Color(1, 1, 1, 0.466667)
 custom_minimum_size = Vector2(30, 30)
 offset_right = 30.0
 offset_bottom = 30.0
 size_flags_horizontal = 0
-mouse_filter = 2
+mouse_filter = 1
 script = ExtResource("1_xhik1")
 
 [node name="Gem_Socket" type="TextureRect" parent="."]
 layout_mode = 2
-mouse_filter = 2
 texture = ExtResource("2_xhik1")
 expand_mode = 2
 
 [node name="Gem_Icon" type="TextureRect" parent="."]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0.466667)
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-mouse_filter = 2
-texture = SubResource("AtlasTexture_i0ffy")
+texture = ExtResource("3_xhik1")
 expand_mode = 1
 stretch_mode = 5
+
+[connection signal="mouse_entered" from="Gem_Socket" to="." method="_on_gem_socket_mouse_entered"]
+[connection signal="mouse_entered" from="Gem_Icon" to="." method="_on_gem_icon_mouse_entered"]

@@ -16,6 +16,11 @@ func _gui_input(event: InputEvent) -> void:
 			elif GBIS.moving_item_service.moving_item is StackableData:
 				GBIS.inventory_service.stack_moving_item(_container_view.container_name, grid_id)
 			_container_view.grid_hover(grid_id)  # 点击时手动调用高亮
+			
+			var new_data=GBIS.inventory_service.find_item_data_by_grid(_container_view.container_name, grid_id)
+			if new_data:
+				print(new_data.item_name)
+			GBIS.sig_merge_item_info.emit(new_data,_container_view.container_name, grid_id)
 		else:
 			GBIS.inventory_service.place_moving_item(_container_view.container_name, grid_id)
 		return

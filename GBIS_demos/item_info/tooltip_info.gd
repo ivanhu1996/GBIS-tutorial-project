@@ -20,8 +20,12 @@ func _ready() -> void:
 		match(container_name):
 			"Helmet","Cap","Pants","Boots","MainHand","OffHand":
 				tt.equipped_state = true
-			
-			
+	
+		#GBIS.sig_merge_item_info.connect(func(item_data: ItemData,container_name: String,grid_id: Vector2i):
+			#if item_data:
+				#print(item_data.item_name)
+				#print(item_data.socketed)
+			#)
 			
 		#if GBIS.shop_names.has(container_name):
 			#item_name_label.text = "[Shop] %s" % item_data.item_name
