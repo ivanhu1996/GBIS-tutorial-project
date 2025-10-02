@@ -3,6 +3,7 @@ extends Control
 class_name ItemView
 
 var SOCKET_SCENE = preload("res://scripts/ui_socket.tscn")
+var SOCKET_SCENE_COPY = preload("res://scripts/ui_socket_copy.tscn")
 ## 堆叠数字的字体
 var stack_num_font: Font
 ## 堆叠数字的字体大小

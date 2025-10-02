@@ -26,6 +26,7 @@ func try_drop() -> void:
 	var mouse_pos = get_viewport().get_mouse_position()
 	var target = get_viewport().gui_pick(mouse_pos)
 	if target:
+		print(target)
 		# 如果目标是 socket 或其父级，查找最近的可接收节点
 		var receiver = _find_receiver(target)
 		if receiver:

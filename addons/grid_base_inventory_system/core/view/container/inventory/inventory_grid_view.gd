@@ -19,7 +19,9 @@ func _gui_input(event: InputEvent) -> void:
 			
 			var new_data=GBIS.inventory_service.find_item_data_by_grid(_container_view.container_name, grid_id)
 			if new_data:
-				print(new_data.item_name)
+				pass
+				#print(new_data.item_name)
+				#print(get_parent().get_parent())
 			GBIS.sig_merge_item_info.emit(new_data,_container_view.container_name, grid_id)
 		else:
 			GBIS.inventory_service.place_moving_item(_container_view.container_name, grid_id)

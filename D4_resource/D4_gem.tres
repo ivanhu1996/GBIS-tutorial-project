@@ -6,29 +6,11 @@
 
 [resource]
 script = ExtResource("3_podk7")
-gemtype = 0
-quality = 0
-color = Color(0, 0, 0, 1)
-description = ""
-quantity = 1
-stackable = false
-value = 1
-rarity = 0
-tier = 0
-level_requirement = 1
-tradable = true
-salvageable = true
-is_account_bound = false
-class_restrictions = 0
 stack_size = 99
-current_amount = 2
+current_amount = 6
 item_name = "Bless Jewel"
-type = "Any"
+type = "Gem"
 icon = ExtResource("1_dxp6f")
 image = ExtResource("1_dxp6f")
-columns = 1
-rows = 1
 material = ExtResource("2_dxp6f")
-shader_params = Dictionary[String, Variant]({})
-socket_num = 1
 metadata/_custom_type_script = "uid://bm5efdrlci0qk"

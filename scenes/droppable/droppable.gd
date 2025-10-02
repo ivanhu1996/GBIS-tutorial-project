@@ -33,7 +33,7 @@ func _ready() -> void:
 func _on_body_entered(_body: Node3D) -> void:
 	#闪光
 	if randi_range(1, 100) > 50:
-		data = data.duplicate()
+		data = data.duplicate(true)
 		(data as ItemData).shader_params = {"enable_enhance": true}
 	GBIS.add_item(Global.player.inv_name,data)
 	queue_free()

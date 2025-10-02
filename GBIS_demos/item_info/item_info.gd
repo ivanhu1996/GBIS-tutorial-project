@@ -14,7 +14,7 @@ func _ready() -> void:
 			item_name_label.text = item_data.item_name
 			#item_attribute.text = item_data.compound_category
 			)
-	GBIS.sig_item_focus_lost.connect(func(_item_data: ItemData): hide())
+	#GBIS.sig_item_focus_lost.connect(func(_item_data: ItemData): hide())
 	
 
 func _process(_delta: float) -> void:

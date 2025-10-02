@@ -110,7 +110,7 @@ func _on_slot_hover() -> void:
 		if item_data:
 			GBIS.item_focus_service.focus_item(item_data, slot_name)
 		return
-	if GBIS.moving_item_service.moving_item is EquipmentData:
+	if GBIS.moving_item_service.moving_item is EquipmentData or (GBIS.moving_item_service.moving_item is Gem):
 		GBIS.moving_item_service.moving_item_view.base_size = base_size
 		var is_avilable = GBIS.equipment_slot_service.get_slot(slot_name).is_item_avilable(GBIS.moving_item_service.moving_item)
 		_state = State.AVILABLE if is_avilable and is_empty() else State.INVILABLE
@@ -137,7 +137,7 @@ func _on_item_equipped(slot_name: String, item_data: ItemData):
 	_item_container.add_child(_item_view)
 	_state = State.NORMAL
 	#if item_data is (D4EquipmentData or D4ItemData):
-	if item_data is D4EquipmentData or (item_data is D4ItemData) :
+	if item_data is D4EquipmentData or (item_data is ItemData) :
 		eq_color =item_data.RARITY_COLORS[item_data.rarity]
 		_state = State.EQUIPPED
 	queue_redraw()

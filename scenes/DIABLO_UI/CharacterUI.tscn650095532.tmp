@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dxfjqqw5p4u3d"]
+[gd_scene load_steps=41 format=3 uid="uid://dxfjqqw5p4u3d"]
 
 [ext_resource type="Script" uid="uid://dw3s4qq0no634" path="res://scenes/DIABLO_UI/character_ui.gd" id="1_2enax"]
 [ext_resource type="Texture2D" uid="uid://bid8iloibhemn" path="res://assets/images/border.png" id="1_k4kj5"]
@@ -8,10 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://d3vipjrwrgmcj" path="res://assets/images/icons/Armor.png" id="4_yhiek"]
 [ext_resource type="Resource" uid="uid://in04bctqqoai" path="res://D4_resource/D4_jewelry.tres" id="5_p5kyc"]
 [ext_resource type="Texture2D" uid="uid://116jd2p0q33a" path="res://assets/images/Life.png" id="5_v72jy"]
-[ext_resource type="Resource" uid="uid://cuve05834kjln" path="res://D4_resource/D4_iron_helmet.tres" id="5_xqfjt"]
 [ext_resource type="Resource" uid="uid://c8dmatctg2iyn" path="res://D4_resource/D4_gem.tres" id="6_5hfxl"]
 [ext_resource type="PackedScene" uid="uid://bi4q05f2s0eqe" path="res://scenes/DIABLO_UI/AttributeItem.tscn" id="6_eq0so"]
-[ext_resource type="Resource" uid="uid://f5c4cs53477d" path="res://D4_resource/D4_small_sword.tres" id="6_vedfe"]
 [ext_resource type="Texture2D" uid="uid://de8x4hqy7bm18" path="res://assets/images/split.png" id="7_d64sq"]
 [ext_resource type="Texture2D" uid="uid://sl46jck6gogv" path="res://assets/images/paperdoll.png" id="8_64dve"]
 [ext_resource type="Script" uid="uid://dg6xjko3rdcta" path="res://addons/grid_base_inventory_system/core/view/slot/equipment_slot_view.gd" id="9_41rhr"]
@@ -108,7 +106,7 @@ offset_top = 48.0
 offset_right = 1912.0
 offset_bottom = 1012.0
 script = ExtResource("1_2enax")
-items = Array[ExtResource("2_rpogk")]([ExtResource("6_5hfxl"), ExtResource("5_p5kyc"), ExtResource("5_xqfjt"), ExtResource("6_vedfe")])
+items = Array[ExtResource("2_rpogk")]([ExtResource("6_5hfxl"), ExtResource("5_p5kyc")])
 
 [node name="UIBGColorRect" type="ColorRect" parent="."]
 layout_mode = 1

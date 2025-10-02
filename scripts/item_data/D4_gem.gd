@@ -31,7 +31,8 @@ var LEVEL_REQUIREMENTS = [
 	60
 ]
 
-var texture = preload("res://assets/images/icons/UI_GemsBTile.png")
+static  var texture = preload("res://assets/images/UI_GemsC.png")
+
 
 var COLORS: Array[Color] = [
 	Color(.68, .66, .62),

@@ -29,6 +29,8 @@ class_name Tooltip extends Control
 @onready var durability: RichTextLabel = %Durability
 @onready var gradient_rect: NinePatchRect = %GradientRect
 @onready var border_rect: NinePatchRect = %BorderRect
+@onready var gem_container: HBoxContainer = %GemContainer
+@onready var gem_socket: RichTextLabel = %GemSocket
 
 	
 @onready var node_map: Dictionary = {
@@ -48,13 +50,15 @@ class_name Tooltip extends Control
 	"durability": durability,
 }
 
-var SOCKET_CONTAINER: PackedScene = preload("res://scripts/ui_socket.tscn")
+#var SOCKET_CONTAINER: PackedScene = preload("res://scripts/ui_socket.tscn")
+var SOCKET_CONTAINER: PackedScene = preload("res://scripts/ui_socket_tooltip.tscn")
 var overlay_shader: ShaderMaterial = preload("res://scenes/UI/shader/color_overlay_sahder.tres")
 
 var string_templates: Dictionary:
 	get:
 		return {
-			"item_name": "[b]{item_name}{qty_string}[/b]",
+			#item_name": "[b]{item_name}{qty_string}[/b]",
+			"item_name": "[b]{item_name}[/b]",
 			"category": "{compound_category}",
 			"power": "{base_power}{bonus_power_string} Item Power",
 			"upgrades": "[b]Upgrades[/b]: {current_upgrades}/{max_upgrades}",
@@ -143,7 +147,7 @@ func _update_tooltip_values() -> void:
 	#icon_texture_mat.set_shader_parameter("tile_index", Vector2(item.icon_index % 4, item.icon_index / 4))
 	#icon_texture.material=icon_texture_mat
 	#
-	var mat = overlay_shader.duplicate() as ShaderMaterial
+	var mat = overlay_shader.duplicate(true) as ShaderMaterial
 	if "rarity" in item:
 		var col = MyD4EquipmentData.RARITY_COLORS[item.rarity]
 		mat.set_shader_parameter("color", col)
@@ -183,6 +187,7 @@ func _update_tooltip_values() -> void:
 			affix_node.text = _affix.label
 			last_node.add_sibling(affix_node)
 			last_node = affix_node
+	last_node = gem_socket
 	match(item.category):
 		D4ItemData.Category.Gem:
 			var gem_mat = overlay_shader.duplicate() as ShaderMaterial

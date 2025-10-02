@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhohxllh6wmno"]
+
+[ext_resource type="Script" uid="uid://dg6xjko3rdcta" path="res://addons/grid_base_inventory_system/core/view/slot/equipment_slot_view.gd" id="1_81ysn"]
+[ext_resource type="Script" uid="uid://ca2x8uwkoui7l" path="res://scripts/ui_socket_copy.gd" id="1_sgb8g"]
+[ext_resource type="Texture2D" uid="uid://buxywwx33fyy" path="res://assets/images/socket_null.png" id="2_4koea"]
+
+[node name="UiSocketCopy" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_sgb8g")
+socket_name = "ida"
+
+[node name="Socket" type="Control" parent="."]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 80.0
+offset_bottom = 80.0
+size_flags_vertical = 3
+script = ExtResource("1_81ysn")
+slot_name = "ida"
+base_size = 40
+background = ExtResource("2_4koea")
+avilable_types = Array[String](["Gem"])
+metadata/_custom_type_script = "uid://dg6xjko3rdcta"

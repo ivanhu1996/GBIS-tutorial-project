@@ -15,6 +15,7 @@ class_name D4StackableData
 @export var tradable: bool = true
 @export var salvageable: bool = true
 @export var is_account_bound: bool = false
+@export var source:String = "inv_name"
 @export_flags(
 	"Barbarian",
 	"Druid",

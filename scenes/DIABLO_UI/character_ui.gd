@@ -3,6 +3,10 @@ extends Control
 @export var items: Array[ItemData]
 var rotate_shader: ShaderMaterial = preload("res://assets/images/gear/Rotate_shader.tres")
 var overlay_shader: ShaderMaterial = preload("res://scenes/UI/shader/color_overlay_sahder.tres")
+@onready var _inventory_view: InventoryView = %InventoryView
+@onready var _map_view: InventoryView = %MapView
+@onready var _task_item_view: InventoryView = %TaskItemView
+
 #@onready var inventory: ColorRect = $Inventory
 #@onready var character: ColorRect = $Character
 
@@ -54,7 +58,7 @@ func generate_item(item: ItemData) -> ItemData:
 	match(category):
 		MyD4EquipmentData.Category.Gem:
 			item.gemtype = Gem.Type.values().pick_random()
-			item.type=Gem.Type.keys()[item.gemtype]
+			#item.type=Gem.Type.keys()[item.gemtype]
 			item.quality = Gem.Quality.values().pick_random()
 			item.salvageable = false
 			item.item_name = "{quality}{spacer}{type}".format({
@@ -62,7 +66,9 @@ func generate_item(item: ItemData) -> ItemData:
 				"spacer": "" if item.quality == Gem.Quality.Normal else " ",
 				"type": Gem.Type.keys()[item.gemtype]
 			})
-			item.quantity = randi_range(1, 3)
+			item.icon = Gem.texture
+			item.image = Gem.texture
+			item.quantity = randi_range(1, 5)
 			return item
 			
 		MyD4EquipmentData.Category.Weapon:
@@ -117,10 +123,12 @@ func generate_item(item: ItemData) -> ItemData:
 	item.salvageable = true
 	item.tradable = (item.rarity != MyD4EquipmentData.Rarities.Unique)
 	item.roll()
-
+	
 	for socket in randi_range(0, item.sockets):
 	#for socket in item.sockets:
-		var gem = generate_gem(D4ItemData.Category.Gem)
+		#var gem = generate_gem(D4ItemData.Category.Gem)
+		var gem = generate_item(Gem.new())
+		gem.stack_size=99
 		#print(item.sockets)
 		#print(gem)
 		item.socket(gem)
@@ -146,6 +154,8 @@ func generate_gem(category: D4ItemData.Category) -> D4ItemData:
 		D4ItemData.Category.Gem:
 			item = Gem.new()
 			item.gemtype = Gem.Type.values().pick_random()
+			#print(item.gemtype)
+			#item.type=Gem.Type.keys()[item.gemtype]
 			item.quality = Gem.Quality.values().pick_random()
 			item.salvageable = false
 			item.item_name = "{quality}{spacer}{type}".format({
@@ -153,7 +163,7 @@ func generate_gem(category: D4ItemData.Category) -> D4ItemData:
 				"spacer": "" if item.quality == Gem.Quality.Normal else " ",
 				"type": Gem.Type.keys()[item.gemtype]
 			})
-			item.quantity = randi_range(1, 3)
+			item.quantity = randi_range(1, 5)
 			return item
 	return item
 
@@ -186,16 +196,16 @@ func generate_gem(category: D4ItemData.Category) -> D4ItemData:
 func _on_button_add_test_items_pressed() -> void:
 	for item in items:
 		if item is Gem:
-			item = item.duplicate()
+			item = item.duplicate(true)
 			item = generate_item(item)
 			(item as ItemData).shader_params = {"enable_gem_rarity": true,"gem_color": item.color}
 		elif "category" in item:
 			if randi_range(1, 100) > 50:                      
-				item = item.duplicate()
+				item = item.duplicate(true)
 				item = generate_item(item)
 				(item as ItemData).shader_params = {"enable_excellent": true,"enable_rarity": true,"rarity_color": item.RARITY_COLORS[item.rarity]}
 			else:
-				item = item.duplicate()
+				item = item.duplicate(true)
 				item= generate_item(item)
 				(item as ItemData).shader_params = {"enable_rarity": true,"rarity_color": item.RARITY_COLORS[item.rarity]}
 		#print(item.item_name)
@@ -205,7 +215,9 @@ func _on_button_add_test_items_pressed() -> void:
 			#for affix in item.affixes:
 				##print(affix.label)
 		##print("\n")
-		GBIS.add_item("inv_test", item)
+		item.source = _inventory_view.container_name
+		#print(item.item_name)
+		GBIS.add_item(_inventory_view.container_name, item)
 
 func _on_button_save_pressed() -> void:
 	GBIS.save()
@@ -213,3 +225,10 @@ func _on_button_save_pressed() -> void:
 func _on_button_load_pressed() -> void:
 	GBIS.load()
 	
+#func _unhandled_input(event):
+	#if event is InputEventMouseButton:
+		#print("1")
+	#if event is InputEventMouseButton and not event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		## 鼠标左键释放
+		#if DragManager.dragging_data:
+			#DragManager.try_drop()

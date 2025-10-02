@@ -15,6 +15,7 @@ class_name D4EquipmentData
 @export var tradable: bool = true
 @export var salvageable: bool = true
 @export var icon_index: int = 0
+@export var source:String = "inventory"
 #@export var gem_socket_icon: Texture2D
 #@export var gem_icon: Texture2D
 

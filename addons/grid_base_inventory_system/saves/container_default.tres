@@ -1,18 +1,1264 @@
-[gd_resource type="Resource" script_class="ContainerRepository" load_steps=5 format=3]
+[gd_resource type="Resource" script_class="ContainerRepository" load_steps=107 format=3]
 
-[ext_resource type="Script" path="res://addons/grid_base_inventory_system/core/model/container/container_data.gd" id="1_ge14b"]
-[ext_resource type="Script" path="res://addons/grid_base_inventory_system/core/model/item/item_data.gd" id="2_qod3t"]
-[ext_resource type="Script" path="res://addons/grid_base_inventory_system/core/repository/container_repository.gd" id="3_5ua3w"]
+[ext_resource type="Script" path="res://addons/grid_base_inventory_system/core/model/container/container_data.gd" id="1_fi67h"]
+[ext_resource type="Script" path="res://addons/grid_base_inventory_system/core/model/item/item_data.gd" id="2_bna14"]
+[ext_resource type="Texture2D" path="res://assets/images/UI_GemsC.png" id="3_xq8na"]
+[ext_resource type="Material" path="res://GBIS_demos/materials/equipment_glow.tres" id="4_qsv6d"]
+[ext_resource type="Script" path="res://scripts/item_data/D4_gem.gd" id="5_d0yca"]
+[ext_resource type="Script" path="res://scripts/item_data/affix.gd" id="6_ajgfn"]
+[ext_resource type="Script" path="res://scripts/item_data/AffixResource.gd" id="7_gdw7a"]
+[ext_resource type="PackedScene" path="res://scenes/droppable/items/cape.tscn" id="8_vuryn"]
+[ext_resource type="Texture2D" path="res://assets/images/jewelry/Ring.png" id="9_u8vpt"]
+[ext_resource type="Material" path="res://assets/images/gear/Rotate_shader.tres" id="10_d1622"]
+[ext_resource type="Script" path="res://scripts/item_data/D4_jewelry.gd" id="11_ne0ys"]
+[ext_resource type="Script" path="res://scripts/item_data/socketable.gd" id="12_jvept"]
+[ext_resource type="PackedScene" path="res://scenes/droppable/items/helmet.tscn" id="13_5s5y1"]
+[ext_resource type="Texture2D" path="res://assets/images/armor/gloves.png" id="14_l0bpo"]
+[ext_resource type="Script" path="res://scripts/item_data/D4_armor.gd" id="15_lkj7p"]
+[ext_resource type="PackedScene" path="res://scenes/droppable/items/sword_1_handed.tscn" id="16_qbb6p"]
+[ext_resource type="Texture2D" path="res://assets/images/gear/Axe_2H.png" id="17_a0088"]
+[ext_resource type="Script" path="res://scripts/item_data/D4_weapon.gd" id="18_y1403"]
+[ext_resource type="Texture2D" path="res://assets/images/jewelry/Amulet.png" id="19_nw74g"]
+[ext_resource type="Shader" path="res://GBIS_demos/materials/equipment_glow.gdshader" id="20_nd67d"]
+[ext_resource type="Texture2D" path="res://assets/images/armor/Helmet.png" id="21_k8l81"]
+[ext_resource type="Texture2D" path="res://assets/images/gear/Mace2H.png" id="22_aeehs"]
+[ext_resource type="Texture2D" path="res://assets/images/armor/Chest.png" id="23_7jcl1"]
+[ext_resource type="Texture2D" path="res://assets/images/gear/Scythe2H.png" id="24_j61n6"]
+[ext_resource type="Texture2D" path="res://assets/images/armor/Shield.png" id="25_ie63u"]
+[ext_resource type="Texture2D" path="res://assets/images/gear/Bow.png" id="26_qtcrg"]
+[ext_resource type="Script" path="res://addons/grid_base_inventory_system/core/repository/container_repository.gd" id="27_5jvn6"]
 
-[sub_resource type="Resource" id="Resource_ttw3u"]
-script = ExtResource("1_ge14b")
-columns = 10
-rows = 12
-container_name = "demo2_inventory"
+[sub_resource type="Resource" id="Resource_vjg6v"]
+script = ExtResource("5_d0yca")
+quality = 3
+color = Color(0.68, 0.66, 0.62, 1)
+stackable = true
+value = 4
+level_requirement = 50
+salvageable = false
+source = "inv_test"
+stack_size = 99
+current_amount = 6
+item_name = "Flawless Diamond"
+type = "Gem"
+icon = ExtResource("3_xq8na")
+image = ExtResource("3_xq8na")
+material = ExtResource("4_qsv6d")
+shader_params = Dictionary[String, Variant]({
+"enable_gem_rarity": true,
+"gem_color": Color(0.68, 0.66, 0.62, 1)
+})
+metadata/_custom_type_script = "uid://bm5efdrlci0qk"
+
+[sub_resource type="Resource" id="Resource_kj05d"]
+script = ExtResource("6_ajgfn")
+stat = "Basic Skill Attack Speed"
+min_amount = 4.4
+max_amount = 10.0
+amount = 4.906570537528065
+template_string = "+{amount}% {stat}"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucwqm"]
+atlas = ExtResource("9_u8vpt")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="Resource" id="Resource_fg370"]
+script = ExtResource("11_ne0ys")
+rotate_material = ExtResource("10_d1622")
+drop_model = ExtResource("8_vuryn")
+description = "test sword"
+value = 33926
+rarity = 1
+tier = 1
+level_requirement = 50
+icon_index = 2
+source = "inv_test"
+power = 77
+upgrades = 1
+max_upgrades = 5
+sockets = 1
+affixes = Array[ExtResource("6_ajgfn")]([SubResource("Resource_kj05d")])
+item_name = "Great Ring of Sacred Redemption"
+type = "Ring"
+icon = SubResource("AtlasTexture_ucwqm")
+image = SubResource("AtlasTexture_ucwqm")
+columns = 2
+rows = 2
+material = ExtResource("4_qsv6d")
+shader_params = Dictionary[String, Variant]({
+"enable_rarity": true,
+"rarity_color": Color(0.18, 0.23, 0.63, 1)
+})
+
+[sub_resource type="Resource" id="Resource_8k4t0"]
+script = ExtResource("6_ajgfn")
+stat = "Basic Skill Attack Speed"
+min_amount = 4.4
+max_amount = 10.0
+amount = 6.2752303882333385
+template_string = "+{amount}% {stat}"
+
+[sub_resource type="Resource" id="Resource_f08sn"]
+script = ExtResource("6_ajgfn")
+stat = "All_Stats"
+type = 1
+min_amount = 38.0
+max_amount = 52.0
+amount = 38.50982255287091
+template_string = "+{amount} {stat}"
+
+[sub_resource type="Resource" id="Resource_sv2jn"]
+script = ExtResource("6_ajgfn")
+stat = "Willpower"
+type = 1
+min_amount = 38.0
+max_amount = 52.0
+amount = 42.08174668041015
+template_string = "+{amount} {stat}"
+
+[sub_resource type="Resource" id="Resource_xnu81"]
+script = ExtResource("6_ajgfn")
+stat = "Total Armor"
+min_amount = 2.0
+max_amount = 4.8
+amount = 3.2126700108595836
+template_string = "+{amount}% {stat}"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vty0p"]
+atlas = ExtResource("14_l0bpo")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="Resource" id="Resource_b4a3t"]
+script = ExtResource("15_lkj7p")
+armortype = 4
+drop_model = ExtResource("13_5s5y1")
+description = "test_helmet"
+value = 181692
+rarity = 4
+tier = 1
+level_requirement = 28
+tradable = false
+icon_index = 1
+source = "inv_test"
+power = 639
+upgrades = 4
+max_upgrades = 5
+max_sockets = 1
+affixes = Array[ExtResource("6_ajgfn")]([SubResource("Resource_8k4t0"), SubResource("Resource_f08sn"), SubResource("Resource_sv2jn"), SubResource("Resource_xnu81")])
+item_name = "Phoenix Gloves of Destruction"
+type = "Gloves"
+icon = SubResource("AtlasTexture_vty0p")
+image = SubResource("AtlasTexture_vty0p")
+columns = 2
+rows = 2
+material = ExtResource("4_qsv6d")
+shader_params = Dictionary[String, Variant]({
+"enable_excellent": true,
+"enable_rarity": true,
+"rarity_color": Color(0.54, 0.34, 0.12, 1)
+})
+
+[sub_resource type="Resource" id="Resource_j0rjx"]
+script = ExtResource("6_ajgfn")
+stat = "Total Armor"
+min_amount = 2.0
+max_amount = 4.8
+amount = 4.583445573006109
+template_string = "+{amount}% {stat}"
+
+[sub_resource type="Resource" id="Resource_2jxqe"]
+script = ExtResource("6_ajgfn")
+stat = "Basic Skill Attack Speed"
+min_amount = 4.4
+max_amount = 10.0
+amount = 6.688975150044913
+template_string = "+{amount}% {stat}"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qn4pa"]
+atlas = ExtResource("17_a0088")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="Resource" id="Resource_l27k0"]
+script = ExtResource("18_y1403")
+weapontype = 1
+rotate_material = ExtResource("10_d1622")
+drop_model = ExtResource("16_qbb6p")
+description = "test sword"
+value = 46574
+rarity = 2
+level_requirement = 74
+is_account_bound = true
+source = "inv_test"
+power = 640
+upgrades = 3
+max_upgrades = 3
+affixes = Array[ExtResource("6_ajgfn")]([SubResource("Resource_j0rjx"), SubResource("Resource_2jxqe")])
+item_name = "Hearty Two-Handed Axe of Fast"
+type = "Axe2H"
+icon = SubResource("AtlasTexture_qn4pa")
+image = SubResource("AtlasTexture_qn4pa")
+columns = 2
+rows = 2
+material = ExtResource("4_qsv6d")
+shader_params = Dictionary[String, Variant]({
+"enable_excellent": true,
+"enable_rarity": true,
+"rarity_color": Color(0.58, 0.5, 0, 1)
+})
+
+[sub_resource type="Resource" id="Resource_yxbgr"]
+script = ExtResource("5_d0yca")
+gemtype = 5
+quality = 2
+color = Color(0.83, 0.57, 0.15, 1)
+quantity = 2
+stackable = true
+value = 4
+level_requirement = 40
+salvageable = false
+source = "inv_test"
+stack_size = 99
+current_amount = 12
+item_name = "Topaz"
+type = "Gem"
+icon = ExtResource("3_xq8na")
+image = ExtResource("3_xq8na")
+material = ExtResource("4_qsv6d")
+shader_params = Dictionary[String, Variant]({
+"enable_gem_rarity": true,
+"gem_color": Color(0.83, 0.57, 0.15, 1)
+})
+metadata/_custom_type_script = "uid://bm5efdrlci0qk"
+
+[sub_resource type="Resource" id="Resource_g3rc1"]
+script = ExtResource("6_ajgfn")
+stat = "Strength"
+type = 1
+min_amount = 28.0
+max_amount = 42.0
+amount = 40.01526261712091
+template_string = "+{amount} {stat}"
+
+[sub_resource type="Resource" id="Resource_7q66c"]
+script = ExtResource("6_ajgfn")
+stat = "Attack Speed"
+min_amount = 4.4
+max_amount = 10.0
+amount = 6.250305564104654
+template_string = "+{amount}% {stat}"
+
+[sub_resource type="Resource" id="Resource_xn10g"]
+script = ExtResource("6_ajgfn")
+stat = "Damage"
+min_amount = 4.4
+max_amount = 10.0
+amount = 8.641105603884213
+template_string = "+{amount}% {stat}"
+
+[sub_resource type="Resource" id="Resource_q0ws0"]
+script = ExtResource("6_ajgfn")
+stat = "All_Stats"
+type = 1
+min_amount = 38.0
+max_amount = 52.0
+amount = 39.18237721660428
+template_string = "+{amount} {stat}"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v603k"]
+atlas = ExtResource("19_nw74g")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fi67h"]
+shader = ExtResource("20_nd67d")
+shader_parameter/enable_enhance = false
+shader_parameter/enhance_color = Color(0.561911, 0.698818, 0.966835, 1)
+shader_parameter/enhance_speed = 0.5
+shader_parameter/enhance_width = 1.0
+shader_parameter/enhance_brightness = 1.0
+shader_parameter/enable_excellent = false
+shader_parameter/enable_rarity = false
+shader_parameter/excellent_color = Color(0.776312, 0.756682, 0, 1)
+shader_parameter/excellent_speed = 2.2
+shader_parameter/excellent_brightness = 0.2
+shader_parameter/rarity_color = Color(0, 0, 0, 0)
+shader_parameter/enable_gem_rarity = false
+shader_parameter/gem_color = Color(0.01, 0.01, 0.01, 1)
+
+[sub_resource type="Resource" id="Resource_6rvwo"]
+script = ExtResource("5_d0yca")
+quality = 4
+color = Color(0.68, 0.66, 0.62, 1)
+quantity = 2
+stackable = true
+value = 4
+level_requirement = 60
+salvageable = false
+stack_size = 99
+item_name = "Royal Diamond"
+icon = ExtResource("3_xq8na")
+image = ExtResource("3_xq8na")
+material = SubResource("ShaderMaterial_fi67h")
+shader_params = Dictionary[String, Variant]({
+"enable_gem_rarity": true,
+"gem_color": Color(0.68, 0.66, 0.62, 1)
+})
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bna14"]
+shader = ExtResource("20_nd67d")
+shader_parameter/enable_enhance = false
+shader_parameter/enhance_color = Color(0.561911, 0.698818, 0.966835, 1)
+shader_parameter/enhance_speed = 0.5
+shader_parameter/enhance_width = 1.0
+shader_parameter/enhance_brightness = 1.0
+shader_parameter/enable_excellent = false
+shader_parameter/enable_rarity = false
+shader_parameter/excellent_color = Color(0.776312, 0.756682, 0, 1)
+shader_parameter/excellent_speed = 2.2
+shader_parameter/excellent_brightness = 0.2
+shader_parameter/rarity_color = Color(0, 0, 0, 0)
+shader_parameter/enable_gem_rarity = false
+shader_parameter/gem_color = Color(0.01, 0.01, 0.01, 1)
+
+[sub_resource type="Resource" id="Resource_2ehi1"]
+script = ExtResource("5_d0yca")
+quality = 3
+color = Color(0.68, 0.66, 0.62, 1)
+quantity = 3
+stackable = true
+value = 4
+level_requirement = 50
+salvageable = false
+stack_size = 99
+item_name = "Flawless Diamond"
+icon = ExtResource("3_xq8na")
+image = ExtResource("3_xq8na")
+material = SubResource("ShaderMaterial_bna14")
+shader_params = Dictionary[String, Variant]({
+"enable_gem_rarity": true,
+"gem_color": Color(0.68, 0.66, 0.62, 1)
+})
+
+[sub_resource type="Resource" id="Resource_1moom"]
+script = ExtResource("11_ne0ys")
+jewelrytype = 1
+rotate_material = ExtResource("10_d1622")
+drop_model = ExtResource("8_vuryn")
+description = "test sword"
+value = 111301
+rarity = 2
+tier = 2
+level_requirement = 2
+is_account_bound = true
+icon_index = 4
+source = "inv_test"
+power = 256
+upgrades = 4
+max_upgrades = 5
+sockets = 2
+socketed = Array[ExtResource("12_jvept")]([SubResource("Resource_6rvwo"), SubResource("Resource_2ehi1")])
+affixes = Array[ExtResource("6_ajgfn")]([SubResource("Resource_g3rc1"), SubResource("Resource_7q66c"), SubResource("Resource_xn10g"), SubResource("Resource_q0ws0")])
+item_name = "Hero's Amulet of Destruction"
+type = "Amulet"
+icon = SubResource("AtlasTexture_v603k")
+image = SubResource("AtlasTexture_v603k")
+columns = 2
+rows = 2
+material = ExtResource("4_qsv6d")
+shader_params = Dictionary[String, Variant]({
+"enable_rarity": true,
+"rarity_color": Color(0.58, 0.5, 0, 1)
+})
+
+[sub_resource type="Resource" id="Resource_scg1o"]
+script = ExtResource("6_ajgfn")
+stat = "Basic Skill Attack Speed"
+min_amount = 4.4
+max_amount = 10.0
+amount = 4.8026537689286615
+template_string = "+{amount}% {stat}"
+
+[sub_resource type="Resource" id="Resource_fctag"]
+script = ExtResource("6_ajgfn")
+stat = "Attack Speed"
+min_amount = 4.4
+max_amount = 10.0
+amount = 7.284093338461128
+template_string = "+{amount}% {stat}"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vsrb"]
+atlas = ExtResource("21_k8l81")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d0yca"]
+shader = ExtResource("20_nd67d")
+shader_parameter/enable_enhance = false
+shader_parameter/enhance_color = Color(0.561911, 0.698818, 0.966835, 1)
+shader_parameter/enhance_speed = 0.5
+shader_parameter/enhance_width = 1.0
+shader_parameter/enhance_brightness = 1.0
+shader_parameter/enable_excellent = false
+shader_parameter/enable_rarity = false
+shader_parameter/excellent_color = Color(0.776312, 0.756682, 0, 1)
+shader_parameter/excellent_speed = 2.2
+shader_parameter/excellent_brightness = 0.2
+shader_parameter/rarity_color = Color(0, 0, 0, 0)
+shader_parameter/enable_gem_rarity = false
+shader_parameter/gem_color = Color(0.01, 0.01, 0.01, 1)
+
+[sub_resource type="Resource" id="Resource_ajgfn"]
+script = ExtResource("5_d0yca")
+gemtype = 3
+quality = 2
+color = Color(0.07, 0.58, 0.05, 1)
+quantity = 3
+stackable = true
+value = 4
+level_requirement = 40
+salvageable = false
+source = "Steadfast Helmet of Endurance"
+stack_size = 99
+item_name = "Emerald"
+icon = ExtResource("3_xq8na")
+image = ExtResource("3_xq8na")
+material = SubResource("ShaderMaterial_d0yca")
+shader_params = Dictionary[String, Variant]({
+"enable_gem_rarity": true,
+"gem_color": Color(0.07, 0.58, 0.05, 1)
+})
+
+[sub_resource type="Resource" id="Resource_681c7"]
+script = ExtResource("15_lkj7p")
+armortype = 1
+drop_model = ExtResource("13_5s5y1")
+description = "test_helmet"
+value = 105823
+rarity = 1
+tier = 2
+level_requirement = 48
+icon_index = 4
+source = "inv_test"
+power = 463
+max_upgrades = 5
+sockets = 1
+max_sockets = 1
+socketed = Array[ExtResource("12_jvept")]([SubResource("Resource_ajgfn")])
+affixes = Array[ExtResource("6_ajgfn")]([SubResource("Resource_scg1o"), SubResource("Resource_fctag")])
+item_name = "Steadfast Helmet of Endurance"
+type = "Helmet"
+icon = SubResource("AtlasTexture_1vsrb")
+image = SubResource("AtlasTexture_1vsrb")
+columns = 2
+rows = 2
+material = ExtResource("4_qsv6d")
+shader_params = Dictionary[String, Variant]({
+"enable_rarity": true,
+"rarity_color": Color(0.18, 0.23, 0.63, 1)
+})
+
+[sub_resource type="Resource" id="Resource_pdmbr"]
+script = ExtResource("6_ajgfn")
+stat = "Strength"
+type = 1
+min_amount = 38.0
+max_amount = 52.0
+amount = 51.68833988851444
+template_string = "+{amount} {stat}"
+
+[sub_resource type="Resource" id="Resource_23u1y"]
+script = ExtResource("6_ajgfn")
+stat = "Willpower"
+type = 1
+min_amount = 38.0
+max_amount = 52.0
+amount = 44.10748342314076
+template_string = "+{amount} {stat}"
+
+[sub_resource type="Resource" id="Resource_61yod"]
+script = ExtResource("6_ajgfn")
+stat = "Intelligence"
+type = 1
+min_amount = 38.0
+max_amount = 52.0
+amount = 46.63828448295146
+template_string = "+{amount} {stat}"
+
+[sub_resource type="Resource" id="Resource_mctsu"]
+script = ExtResource("6_ajgfn")
+stat = "Dexterity"
+type = 1
+min_amount = 28.0
+max_amount = 42.0
+amount = 34.76744478695099
+template_string = "+{amount} {stat}"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6a8g"]
+atlas = ExtResource("22_aeehs")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xq8na"]
+shader = ExtResource("20_nd67d")
+shader_parameter/enable_enhance = false
+shader_parameter/enhance_color = Color(0.561911, 0.698818, 0.966835, 1)
+shader_parameter/enhance_speed = 0.5
+shader_parameter/enhance_width = 1.0
+shader_parameter/enhance_brightness = 1.0
+shader_parameter/enable_excellent = false
+shader_parameter/enable_rarity = false
+shader_parameter/excellent_color = Color(0.776312, 0.756682, 0, 1)
+shader_parameter/excellent_speed = 2.2
+shader_parameter/excellent_brightness = 0.2
+shader_parameter/rarity_color = Color(0, 0, 0, 0)
+shader_parameter/enable_gem_rarity = false
+shader_parameter/gem_color = Color(0.01, 0.01, 0.01, 1)
+
+[sub_resource type="Resource" id="Resource_6wwgo"]
+script = ExtResource("5_d0yca")
+gemtype = 2
+quality = 4
+color = Color(0.8, 0.12, 0.16, 1)
+quantity = 2
+stackable = true
+value = 4
+level_requirement = 60
+salvageable = false
+stack_size = 99
+item_name = "Royal Ruby"
+icon = ExtResource("3_xq8na")
+image = ExtResource("3_xq8na")
+material = SubResource("ShaderMaterial_xq8na")
+shader_params = Dictionary[String, Variant]({
+"enable_gem_rarity": true,
+"gem_color": Color(0.8, 0.12, 0.16, 1)
+})
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qsv6d"]
+shader = ExtResource("20_nd67d")
+shader_parameter/enable_enhance = false
+shader_parameter/enhance_color = Color(0.561911, 0.698818, 0.966835, 1)
+shader_parameter/enhance_speed = 0.5
+shader_parameter/enhance_width = 1.0
+shader_parameter/enhance_brightness = 1.0
+shader_parameter/enable_excellent = false
+shader_parameter/enable_rarity = false
+shader_parameter/excellent_color = Color(0.776312, 0.756682, 0, 1)
+shader_parameter/excellent_speed = 2.2
+shader_parameter/excellent_brightness = 0.2
+shader_parameter/rarity_color = Color(0, 0, 0, 0)
+shader_parameter/enable_gem_rarity = false
+shader_parameter/gem_color = Color(0.01, 0.01, 0.01, 1)
+
+[sub_resource type="Resource" id="Resource_otp7d"]
+script = ExtResource("5_d0yca")
+gemtype = 3
+quality = 1
+color = Color(0.07, 0.58, 0.05, 1)
+quantity = 5
+stackable = true
+value = 4
+level_requirement = 20
+salvageable = false
+stack_size = 99
+item_name = "Chipped Emerald"
+icon = ExtResource("3_xq8na")
+image = ExtResource("3_xq8na")
+material = SubResource("ShaderMaterial_qsv6d")
+shader_params = Dictionary[String, Variant]({
+"enable_gem_rarity": true,
+"gem_color": Color(0.07, 0.58, 0.05, 1)
+})
+
+[sub_resource type="Resource" id="Resource_m3dv2"]
+script = ExtResource("18_y1403")
+weapontype = 8
+rotate_material = ExtResource("10_d1622")
+drop_model = ExtResource("16_qbb6p")
+description = "test sword"
+value = 28386
+rarity = 4
+level_requirement = 19
+is_account_bound = true
+tradable = false
+source = "inv_test"
+power = 727
+max_upgrades = 5
+sockets = 2
+socketed = Array[ExtResource("12_jvept")]([SubResource("Resource_6wwgo"), SubResource("Resource_otp7d")])
+affixes = Array[ExtResource("6_ajgfn")]([SubResource("Resource_pdmbr"), SubResource("Resource_23u1y"), SubResource("Resource_61yod"), SubResource("Resource_mctsu")])
+item_name = "Two-Handed Mace of Fast"
+type = "Mace2H"
+icon = SubResource("AtlasTexture_c6a8g")
+image = SubResource("AtlasTexture_c6a8g")
+columns = 2
+rows = 2
+material = ExtResource("4_qsv6d")
+shader_params = Dictionary[String, Variant]({
+"enable_rarity": true,
+"rarity_color": Color(0.54, 0.34, 0.12, 1)
+})
+
+[sub_resource type="Resource" id="Resource_iu002"]
+script = ExtResource("6_ajgfn")
+stat = "Strength"
+type = 1
+min_amount = 38.0
+max_amount = 52.0
+amount = 44.85441352621417
+template_string = "+{amount} {stat}"
+
+[sub_resource type="Resource" id="Resource_rr73x"]
+script = ExtResource("6_ajgfn")
+stat = "All_Stats"
+type = 1
+min_amount = 28.0
+max_amount = 42.0
+amount = 37.34877153327582
+template_string = "+{amount} {stat}"
+
+[sub_resource type="Resource" id="Resource_gofeq"]
+script = ExtResource("6_ajgfn")
+stat = "Basic Skill Attack Speed"
+min_amount = 4.4
+max_amount = 10.0
+amount = 9.715261693659139
+template_string = "+{amount}% {stat}"
+
+[sub_resource type="Resource" id="Resource_4gw13"]
+script = ExtResource("6_ajgfn")
+stat = "Willpower"
+type = 1
+min_amount = 38.0
+max_amount = 52.0
+amount = 46.00093250324821
+template_string = "+{amount} {stat}"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykyl1"]
+atlas = ExtResource("19_nw74g")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2l81k"]
+shader = ExtResource("20_nd67d")
+shader_parameter/enable_enhance = false
+shader_parameter/enhance_color = Color(0.561911, 0.698818, 0.966835, 1)
+shader_parameter/enhance_speed = 0.5
+shader_parameter/enhance_width = 1.0
+shader_parameter/enhance_brightness = 1.0
+shader_parameter/enable_excellent = false
+shader_parameter/enable_rarity = false
+shader_parameter/excellent_color = Color(0.776312, 0.756682, 0, 1)
+shader_parameter/excellent_speed = 2.2
+shader_parameter/excellent_brightness = 0.2
+shader_parameter/rarity_color = Color(0, 0, 0, 0)
+shader_parameter/enable_gem_rarity = false
+shader_parameter/gem_color = Color(0.01, 0.01, 0.01, 1)
+
+[sub_resource type="Resource" id="Resource_0ncwe"]
+script = ExtResource("5_d0yca")
+gemtype = 4
+quality = 1
+color = Color(0.51, 0, 0.81, 1)
+quantity = 3
+stackable = true
+value = 4
+level_requirement = 20
+salvageable = false
+stack_size = 99
+item_name = "Chipped Amethyst"
+icon = ExtResource("3_xq8na")
+image = ExtResource("3_xq8na")
+material = SubResource("ShaderMaterial_2l81k")
+shader_params = Dictionary[String, Variant]({
+"enable_gem_rarity": true,
+"gem_color": Color(0.51, 0, 0.81, 1)
+})
+
+[sub_resource type="Resource" id="Resource_j8wqo"]
+script = ExtResource("11_ne0ys")
+jewelrytype = 1
+rotate_material = ExtResource("10_d1622")
+drop_model = ExtResource("8_vuryn")
+description = "test sword"
+value = 29078
+rarity = 3
+tier = 2
+level_requirement = 95
+is_account_bound = true
+icon_index = 2
+source = "inv_test"
+power = 387
+upgrades = 3
+max_upgrades = 5
+sockets = 2
+socketed = Array[ExtResource("12_jvept")]([SubResource("Resource_0ncwe")])
+affixes = Array[ExtResource("6_ajgfn")]([SubResource("Resource_iu002"), SubResource("Resource_rr73x"), SubResource("Resource_gofeq"), SubResource("Resource_4gw13")])
+item_name = "Swift Amulet of Fast"
+type = "Amulet"
+icon = SubResource("AtlasTexture_ykyl1")
+image = SubResource("AtlasTexture_ykyl1")
+columns = 2
+rows = 2
+material = ExtResource("4_qsv6d")
+shader_params = Dictionary[String, Variant]({
+"enable_rarity": true,
+"rarity_color": Color(0.56, 0.21, 0, 1)
+})
+
+[sub_resource type="Resource" id="Resource_c8vvi"]
+script = ExtResource("6_ajgfn")
+stat = "Intelligence"
+type = 1
+min_amount = 28.0
+max_amount = 42.0
+amount = 36.5797070437194
+template_string = "+{amount} {stat}"
+
+[sub_resource type="Resource" id="Resource_pwrvl"]
+script = ExtResource("6_ajgfn")
+stat = "Willpower"
+type = 1
+min_amount = 28.0
+max_amount = 42.0
+amount = 32.18932391411133
+template_string = "+{amount} {stat}"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4oqe"]
+atlas = ExtResource("23_7jcl1")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="Resource" id="Resource_62q8q"]
+script = ExtResource("15_lkj7p")
+drop_model = ExtResource("13_5s5y1")
+description = "test_helmet"
+value = 120227
+rarity = 2
+tier = 2
+level_requirement = 64
+icon_index = 1
+source = "inv_test"
+power = 514
+upgrades = 5
+max_upgrades = 5
+sockets = 1
+max_sockets = 1
+affixes = Array[ExtResource("6_ajgfn")]([SubResource("Resource_c8vvi"), SubResource("Resource_pwrvl")])
+item_name = "Swift Chest of Sacred Redemption"
+type = "Chest"
+icon = SubResource("AtlasTexture_d4oqe")
+image = SubResource("AtlasTexture_d4oqe")
+columns = 2
+rows = 2
+material = ExtResource("4_qsv6d")
+shader_params = Dictionary[String, Variant]({
+"enable_rarity": true,
+"rarity_color": Color(0.58, 0.5, 0, 1)
+})
+
+[sub_resource type="Resource" id="Resource_guddp"]
+script = ExtResource("6_ajgfn")
+stat = "Attack Speed"
+min_amount = 4.4
+max_amount = 10.0
+amount = 8.898875699612923
+template_string = "+{amount}% {stat}"
+
+[sub_resource type="Resource" id="Resource_6yx21"]
+script = ExtResource("6_ajgfn")
+stat = "Strength"
+type = 1
+min_amount = 28.0
+max_amount = 42.0
+amount = 40.820625580857
+template_string = "+{amount} {stat}"
+
+[sub_resource type="Resource" id="Resource_0ry10"]
+script = ExtResource("6_ajgfn")
+stat = "Damage"
+min_amount = 4.4
+max_amount = 10.0
+amount = 9.62531466993678
+template_string = "+{amount}% {stat}"
+
+[sub_resource type="Resource" id="Resource_a44il"]
+script = ExtResource("6_ajgfn")
+stat = "All_Stats"
+type = 1
+min_amount = 38.0
+max_amount = 52.0
+amount = 43.94880473637978
+template_string = "+{amount} {stat}"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ey4sk"]
+atlas = ExtResource("24_j61n6")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="Resource" id="Resource_nooud"]
+script = ExtResource("18_y1403")
+weapontype = 13
+rotate_material = ExtResource("10_d1622")
+drop_model = ExtResource("16_qbb6p")
+description = "test sword"
+value = 111682
+rarity = 3
+tier = 2
+level_requirement = 74
+is_account_bound = true
+icon_index = 2
+source = "inv_test"
+power = 259
+max_upgrades = 5
+sockets = 2
+affixes = Array[ExtResource("6_ajgfn")]([SubResource("Resource_guddp"), SubResource("Resource_6yx21"), SubResource("Resource_0ry10"), SubResource("Resource_a44il")])
+item_name = "Shadow Two-Handed Scythe"
+type = "Scythe2H"
+icon = SubResource("AtlasTexture_ey4sk")
+image = SubResource("AtlasTexture_ey4sk")
+columns = 2
+rows = 2
+material = ExtResource("4_qsv6d")
+shader_params = Dictionary[String, Variant]({
+"enable_rarity": true,
+"rarity_color": Color(0.56, 0.21, 0, 1)
+})
+
+[sub_resource type="Resource" id="Resource_ywsns"]
+script = ExtResource("5_d0yca")
+quality = 4
+color = Color(0.68, 0.66, 0.62, 1)
+stackable = true
+value = 4
+level_requirement = 60
+salvageable = false
+source = "inv_test"
+stack_size = 99
+current_amount = 6
+item_name = "Royal Diamond"
+type = "Gem"
+icon = ExtResource("3_xq8na")
+image = ExtResource("3_xq8na")
+material = ExtResource("4_qsv6d")
+shader_params = Dictionary[String, Variant]({
+"enable_gem_rarity": true,
+"gem_color": Color(0.68, 0.66, 0.62, 1)
+})
+metadata/_custom_type_script = "uid://bm5efdrlci0qk"
+
+[sub_resource type="Resource" id="Resource_2uscr"]
+script = ExtResource("6_ajgfn")
+stat = "Basic Skill Attack Speed"
+min_amount = 4.4
+max_amount = 10.0
+amount = 8.051297997075629
+template_string = "+{amount}% {stat}"
+
+[sub_resource type="Resource" id="Resource_6vued"]
+script = ExtResource("6_ajgfn")
+stat = "Total Armor"
+min_amount = 2.0
+max_amount = 4.8
+amount = 2.679444917264374
+template_string = "+{amount}% {stat}"
+
+[sub_resource type="Resource" id="Resource_rhnxw"]
+script = ExtResource("6_ajgfn")
+stat = "Intelligence"
+type = 1
+min_amount = 28.0
+max_amount = 42.0
+amount = 39.74334241566245
+template_string = "+{amount} {stat}"
+
+[sub_resource type="Resource" id="Resource_e1w1a"]
+script = ExtResource("6_ajgfn")
+stat = "Dexterity"
+type = 1
+min_amount = 38.0
+max_amount = 52.0
+amount = 47.85217592286243
+template_string = "+{amount} {stat}"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa3rm"]
+atlas = ExtResource("9_u8vpt")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="Resource" id="Resource_ifkh6"]
+script = ExtResource("11_ne0ys")
+rotate_material = ExtResource("10_d1622")
+drop_model = ExtResource("8_vuryn")
+description = "test sword"
+value = 101901
+rarity = 4
+tier = 2
+level_requirement = 87
+tradable = false
+icon_index = 2
+source = "inv_test"
+power = 15
+max_upgrades = 5
+sockets = 1
+affixes = Array[ExtResource("6_ajgfn")]([SubResource("Resource_2uscr"), SubResource("Resource_6vued"), SubResource("Resource_rhnxw"), SubResource("Resource_e1w1a")])
+item_name = "Swift Ring of Sacred Redemption"
+type = "Ring"
+icon = SubResource("AtlasTexture_xa3rm")
+image = SubResource("AtlasTexture_xa3rm")
+columns = 2
+rows = 2
+material = ExtResource("4_qsv6d")
+shader_params = Dictionary[String, Variant]({
+"enable_rarity": true,
+"rarity_color": Color(0.54, 0.34, 0.12, 1)
+})
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cahy7"]
+atlas = ExtResource("25_ie63u")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="Resource" id="Resource_3jjq2"]
+script = ExtResource("15_lkj7p")
+armortype = 5
+drop_model = ExtResource("13_5s5y1")
+description = "test_helmet"
+value = 91900
+tier = 2
+level_requirement = 63
+is_account_bound = true
+icon_index = 4
+source = "inv_test"
+power = 246
+upgrades = 1
+max_upgrades = 5
+sockets = 1
+max_sockets = 1
+socketed = Array[ExtResource("12_jvept")]([null])
+item_name = "Guardian‘s Shield of Fast"
+type = "Shield"
+icon = SubResource("AtlasTexture_cahy7")
+image = SubResource("AtlasTexture_cahy7")
+columns = 2
+rows = 2
+material = ExtResource("4_qsv6d")
+shader_params = Dictionary[String, Variant]({
+"enable_excellent": true,
+"enable_rarity": true,
+"rarity_color": Color(0.3, 0.3, 0.3, 1)
+})
+
+[sub_resource type="Resource" id="Resource_jsjc4"]
+script = ExtResource("6_ajgfn")
+stat = "Strength"
+type = 1
+min_amount = 28.0
+max_amount = 42.0
+amount = 28.84718218425493
+template_string = "+{amount} {stat}"
+
+[sub_resource type="Resource" id="Resource_053pr"]
+script = ExtResource("6_ajgfn")
+stat = "Willpower"
+type = 1
+min_amount = 28.0
+max_amount = 42.0
+amount = 41.7272660599239
+template_string = "+{amount} {stat}"
+
+[sub_resource type="Resource" id="Resource_ls82l"]
+script = ExtResource("6_ajgfn")
+stat = "All_Stats"
+type = 1
+min_amount = 28.0
+max_amount = 42.0
+amount = 41.838919943333124
+template_string = "+{amount} {stat}"
+
+[sub_resource type="Resource" id="Resource_th8pq"]
+script = ExtResource("6_ajgfn")
+stat = "Dexterity"
+type = 1
+min_amount = 38.0
+max_amount = 52.0
+amount = 43.85469241933935
+template_string = "+{amount} {stat}"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lc5d6"]
+atlas = ExtResource("26_qtcrg")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="Resource" id="Resource_s6spp"]
+script = ExtResource("18_y1403")
+weapontype = 2
+rotate_material = ExtResource("10_d1622")
+drop_model = ExtResource("16_qbb6p")
+description = "test sword"
+value = 131034
+rarity = 4
+level_requirement = 98
+is_account_bound = true
+tradable = false
+source = "inv_test"
+power = 227
+upgrades = 2
+max_upgrades = 5
+sockets = 1
+affixes = Array[ExtResource("6_ajgfn")]([SubResource("Resource_jsjc4"), SubResource("Resource_053pr"), SubResource("Resource_ls82l"), SubResource("Resource_th8pq")])
+item_name = "Phoenix Bow"
+type = "Bow"
+icon = SubResource("AtlasTexture_lc5d6")
+image = SubResource("AtlasTexture_lc5d6")
+columns = 2
+rows = 2
+material = ExtResource("4_qsv6d")
+shader_params = Dictionary[String, Variant]({
+"enable_rarity": true,
+"rarity_color": Color(0.54, 0.34, 0.12, 1)
+})
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gdw7a"]
+shader = ExtResource("20_nd67d")
+shader_parameter/enable_enhance = false
+shader_parameter/enhance_color = Color(0.561911, 0.698818, 0.966835, 1)
+shader_parameter/enhance_speed = 0.5
+shader_parameter/enhance_width = 1.0
+shader_parameter/enhance_brightness = 1.0
+shader_parameter/enable_excellent = false
+shader_parameter/enable_rarity = false
+shader_parameter/excellent_color = Color(0.776312, 0.756682, 0, 1)
+shader_parameter/excellent_speed = 2.2
+shader_parameter/excellent_brightness = 0.2
+shader_parameter/rarity_color = Color(0, 0, 0, 0)
+shader_parameter/enable_gem_rarity = false
+shader_parameter/gem_color = Color(0.01, 0.01, 0.01, 1)
+
+[sub_resource type="Resource" id="Resource_vuryn"]
+script = ExtResource("5_d0yca")
+gemtype = 3
+quality = 2
+color = Color(0.07, 0.58, 0.05, 1)
+quantity = 3
+stackable = true
+value = 4
+level_requirement = 40
+salvageable = false
+source = "Steadfast Helmet of Endurance"
+stack_size = 99
+current_amount = 2
+item_name = "Emerald"
+icon = ExtResource("3_xq8na")
+image = ExtResource("3_xq8na")
+material = SubResource("ShaderMaterial_gdw7a")
+shader_params = Dictionary[String, Variant]({
+"enable_gem_rarity": true,
+"gem_color": Color(0.07, 0.58, 0.05, 1)
+})
+
+[sub_resource type="Resource" id="Resource_qrvhv"]
+script = ExtResource("1_fi67h")
+columns = 22
+rows = 8
+container_name = "inv_test"
 avilable_types = Array[String](["ANY"])
-items = Array[ExtResource("2_qod3t")]([])
-item_grids_map = Dictionary[ExtResource("2_qod3t"), Array]({})
-grid_item_map = Dictionary[Vector2i, ExtResource("2_qod3t")]({
+items = Array[ExtResource("2_bna14")]([SubResource("Resource_vjg6v"), SubResource("Resource_fg370"), SubResource("Resource_b4a3t"), SubResource("Resource_l27k0"), SubResource("Resource_yxbgr"), SubResource("Resource_1moom"), SubResource("Resource_m3dv2"), SubResource("Resource_j8wqo"), SubResource("Resource_62q8q"), SubResource("Resource_nooud"), SubResource("Resource_ywsns"), SubResource("Resource_ifkh6"), SubResource("Resource_3jjq2"), SubResource("Resource_s6spp"), SubResource("Resource_vuryn"), SubResource("Resource_681c7")])
+item_grids_map = Dictionary[ExtResource("2_bna14"), Array]({
+SubResource("Resource_vjg6v"): Array[Vector2i]([Vector2i(0, 0)]),
+SubResource("Resource_fg370"): Array[Vector2i]([Vector2i(1, 0), Vector2i(2, 0), Vector2i(1, 1), Vector2i(2, 1)]),
+SubResource("Resource_b4a3t"): Array[Vector2i]([Vector2i(3, 0), Vector2i(4, 0), Vector2i(3, 1), Vector2i(4, 1)]),
+SubResource("Resource_l27k0"): Array[Vector2i]([Vector2i(5, 0), Vector2i(6, 0), Vector2i(5, 1), Vector2i(6, 1)]),
+SubResource("Resource_yxbgr"): Array[Vector2i]([Vector2i(7, 0)]),
+SubResource("Resource_1moom"): Array[Vector2i]([Vector2i(8, 0), Vector2i(9, 0), Vector2i(8, 1), Vector2i(9, 1)]),
+SubResource("Resource_m3dv2"): Array[Vector2i]([Vector2i(12, 0), Vector2i(13, 0), Vector2i(12, 1), Vector2i(13, 1)]),
+SubResource("Resource_j8wqo"): Array[Vector2i]([Vector2i(14, 0), Vector2i(15, 0), Vector2i(14, 1), Vector2i(15, 1)]),
+SubResource("Resource_62q8q"): Array[Vector2i]([Vector2i(16, 0), Vector2i(17, 0), Vector2i(16, 1), Vector2i(17, 1)]),
+SubResource("Resource_nooud"): Array[Vector2i]([Vector2i(18, 0), Vector2i(19, 0), Vector2i(18, 1), Vector2i(19, 1)]),
+SubResource("Resource_ywsns"): Array[Vector2i]([Vector2i(20, 0)]),
+SubResource("Resource_ifkh6"): Array[Vector2i]([Vector2i(20, 1), Vector2i(21, 1), Vector2i(20, 2), Vector2i(21, 2)]),
+SubResource("Resource_3jjq2"): Array[Vector2i]([Vector2i(0, 2), Vector2i(1, 2), Vector2i(0, 3), Vector2i(1, 3)]),
+SubResource("Resource_s6spp"): Array[Vector2i]([Vector2i(2, 2), Vector2i(3, 2), Vector2i(2, 3), Vector2i(3, 3)]),
+SubResource("Resource_vuryn"): Array[Vector2i]([Vector2i(10, 3)]),
+SubResource("Resource_681c7"): Array[Vector2i]([Vector2i(10, 0), Vector2i(11, 0), Vector2i(10, 1), Vector2i(11, 1)])
+})
+grid_item_map = Dictionary[Vector2i, ExtResource("2_bna14")]({
+Vector2i(0, 0): SubResource("Resource_vjg6v"),
+Vector2i(0, 1): null,
+Vector2i(0, 2): SubResource("Resource_3jjq2"),
+Vector2i(0, 3): SubResource("Resource_3jjq2"),
+Vector2i(0, 4): null,
+Vector2i(0, 5): null,
+Vector2i(0, 6): null,
+Vector2i(0, 7): null,
+Vector2i(1, 0): SubResource("Resource_fg370"),
+Vector2i(1, 1): SubResource("Resource_fg370"),
+Vector2i(1, 2): SubResource("Resource_3jjq2"),
+Vector2i(1, 3): SubResource("Resource_3jjq2"),
+Vector2i(1, 4): null,
+Vector2i(1, 5): null,
+Vector2i(1, 6): null,
+Vector2i(1, 7): null,
+Vector2i(2, 0): SubResource("Resource_fg370"),
+Vector2i(2, 1): SubResource("Resource_fg370"),
+Vector2i(2, 2): SubResource("Resource_s6spp"),
+Vector2i(2, 3): SubResource("Resource_s6spp"),
+Vector2i(2, 4): null,
+Vector2i(2, 5): null,
+Vector2i(2, 6): null,
+Vector2i(2, 7): null,
+Vector2i(3, 0): SubResource("Resource_b4a3t"),
+Vector2i(3, 1): SubResource("Resource_b4a3t"),
+Vector2i(3, 2): SubResource("Resource_s6spp"),
+Vector2i(3, 3): SubResource("Resource_s6spp"),
+Vector2i(3, 4): null,
+Vector2i(3, 5): null,
+Vector2i(3, 6): null,
+Vector2i(3, 7): null,
+Vector2i(4, 0): SubResource("Resource_b4a3t"),
+Vector2i(4, 1): SubResource("Resource_b4a3t"),
+Vector2i(4, 2): null,
+Vector2i(4, 3): null,
+Vector2i(4, 4): null,
+Vector2i(4, 5): null,
+Vector2i(4, 6): null,
+Vector2i(4, 7): null,
+Vector2i(5, 0): SubResource("Resource_l27k0"),
+Vector2i(5, 1): SubResource("Resource_l27k0"),
+Vector2i(5, 2): null,
+Vector2i(5, 3): null,
+Vector2i(5, 4): null,
+Vector2i(5, 5): null,
+Vector2i(5, 6): null,
+Vector2i(5, 7): null,
+Vector2i(6, 0): SubResource("Resource_l27k0"),
+Vector2i(6, 1): SubResource("Resource_l27k0"),
+Vector2i(6, 2): null,
+Vector2i(6, 3): null,
+Vector2i(6, 4): null,
+Vector2i(6, 5): null,
+Vector2i(6, 6): null,
+Vector2i(6, 7): null,
+Vector2i(7, 0): SubResource("Resource_yxbgr"),
+Vector2i(7, 1): null,
+Vector2i(7, 2): null,
+Vector2i(7, 3): null,
+Vector2i(7, 4): null,
+Vector2i(7, 5): null,
+Vector2i(7, 6): null,
+Vector2i(7, 7): null,
+Vector2i(8, 0): SubResource("Resource_1moom"),
+Vector2i(8, 1): SubResource("Resource_1moom"),
+Vector2i(8, 2): null,
+Vector2i(8, 3): null,
+Vector2i(8, 4): null,
+Vector2i(8, 5): null,
+Vector2i(8, 6): null,
+Vector2i(8, 7): null,
+Vector2i(9, 0): SubResource("Resource_1moom"),
+Vector2i(9, 1): SubResource("Resource_1moom"),
+Vector2i(9, 2): null,
+Vector2i(9, 3): null,
+Vector2i(9, 4): null,
+Vector2i(9, 5): null,
+Vector2i(9, 6): null,
+Vector2i(9, 7): null,
+Vector2i(10, 0): SubResource("Resource_681c7"),
+Vector2i(10, 1): SubResource("Resource_681c7"),
+Vector2i(10, 2): null,
+Vector2i(10, 3): SubResource("Resource_vuryn"),
+Vector2i(10, 4): null,
+Vector2i(10, 5): null,
+Vector2i(10, 6): null,
+Vector2i(10, 7): null,
+Vector2i(11, 0): SubResource("Resource_681c7"),
+Vector2i(11, 1): SubResource("Resource_681c7"),
+Vector2i(11, 2): null,
+Vector2i(11, 3): null,
+Vector2i(11, 4): null,
+Vector2i(11, 5): null,
+Vector2i(11, 6): null,
+Vector2i(11, 7): null,
+Vector2i(12, 0): SubResource("Resource_m3dv2"),
+Vector2i(12, 1): SubResource("Resource_m3dv2"),
+Vector2i(12, 2): null,
+Vector2i(12, 3): null,
+Vector2i(12, 4): null,
+Vector2i(12, 5): null,
+Vector2i(12, 6): null,
+Vector2i(12, 7): null,
+Vector2i(13, 0): SubResource("Resource_m3dv2"),
+Vector2i(13, 1): SubResource("Resource_m3dv2"),
+Vector2i(13, 2): null,
+Vector2i(13, 3): null,
+Vector2i(13, 4): null,
+Vector2i(13, 5): null,
+Vector2i(13, 6): null,
+Vector2i(13, 7): null,
+Vector2i(14, 0): SubResource("Resource_j8wqo"),
+Vector2i(14, 1): SubResource("Resource_j8wqo"),
+Vector2i(14, 2): null,
+Vector2i(14, 3): null,
+Vector2i(14, 4): null,
+Vector2i(14, 5): null,
+Vector2i(14, 6): null,
+Vector2i(14, 7): null,
+Vector2i(15, 0): SubResource("Resource_j8wqo"),
+Vector2i(15, 1): SubResource("Resource_j8wqo"),
+Vector2i(15, 2): null,
+Vector2i(15, 3): null,
+Vector2i(15, 4): null,
+Vector2i(15, 5): null,
+Vector2i(15, 6): null,
+Vector2i(15, 7): null,
+Vector2i(16, 0): SubResource("Resource_62q8q"),
+Vector2i(16, 1): SubResource("Resource_62q8q"),
+Vector2i(16, 2): null,
+Vector2i(16, 3): null,
+Vector2i(16, 4): null,
+Vector2i(16, 5): null,
+Vector2i(16, 6): null,
+Vector2i(16, 7): null,
+Vector2i(17, 0): SubResource("Resource_62q8q"),
+Vector2i(17, 1): SubResource("Resource_62q8q"),
+Vector2i(17, 2): null,
+Vector2i(17, 3): null,
+Vector2i(17, 4): null,
+Vector2i(17, 5): null,
+Vector2i(17, 6): null,
+Vector2i(17, 7): null,
+Vector2i(18, 0): SubResource("Resource_nooud"),
+Vector2i(18, 1): SubResource("Resource_nooud"),
+Vector2i(18, 2): null,
+Vector2i(18, 3): null,
+Vector2i(18, 4): null,
+Vector2i(18, 5): null,
+Vector2i(18, 6): null,
+Vector2i(18, 7): null,
+Vector2i(19, 0): SubResource("Resource_nooud"),
+Vector2i(19, 1): SubResource("Resource_nooud"),
+Vector2i(19, 2): null,
+Vector2i(19, 3): null,
+Vector2i(19, 4): null,
+Vector2i(19, 5): null,
+Vector2i(19, 6): null,
+Vector2i(19, 7): null,
+Vector2i(20, 0): SubResource("Resource_ywsns"),
+Vector2i(20, 1): SubResource("Resource_ifkh6"),
+Vector2i(20, 2): SubResource("Resource_ifkh6"),
+Vector2i(20, 3): null,
+Vector2i(20, 4): null,
+Vector2i(20, 5): null,
+Vector2i(20, 6): null,
+Vector2i(20, 7): null,
+Vector2i(21, 0): null,
+Vector2i(21, 1): SubResource("Resource_ifkh6"),
+Vector2i(21, 2): SubResource("Resource_ifkh6"),
+Vector2i(21, 3): null,
+Vector2i(21, 4): null,
+Vector2i(21, 5): null,
+Vector2i(21, 6): null,
+Vector2i(21, 7): null
+})
+
+[sub_resource type="Resource" id="Resource_4hauc"]
+script = ExtResource("1_fi67h")
+columns = 22
+rows = 8
+container_name = "map_test"
+avilable_types = Array[String](["ANY"])
+grid_item_map = Dictionary[Vector2i, ExtResource("2_bna14")]({
 Vector2i(0, 0): null,
 Vector2i(0, 1): null,
 Vector2i(0, 2): null,
@@ -21,10 +1267,6 @@ Vector2i(0, 4): null,
 Vector2i(0, 5): null,
 Vector2i(0, 6): null,
 Vector2i(0, 7): null,
-Vector2i(0, 8): null,
-Vector2i(0, 9): null,
-Vector2i(0, 10): null,
-Vector2i(0, 11): null,
 Vector2i(1, 0): null,
 Vector2i(1, 1): null,
 Vector2i(1, 2): null,
@@ -33,10 +1275,6 @@ Vector2i(1, 4): null,
 Vector2i(1, 5): null,
 Vector2i(1, 6): null,
 Vector2i(1, 7): null,
-Vector2i(1, 8): null,
-Vector2i(1, 9): null,
-Vector2i(1, 10): null,
-Vector2i(1, 11): null,
 Vector2i(2, 0): null,
 Vector2i(2, 1): null,
 Vector2i(2, 2): null,
@@ -45,10 +1283,6 @@ Vector2i(2, 4): null,
 Vector2i(2, 5): null,
 Vector2i(2, 6): null,
 Vector2i(2, 7): null,
-Vector2i(2, 8): null,
-Vector2i(2, 9): null,
-Vector2i(2, 10): null,
-Vector2i(2, 11): null,
 Vector2i(3, 0): null,
 Vector2i(3, 1): null,
 Vector2i(3, 2): null,
@@ -57,10 +1291,6 @@ Vector2i(3, 4): null,
 Vector2i(3, 5): null,
 Vector2i(3, 6): null,
 Vector2i(3, 7): null,
-Vector2i(3, 8): null,
-Vector2i(3, 9): null,
-Vector2i(3, 10): null,
-Vector2i(3, 11): null,
 Vector2i(4, 0): null,
 Vector2i(4, 1): null,
 Vector2i(4, 2): null,
@@ -69,10 +1299,6 @@ Vector2i(4, 4): null,
 Vector2i(4, 5): null,
 Vector2i(4, 6): null,
 Vector2i(4, 7): null,
-Vector2i(4, 8): null,
-Vector2i(4, 9): null,
-Vector2i(4, 10): null,
-Vector2i(4, 11): null,
 Vector2i(5, 0): null,
 Vector2i(5, 1): null,
 Vector2i(5, 2): null,
@@ -81,10 +1307,6 @@ Vector2i(5, 4): null,
 Vector2i(5, 5): null,
 Vector2i(5, 6): null,
 Vector2i(5, 7): null,
-Vector2i(5, 8): null,
-Vector2i(5, 9): null,
-Vector2i(5, 10): null,
-Vector2i(5, 11): null,
 Vector2i(6, 0): null,
 Vector2i(6, 1): null,
 Vector2i(6, 2): null,
@@ -93,10 +1315,6 @@ Vector2i(6, 4): null,
 Vector2i(6, 5): null,
 Vector2i(6, 6): null,
 Vector2i(6, 7): null,
-Vector2i(6, 8): null,
-Vector2i(6, 9): null,
-Vector2i(6, 10): null,
-Vector2i(6, 11): null,
 Vector2i(7, 0): null,
 Vector2i(7, 1): null,
 Vector2i(7, 2): null,
@@ -105,10 +1323,6 @@ Vector2i(7, 4): null,
 Vector2i(7, 5): null,
 Vector2i(7, 6): null,
 Vector2i(7, 7): null,
-Vector2i(7, 8): null,
-Vector2i(7, 9): null,
-Vector2i(7, 10): null,
-Vector2i(7, 11): null,
 Vector2i(8, 0): null,
 Vector2i(8, 1): null,
 Vector2i(8, 2): null,
@@ -117,10 +1331,6 @@ Vector2i(8, 4): null,
 Vector2i(8, 5): null,
 Vector2i(8, 6): null,
 Vector2i(8, 7): null,
-Vector2i(8, 8): null,
-Vector2i(8, 9): null,
-Vector2i(8, 10): null,
-Vector2i(8, 11): null,
 Vector2i(9, 0): null,
 Vector2i(9, 1): null,
 Vector2i(9, 2): null,
@@ -129,15 +1339,293 @@ Vector2i(9, 4): null,
 Vector2i(9, 5): null,
 Vector2i(9, 6): null,
 Vector2i(9, 7): null,
-Vector2i(9, 8): null,
-Vector2i(9, 9): null,
-Vector2i(9, 10): null,
-Vector2i(9, 11): null
+Vector2i(10, 0): null,
+Vector2i(10, 1): null,
+Vector2i(10, 2): null,
+Vector2i(10, 3): null,
+Vector2i(10, 4): null,
+Vector2i(10, 5): null,
+Vector2i(10, 6): null,
+Vector2i(10, 7): null,
+Vector2i(11, 0): null,
+Vector2i(11, 1): null,
+Vector2i(11, 2): null,
+Vector2i(11, 3): null,
+Vector2i(11, 4): null,
+Vector2i(11, 5): null,
+Vector2i(11, 6): null,
+Vector2i(11, 7): null,
+Vector2i(12, 0): null,
+Vector2i(12, 1): null,
+Vector2i(12, 2): null,
+Vector2i(12, 3): null,
+Vector2i(12, 4): null,
+Vector2i(12, 5): null,
+Vector2i(12, 6): null,
+Vector2i(12, 7): null,
+Vector2i(13, 0): null,
+Vector2i(13, 1): null,
+Vector2i(13, 2): null,
+Vector2i(13, 3): null,
+Vector2i(13, 4): null,
+Vector2i(13, 5): null,
+Vector2i(13, 6): null,
+Vector2i(13, 7): null,
+Vector2i(14, 0): null,
+Vector2i(14, 1): null,
+Vector2i(14, 2): null,
+Vector2i(14, 3): null,
+Vector2i(14, 4): null,
+Vector2i(14, 5): null,
+Vector2i(14, 6): null,
+Vector2i(14, 7): null,
+Vector2i(15, 0): null,
+Vector2i(15, 1): null,
+Vector2i(15, 2): null,
+Vector2i(15, 3): null,
+Vector2i(15, 4): null,
+Vector2i(15, 5): null,
+Vector2i(15, 6): null,
+Vector2i(15, 7): null,
+Vector2i(16, 0): null,
+Vector2i(16, 1): null,
+Vector2i(16, 2): null,
+Vector2i(16, 3): null,
+Vector2i(16, 4): null,
+Vector2i(16, 5): null,
+Vector2i(16, 6): null,
+Vector2i(16, 7): null,
+Vector2i(17, 0): null,
+Vector2i(17, 1): null,
+Vector2i(17, 2): null,
+Vector2i(17, 3): null,
+Vector2i(17, 4): null,
+Vector2i(17, 5): null,
+Vector2i(17, 6): null,
+Vector2i(17, 7): null,
+Vector2i(18, 0): null,
+Vector2i(18, 1): null,
+Vector2i(18, 2): null,
+Vector2i(18, 3): null,
+Vector2i(18, 4): null,
+Vector2i(18, 5): null,
+Vector2i(18, 6): null,
+Vector2i(18, 7): null,
+Vector2i(19, 0): null,
+Vector2i(19, 1): null,
+Vector2i(19, 2): null,
+Vector2i(19, 3): null,
+Vector2i(19, 4): null,
+Vector2i(19, 5): null,
+Vector2i(19, 6): null,
+Vector2i(19, 7): null,
+Vector2i(20, 0): null,
+Vector2i(20, 1): null,
+Vector2i(20, 2): null,
+Vector2i(20, 3): null,
+Vector2i(20, 4): null,
+Vector2i(20, 5): null,
+Vector2i(20, 6): null,
+Vector2i(20, 7): null,
+Vector2i(21, 0): null,
+Vector2i(21, 1): null,
+Vector2i(21, 2): null,
+Vector2i(21, 3): null,
+Vector2i(21, 4): null,
+Vector2i(21, 5): null,
+Vector2i(21, 6): null,
+Vector2i(21, 7): null
+})
+
+[sub_resource type="Resource" id="Resource_i4jxx"]
+script = ExtResource("1_fi67h")
+columns = 22
+rows = 8
+container_name = "taskitem_test"
+avilable_types = Array[String](["ANY"])
+grid_item_map = Dictionary[Vector2i, ExtResource("2_bna14")]({
+Vector2i(0, 0): null,
+Vector2i(0, 1): null,
+Vector2i(0, 2): null,
+Vector2i(0, 3): null,
+Vector2i(0, 4): null,
+Vector2i(0, 5): null,
+Vector2i(0, 6): null,
+Vector2i(0, 7): null,
+Vector2i(1, 0): null,
+Vector2i(1, 1): null,
+Vector2i(1, 2): null,
+Vector2i(1, 3): null,
+Vector2i(1, 4): null,
+Vector2i(1, 5): null,
+Vector2i(1, 6): null,
+Vector2i(1, 7): null,
+Vector2i(2, 0): null,
+Vector2i(2, 1): null,
+Vector2i(2, 2): null,
+Vector2i(2, 3): null,
+Vector2i(2, 4): null,
+Vector2i(2, 5): null,
+Vector2i(2, 6): null,
+Vector2i(2, 7): null,
+Vector2i(3, 0): null,
+Vector2i(3, 1): null,
+Vector2i(3, 2): null,
+Vector2i(3, 3): null,
+Vector2i(3, 4): null,
+Vector2i(3, 5): null,
+Vector2i(3, 6): null,
+Vector2i(3, 7): null,
+Vector2i(4, 0): null,
+Vector2i(4, 1): null,
+Vector2i(4, 2): null,
+Vector2i(4, 3): null,
+Vector2i(4, 4): null,
+Vector2i(4, 5): null,
+Vector2i(4, 6): null,
+Vector2i(4, 7): null,
+Vector2i(5, 0): null,
+Vector2i(5, 1): null,
+Vector2i(5, 2): null,
+Vector2i(5, 3): null,
+Vector2i(5, 4): null,
+Vector2i(5, 5): null,
+Vector2i(5, 6): null,
+Vector2i(5, 7): null,
+Vector2i(6, 0): null,
+Vector2i(6, 1): null,
+Vector2i(6, 2): null,
+Vector2i(6, 3): null,
+Vector2i(6, 4): null,
+Vector2i(6, 5): null,
+Vector2i(6, 6): null,
+Vector2i(6, 7): null,
+Vector2i(7, 0): null,
+Vector2i(7, 1): null,
+Vector2i(7, 2): null,
+Vector2i(7, 3): null,
+Vector2i(7, 4): null,
+Vector2i(7, 5): null,
+Vector2i(7, 6): null,
+Vector2i(7, 7): null,
+Vector2i(8, 0): null,
+Vector2i(8, 1): null,
+Vector2i(8, 2): null,
+Vector2i(8, 3): null,
+Vector2i(8, 4): null,
+Vector2i(8, 5): null,
+Vector2i(8, 6): null,
+Vector2i(8, 7): null,
+Vector2i(9, 0): null,
+Vector2i(9, 1): null,
+Vector2i(9, 2): null,
+Vector2i(9, 3): null,
+Vector2i(9, 4): null,
+Vector2i(9, 5): null,
+Vector2i(9, 6): null,
+Vector2i(9, 7): null,
+Vector2i(10, 0): null,
+Vector2i(10, 1): null,
+Vector2i(10, 2): null,
+Vector2i(10, 3): null,
+Vector2i(10, 4): null,
+Vector2i(10, 5): null,
+Vector2i(10, 6): null,
+Vector2i(10, 7): null,
+Vector2i(11, 0): null,
+Vector2i(11, 1): null,
+Vector2i(11, 2): null,
+Vector2i(11, 3): null,
+Vector2i(11, 4): null,
+Vector2i(11, 5): null,
+Vector2i(11, 6): null,
+Vector2i(11, 7): null,
+Vector2i(12, 0): null,
+Vector2i(12, 1): null,
+Vector2i(12, 2): null,
+Vector2i(12, 3): null,
+Vector2i(12, 4): null,
+Vector2i(12, 5): null,
+Vector2i(12, 6): null,
+Vector2i(12, 7): null,
+Vector2i(13, 0): null,
+Vector2i(13, 1): null,
+Vector2i(13, 2): null,
+Vector2i(13, 3): null,
+Vector2i(13, 4): null,
+Vector2i(13, 5): null,
+Vector2i(13, 6): null,
+Vector2i(13, 7): null,
+Vector2i(14, 0): null,
+Vector2i(14, 1): null,
+Vector2i(14, 2): null,
+Vector2i(14, 3): null,
+Vector2i(14, 4): null,
+Vector2i(14, 5): null,
+Vector2i(14, 6): null,
+Vector2i(14, 7): null,
+Vector2i(15, 0): null,
+Vector2i(15, 1): null,
+Vector2i(15, 2): null,
+Vector2i(15, 3): null,
+Vector2i(15, 4): null,
+Vector2i(15, 5): null,
+Vector2i(15, 6): null,
+Vector2i(15, 7): null,
+Vector2i(16, 0): null,
+Vector2i(16, 1): null,
+Vector2i(16, 2): null,
+Vector2i(16, 3): null,
+Vector2i(16, 4): null,
+Vector2i(16, 5): null,
+Vector2i(16, 6): null,
+Vector2i(16, 7): null,
+Vector2i(17, 0): null,
+Vector2i(17, 1): null,
+Vector2i(17, 2): null,
+Vector2i(17, 3): null,
+Vector2i(17, 4): null,
+Vector2i(17, 5): null,
+Vector2i(17, 6): null,
+Vector2i(17, 7): null,
+Vector2i(18, 0): null,
+Vector2i(18, 1): null,
+Vector2i(18, 2): null,
+Vector2i(18, 3): null,
+Vector2i(18, 4): null,
+Vector2i(18, 5): null,
+Vector2i(18, 6): null,
+Vector2i(18, 7): null,
+Vector2i(19, 0): null,
+Vector2i(19, 1): null,
+Vector2i(19, 2): null,
+Vector2i(19, 3): null,
+Vector2i(19, 4): null,
+Vector2i(19, 5): null,
+Vector2i(19, 6): null,
+Vector2i(19, 7): null,
+Vector2i(20, 0): null,
+Vector2i(20, 1): null,
+Vector2i(20, 2): null,
+Vector2i(20, 3): null,
+Vector2i(20, 4): null,
+Vector2i(20, 5): null,
+Vector2i(20, 6): null,
+Vector2i(20, 7): null,
+Vector2i(21, 0): null,
+Vector2i(21, 1): null,
+Vector2i(21, 2): null,
+Vector2i(21, 3): null,
+Vector2i(21, 4): null,
+Vector2i(21, 5): null,
+Vector2i(21, 6): null,
+Vector2i(21, 7): null
 })
 
 [resource]
-script = ExtResource("3_5ua3w")
-_container_data_map = Dictionary[String, ExtResource("1_ge14b")]({
-"demo2_inventory": SubResource("Resource_ttw3u")
+script = ExtResource("27_5jvn6")
+_container_data_map = Dictionary[String, ExtResource("1_fi67h")]({
+"inv_test": SubResource("Resource_qrvhv"),
+"map_test": SubResource("Resource_4hauc"),
+"taskitem_test": SubResource("Resource_i4jxx")
 })
-_quick_move_relations_map = Dictionary[String, Array]({})

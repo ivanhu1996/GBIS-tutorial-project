@@ -12,13 +12,14 @@ config_version=5
 
 config/name="Test Game"
 run/main_scene="uid://c2btxyybuvri2"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://scripts/global.gd"
 GBIS="*res://addons/grid_base_inventory_system/core/grid_base_inventory_system.gd"
+DragManager="*res://scripts/drag_data/DragManager.gd"
 
 [display]
 
